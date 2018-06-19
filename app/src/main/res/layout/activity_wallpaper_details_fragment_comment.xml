@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.beyondphysics.ui.recyclerviewlibrary.views.BaseRecyclerViewFromFrameLayout
+        android:id="@+id/baseRecyclerViewFromFrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/activity_wallpaper_details_fragment_marginTop"
+        android:layout_marginBottom="@dimen/normal_comment_input_relativeLayoutCommentInput_height"
+        app:layout_empty="@layout/normal_nodata"
+        app:recyclerClipToPadding="false"
+        app:recyclerLayoutManager="linearLayout"
+        app:recyclerLayoutManagerOrientation="vertical"
+        app:scrollbarStyle="outsideOverlay" />
+
+
+    <com.my.views.PhizAndKeyboardFrameLayout
+        android:id="@+id/phizAndKeyboardFrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</RelativeLayout>

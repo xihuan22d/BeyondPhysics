@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="beyondPhysics_mainColorHelp_default">#ffffff</color>
+    <color name="beyondPhysics_activity_background_default">#f2f2f2</color>
+    <color name="beyondPhysics_mainColorText_default">#6d6d6d</color>
+    <color name="beyondPhysics_darkColor_default">#000000</color>
+
+    <color name="beyondPhysics_activity_chooseimage_item_background_select">#55000000</color>
+    <color name="beyondPhysics_activity_chooseimage_item_background_unselect">#00ffffff</color>
+    <color name="beyondPhysics_activity_chooseimage_relativeLayoutTop_background">#444444</color>
+
+</resources>

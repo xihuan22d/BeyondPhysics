@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/mainColorHelp">
+
+        <TextView
+            android:id="@+id/textViewWallpaperName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/view_normal_margin_broad"
+            android:layout_marginRight="@dimen/view_normal_margin_broad"
+            android:layout_marginTop="@dimen/view_normal_margin_default"
+            android:singleLine="true"
+            android:textColor="?attr/mainColorText"
+            android:textSize="@dimen/textView_normal_textSize_default"
+            android:textStyle="bold"
+            tools:text="动物壁纸" />
+
+
+        <TextView
+            android:id="@+id/textViewSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textViewWallpaperName"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/view_normal_margin_broad"
+            android:singleLine="true"
+            android:textColor="@color/editText_normal_hint"
+            android:textSize="@dimen/textView_normal_textSize_narrow"
+            tools:text="大小:0B" />
+
+        <RelativeLayout
+            android:id="@+id/relativeLayoutInformation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewWallpaperName"
+            android:layout_marginLeft="@dimen/view_normal_margin_broad"
+            android:layout_marginRight="@dimen/view_normal_margin_broad">
+
+            <ImageView
+                android:id="@+id/imageViewVisit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/normal_recyclerview_wallpaper_item_visit" />
+
+            <TextView
+                android:id="@+id/textViewVisitCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/view_normal_margin_narrow"
+                android:layout_toRightOf="@+id/imageViewVisit"
+                android:paddingBottom="@dimen/view_normal_margin_narrow"
+                android:paddingTop="@dimen/view_normal_margin_narrow"
+                android:singleLine="true"
+                android:text="@string/number_0_text"
+                android:textColor="?attr/mainColorText"
+                android:textSize="@dimen/textView_normal_textSize_narrow" />
+
+            <TextView
+                android:id="@+id/textViewTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/view_normal_margin_broad"
+                android:layout_toRightOf="@+id/textViewVisitCount"
+                android:singleLine="true"
+                android:textColor="?attr/mainColorText"
+                android:textSize="@dimen/textView_normal_textSize_narrow"
+                tools:text="2年前" />
+
+
+            <RelativeLayout
+                android:id="@+id/relativeLayoutNeedGold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="right">
+
+                <TextView
+                    android:id="@+id/textViewGoldCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:paddingBottom="@dimen/view_normal_margin_narrow"
+                    android:paddingTop="@dimen/view_normal_margin_narrow"
+                    android:singleLine="true"
+                    android:text="@string/number_0_text"
+                    android:textColor="@color/editText_normal_hint"
+                    android:textSize="@dimen/textView_normal_textSize_narrow" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/line_normal_widthOrHeight_broad"
+                    android:layout_toLeftOf="@+id/textViewGoldCount"
+                    android:src="@mipmap/activity_wallpaper_details_gold" />
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/textViewDescribe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relativeLayoutInformation"
+            android:layout_marginLeft="@dimen/view_normal_margin_broad"
+            android:layout_marginRight="@dimen/view_normal_margin_broad"
+            android:textColor="@color/editText_normal_hint"
+            android:textSize="@dimen/textView_normal_textSize_narrow"
+            tools:text="暂无简介..." />
+
+        <LinearLayout
+            android:id="@+id/linearLayoutOperate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewDescribe"
+            android:layout_marginBottom="@dimen/view_normal_margin_narrow"
+            android:layout_marginTop="@dimen/view_normal_margin_narrow"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageViewPraiseUp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/view_normal_margin_broad"
+                    android:layout_marginRight="@dimen/view_normal_margin_broad"
+                    android:padding="@dimen/view_normal_margin_narrow"
+                    android:src="@mipmap/activity_wallpaper_details_praise_up_unselect" />
+
+                <TextView
+                    android:id="@+id/textViewPraiseUpCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="@string/number_0_text"
+                    android:textColor="@color/editText_normal_hint"
+                    android:textSize="@dimen/textView_normal_textSize_narrow" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/view_normal_margin_narrow"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageViewPraiseDown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/view_normal_margin_broad"
+                    android:layout_marginRight="@dimen/view_normal_margin_broad"
+                    android:padding="@dimen/view_normal_margin_narrow"
+                    android:src="@mipmap/activity_wallpaper_details_praise_down_unselect" />
+
+                <TextView
+                    android:id="@+id/textViewPraiseDownCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="@string/number_0_text"
+                    android:textColor="@color/editText_normal_hint"
+                    android:textSize="@dimen/textView_normal_textSize_narrow" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/view_normal_margin_narrow"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageViewCollection"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/view_normal_margin_broad"
+                    android:layout_marginRight="@dimen/view_normal_margin_broad"
+                    android:padding="@dimen/view_normal_margin_narrow"
+                    android:src="@mipmap/activity_wallpaper_details_collection_unselect" />
+
+                <TextView
+                    android:id="@+id/textViewCollectionCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="@string/number_0_text"
+                    android:textColor="@color/editText_normal_hint"
+                    android:textSize="@dimen/textView_normal_textSize_narrow" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/view_normal_margin_narrow"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageViewDownload"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/view_normal_margin_broad"
+                    android:layout_marginRight="@dimen/view_normal_margin_broad"
+                    android:padding="@dimen/view_normal_margin_narrow"
+                    android:src="@mipmap/activity_wallpaper_details_download" />
+
+                <TextView
+                    android:id="@+id/textViewDownloadCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="@string/number_0_text"
+                    android:textColor="@color/editText_normal_hint"
+                    android:textSize="@dimen/textView_normal_textSize_narrow" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/frameLayoutLine"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_normal_widthOrHeight_narrow"
+            android:layout_below="@+id/linearLayoutOperate"
+            android:layout_marginTop="@dimen/view_normal_margin_narrow"
+            android:background="@color/line_normal_background" />
+
+        <RelativeLayout
+            android:id="@+id/relativeLayoutUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/frameLayoutLine"
+            android:layout_marginLeft="@dimen/view_normal_margin_broad"
+            android:layout_marginRight="@dimen/view_normal_margin_broad">
+
+            <com.beyondphysics.ui.views.RoundedNetworkImageView
+                android:id="@+id/roundedNetworkImageViewAvatar"
+                android:layout_width="@dimen/avatar_normal_width_narrow"
+                android:layout_height="@dimen/avatar_normal_width_narrow"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="@dimen/view_normal_margin_default"
+                android:layout_marginTop="@dimen/view_normal_margin_default"
+                android:scaleType="fitXY"
+                android:src="@mipmap/normal_avatar"
+                app:circleBorderColor="?attr/mainColorHelp"
+                app:circleBorderWidth="@dimen/avatar_normal_circleBorderWidth_narrow"
+                app:roundedType="circleBorder" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/view_normal_margin_default"
+                android:layout_toRightOf="@+id/roundedNetworkImageViewAvatar"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewUserName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:textColor="?attr/mainColorText"
+                    android:textSize="@dimen/textView_normal_textSize_default"
+                    tools:text="喜欢22的" />
+
+                <TextView
+                    android:id="@+id/textViewFollowCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/view_normal_margin_narrow"
+                    android:singleLine="true"
+                    android:textColor="@color/editText_normal_hint"
+                    android:textSize="@dimen/textView_normal_textSize_narrow"
+                    tools:text="0人关注" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/buttonFollow"
+                android:layout_width="@dimen/button_normal_width_narrow"
+                android:layout_height="@dimen/button_normal_height_narrow"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/normal_solid_single_background"
+                android:text="@string/activity_wallpaper_details_fragment_details_item_top_buttonFollow_text"
+                android:textColor="?attr/mainColorHelp"
+                android:textSize="@dimen/textView_normal_textSize_default" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutFeature"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relativeLayoutUser"
+            android:layout_marginBottom="@dimen/view_normal_margin_broad"
+            android:layout_marginLeft="@dimen/view_normal_margin_broad"
+            android:layout_marginRight="@dimen/view_normal_margin_broad"
+            android:layout_marginTop="@dimen/view_normal_margin_narrow"
+            android:background="?attr/mainColorHelp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewFeature1"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/activity_wallpaper_details_fragment_details_item_top_feature_height"
+                android:background="@drawable/activity_wallpaper_details_fragment_details_item_top_feature_background"
+                android:gravity="center"
+                android:maxLength="8"
+                android:paddingLeft="@dimen/view_normal_margin_default"
+                android:paddingRight="@dimen/view_normal_margin_default"
+                android:singleLine="true"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="@dimen/textView_normal_textSize_default"
+                tools:text="钢铁侠" />
+
+            <TextView
+                android:id="@+id/textViewFeature2"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/activity_wallpaper_details_fragment_details_item_top_feature_height"
+                android:layout_marginLeft="@dimen/view_normal_margin_default"
+                android:background="@drawable/activity_wallpaper_details_fragment_details_item_top_feature_background"
+                android:gravity="center"
+                android:maxLength="8"
+                android:paddingLeft="@dimen/view_normal_margin_default"
+                android:paddingRight="@dimen/view_normal_margin_default"
+                android:singleLine="true"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="@dimen/textView_normal_textSize_default"
+                tools:text="许允美" />
+
+            <TextView
+                android:id="@+id/textViewFeature3"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/activity_wallpaper_details_fragment_details_item_top_feature_height"
+                android:layout_marginLeft="@dimen/view_normal_margin_default"
+                android:background="@drawable/activity_wallpaper_details_fragment_details_item_top_feature_background"
+                android:gravity="center"
+                android:maxLength="8"
+                android:paddingLeft="@dimen/view_normal_margin_default"
+                android:paddingRight="@dimen/view_normal_margin_default"
+                android:singleLine="true"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="@dimen/textView_normal_textSize_default"
+                tools:text="美女" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

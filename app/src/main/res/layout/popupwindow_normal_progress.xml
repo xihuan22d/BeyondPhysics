@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/popupwindow_vertical_margin"
+    android:layout_marginLeft="@dimen/popupwindow_horizontal_margin"
+    android:layout_marginRight="@dimen/popupwindow_horizontal_margin"
+    android:layout_marginTop="@dimen/popupwindow_vertical_margin"
+    android:background="@drawable/popupwindow_normal_background">
+
+    <FrameLayout
+        android:id="@+id/frameLayoutTop"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/popupwindow_topView_height">
+
+        <TextView
+            android:id="@+id/textViewTopTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/view_normal_margin_default"
+            android:padding="@dimen/view_normal_margin_narrow"
+            android:singleLine="true"
+            android:textColor="?attr/colorPrimary"
+            android:textStyle="bold"
+            android:textSize="@dimen/textView_normal_textSize_default"
+            tools:text="正在上传" />
+
+        <FrameLayout
+            android:id="@+id/frameLayoutTopLine"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_normal_widthOrHeight_default"
+            android:layout_gravity="bottom"
+            android:background="?attr/colorPrimary" />
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayoutProgress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/frameLayoutTop">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/view_normal_margin_broad"
+            android:layout_marginRight="@dimen/view_normal_margin_broad"
+            android:layout_marginTop="@dimen/view_normal_margin_broad" />
+
+        <TextView
+            android:id="@+id/textViewProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/progressBar"
+            android:layout_marginLeft="@dimen/view_normal_margin_broad"
+            android:layout_marginTop="@dimen/view_normal_margin_narrow"
+            android:layout_marginBottom="@dimen/view_normal_margin_narrow"
+            android:text="@string/popupwindow_normal_progress_textViewProgress_text"
+            android:textColor="?attr/mainColorText" />
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayoutBottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/popupwindow_bottomView_height"
+        android:layout_below="@+id/relativeLayoutProgress">
+
+        <FrameLayout
+            android:id="@+id/frameLayoutBottomLine"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_normal_widthOrHeight_default"
+            android:background="?attr/colorPrimary" />
+
+        <TextView
+            android:id="@+id/textViewCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right"
+            android:layout_marginRight="@dimen/view_normal_margin_default"
+            android:padding="@dimen/view_normal_margin_narrow"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="@dimen/textView_normal_textSize_default"
+            android:text="@string/popupwindow_textViewCancel_text" />
+
+    </FrameLayout>
+
+
+</RelativeLayout>

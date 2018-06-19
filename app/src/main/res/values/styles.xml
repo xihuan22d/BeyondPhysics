@@ -1,0 +1,28 @@
+<resources>
+
+    <style name="AppThemeNoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary_default</item>
+        <item name="colorPrimaryDark">@color/colorPrimary_default</item>
+        <item name="colorAccent">@color/colorPrimary_default</item>
+        <item name="mainColorDeepen">@color/mainColorDeepen_default</item>
+        <item name="mainColorHelp">@color/mainColorHelp_default</item>
+        <item name="mainColorText">@color/mainColorText_default</item>
+
+        <item name="toolbarStyle">@style/removeSpacesToolbar</item>
+    </style>
+
+    <style name="removeSpacesToolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="contentInsetStart">0dp</item>
+    </style>
+
+    <!--popwindow动画-->
+    <style name="popwindowNormalAnimation">
+        <item name="android:windowEnterAnimation">@anim/popupwindow_in</item>
+        <item name="android:windowExitAnimation">@anim/popupwindow_out</item>
+    </style>
+
+    <style name="popwindowNormalAnimationCenter">
+        <item name="android:windowEnterAnimation">@anim/popupwindow_in_center</item>
+        <item name="android:windowExitAnimation">@anim/popupwindow_out_center</item>
+    </style>
+</resources>

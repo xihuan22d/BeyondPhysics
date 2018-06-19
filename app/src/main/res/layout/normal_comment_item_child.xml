@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/mainColorHelp">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayoutContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/normal_comment_item_relativeLayoutContent_marginLeft"
+        android:layout_marginRight="@dimen/view_normal_margin_default"
+        android:background="@color/activity_background_default">
+
+        <RelativeLayout
+            android:id="@+id/relativeLayoutTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/view_normal_margin_default"
+            android:layout_marginRight="@dimen/view_normal_margin_default"
+            android:layout_marginTop="@dimen/view_normal_margin_default">
+
+            <TextView
+                android:id="@+id/textViewUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:singleLine="true"
+                android:textColor="?attr/mainColorText"
+                android:textSize="@dimen/textView_normal_textSize_narrow"
+                tools:text="喜欢22的" />
+
+            <TextView
+                android:id="@+id/textViewTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/view_normal_margin_default"
+                android:layout_toRightOf="@+id/textViewUserName"
+                android:singleLine="true"
+                android:textColor="@color/normal_comment_item_normal_help"
+                android:textSize="@dimen/textView_normal_textSize_narrow"
+                tools:text="2年前" />
+
+            <ImageView
+                android:id="@+id/imageViewMore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/normal_comment_item_more" />
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/textViewContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relativeLayoutTop"
+            android:layout_marginLeft="@dimen/view_normal_margin_default"
+            android:layout_marginRight="@dimen/view_normal_margin_default"
+            android:layout_marginTop="@dimen/view_normal_margin_narrow"
+            android:textColor="?attr/mainColorText"
+            android:textSize="@dimen/textView_normal_textSize_narrow"
+            tools:text="不错,非常感谢楼主分享这么棒的东西,用了这个,桌面一下子就变得高大上了,强烈推荐" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_normal_widthOrHeight_narrow"
+            android:layout_below="@+id/textViewContent"
+            android:layout_marginLeft="@dimen/view_normal_margin_default"
+            android:layout_marginRight="@dimen/view_normal_margin_default"
+            android:layout_marginTop="@dimen/view_normal_margin_default"
+            android:background="@color/line_normal_background" />
+    </RelativeLayout>
+</RelativeLayout>

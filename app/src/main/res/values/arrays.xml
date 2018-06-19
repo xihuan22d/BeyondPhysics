@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="activity_wallpaper_details_tabLayout_titles">
+        <item>简介</item>
+        <item>评论</item>
+    </string-array>
+</resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="roundedNetworkImageView">
+        <attr name="roundedType" format="enum">
+            <enum name="none" value="0" />
+            <enum name="circle" value="1" />
+            <enum name="circleBorder" value="2" />
+            <enum name="corner" value="3" />
+        </attr>
+        <attr name="circleBorderWidth" format="dimension" />
+        <attr name="circleBorderColor" format="color" />
+        <attr name="cornerDegree" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="extendedRecyclerView">
+        <attr name="layout_main" format="reference" />
+        <attr name="layout_empty" format="reference" />
+        <attr name="recyclerClipToPadding" format="boolean" />
+        <attr name="recyclerPadding" format="dimension" />
+        <attr name="recyclerPaddingLeft" format="dimension" />
+        <attr name="recyclerPaddingRight" format="dimension" />
+        <attr name="recyclerPaddingTop" format="dimension" />
+        <attr name="recyclerPaddingBottom" format="dimension" />
+        <attr name="recyclerLayoutManager">
+            <flag name="linearLayout" value="1" />
+            <flag name="gridLayout" value="2" />
+            <flag name="staggeredGridLayout" value="3" />
+        </attr>
+        <attr name="recyclerSpanCount" format="integer" />
+        <attr name="recyclerLayoutManagerOrientation">
+            <flag name="horizontal" value="0" />
+            <flag name="vertical" value="1" />
+        </attr>
+        <attr name="scrollbarStyle">
+            <flag name="insideOverlay" value="0" />
+            <flag name="insideInset" value="1" />
+            <flag name="outsideOverlay" value="2" />
+            <flag name="outsideInset" value="3" />
+        </attr>
+    </declare-styleable>
+</resources>

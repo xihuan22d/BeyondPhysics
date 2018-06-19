@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_horizontal_margin">0dp</dimen>
+    <dimen name="activity_vertical_margin">0dp</dimen>
+
+    <dimen name="popupwindow_horizontal_margin">33dp</dimen>
+    <dimen name="popupwindow_vertical_margin">33dp</dimen>
+    <dimen name="popupwindow_topView_height">44dp</dimen>
+    <dimen name="popupwindow_bottomView_height">44dp</dimen>
+    <dimen name="popupwindow_normal_listview_listView_height">200dp</dimen>
+    <dimen name="popupwindow_normal_listview_string_item_height">55dp</dimen>
+
+    <dimen name="popupwindow_menu_listview_more_listView_width">100dp</dimen>
+    <dimen name="popupwindow_menu_listview_more_listView_height">40dp</dimen>
+    <dimen name="popupwindow_menu_listview_more_string_item_height">40dp</dimen>
+
+    <dimen name="normal_comment_item_parent_textViewLV_textSize">9sp</dimen>
+    <dimen name="normal_comment_item_parent_relativeLayoutCount_textView_textSize">9sp</dimen>
+    <dimen name="normal_comment_item_relativeLayoutContent_marginLeft">55dp</dimen>
+    <dimen name="normal_comment_input_stroke_background_height">32dp</dimen>
+    <dimen name="normal_comment_input_stroke_background_radius">16dp</dimen>
+    <dimen name="normal_comment_input_relativeLayoutCommentInput_height">52dp</dimen>
+    <dimen name="normal_comment_input_gridView_height">160dp</dimen>
+
+    <dimen name="normal_recyclerview_wallpaper_item_networkImageView_marginBottom">47dp</dimen>
+    <dimen name="normal_recyclerview_wallpaper_item_frameLayoutTips_height">54dp</dimen>
+
+    <dimen name="textView_normal_textSize_broad">17sp</dimen>
+    <dimen name="textView_normal_textSize_default">14sp</dimen>
+    <dimen name="textView_normal_textSize_narrow">11sp</dimen>
+
+    <dimen name="editText_normal_height">44dp</dimen>
+    <dimen name="editText_normal_paddingLeft">3dp</dimen>
+    <dimen name="editText_normal_paddingRight">3dp</dimen>
+    <dimen name="editText_normal_paddingTop">5dp</dimen>
+    <dimen name="editText_normal_paddingBottom">5dp</dimen>
+
+    <dimen name="line_normal_widthOrHeight_broad">2dp</dimen>
+    <dimen name="line_normal_widthOrHeight_default">1dp</dimen>
+    <dimen name="line_normal_widthOrHeight_narrow">1px</dimen>
+
+    <dimen name="view_normal_margin_broad">16dp</dimen>
+    <dimen name="view_normal_margin_default">10dp</dimen>
+    <dimen name="view_normal_margin_narrow">6dp</dimen>
+
+    <dimen name="avatar_normal_width_broad">72dp</dimen>
+    <dimen name="avatar_normal_width_default">54dp</dimen>
+    <dimen name="avatar_normal_width_narrow">36dp</dimen>
+    <dimen name="avatar_normal_circleBorderWidth_broad">3dp</dimen>
+    <dimen name="avatar_normal_circleBorderWidth_default">2dp</dimen>
+    <dimen name="avatar_normal_circleBorderWidth_narrow">1dp</dimen>
+
+
+    <dimen name="drawable_normal_stroke_broad">2dp</dimen>
+    <dimen name="drawable_normal_stroke_default">1dp</dimen>
+    <dimen name="drawable_normal_stroke_narrow">1px</dimen>
+
+    <dimen name="drawable_normal_radius_broad">8dp</dimen>
+    <dimen name="drawable_normal_radius_default">4dp</dimen>
+    <dimen name="drawable_normal_radius_narrow">2dp</dimen>
+
+    <dimen name="cardView_normal_radius_broad">12dp</dimen>
+    <dimen name="cardView_normal_radius_default">6dp</dimen>
+    <dimen name="cardView_normal_radius_narrow">3dp</dimen>
+
+    <dimen name="button_normal_width_broad">110dp</dimen>
+    <dimen name="button_normal_width_default">88dp</dimen>
+    <dimen name="button_normal_width_narrow">66dp</dimen>
+
+    <dimen name="button_normal_height_broad">50dp</dimen>
+    <dimen name="button_normal_height_default">40dp</dimen>
+    <dimen name="button_normal_height_narrow">30dp</dimen>
+
+    <dimen name="button_normal_radius_circle_broad">25dp</dimen>
+    <dimen name="button_normal_radius_circle_default">20dp</dimen>
+    <dimen name="button_normal_radius_circle_narrow">15dp</dimen>
+
+    <dimen name="imageView_button_normal_padding_broad">16dp</dimen>
+    <dimen name="imageView_button_normal_padding_default">10dp</dimen>
+    <dimen name="imageView_button_normal_padding_narrow">6dp</dimen>
+
+
+    <dimen name="activity_main_networkGifImageView_width">100dp</dimen>
+    <dimen name="activity_main_button_marginTop">24dp</dimen>
+
+    <dimen name="activity_upload_textViewTitle_width">70dp</dimen>
+    <dimen name="activity_upload_imageViewPreview_widthOrHeight">30dp</dimen>
+
+    <dimen name="activity_wallpaper_details_collapsingToolbarLayout_height">180dp</dimen>
+    <dimen name="activity_wallpaper_details_collapsingToolbarLayout_expandedTitleMarginEnd">64dp</dimen>
+    <dimen name="activity_wallpaper_details_collapsingToolbarLayout_expandedTitleMarginStart">48dp</dimen>
+    <dimen name="activity_wallpaper_details_tabLayout_height">40dp</dimen>
+    <dimen name="activity_wallpaper_details_fragment_marginTop">4dp</dimen>
+    <dimen name="activity_wallpaper_details_fragment_details_item_top_feature_height">28dp</dimen>
+    <dimen name="activity_wallpaper_details_fragment_details_item_top_feature_background_radius">14dp</dimen>
+
+    <dimen name="activity_picture_choose_gridView_height">260dp</dimen>
+    <dimen name="activity_picture_choose_item_height">82dp</dimen>
+
+    <dimen name="activity_breakpoint_download_progressBar_marginTop">40dp</dimen>
+
+</resources>

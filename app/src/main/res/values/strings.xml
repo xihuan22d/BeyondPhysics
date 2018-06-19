@@ -1,0 +1,74 @@
+<resources>
+    <string name="app_name">BeyondPhysicsApplication</string>
+
+    <string name="number_0_text">0</string>
+
+    <string name="number_0_progress_text">0%</string>
+
+    <string name="textViewToolbarTitle_text_default">暂无标题</string>
+
+    <string name="normal_more_progress_textViewLoadMoreTips_text">正在加载</string>
+    <string name="normal_nodata_textView_text">啊呀,什么也没有搜索到~~ </string>
+
+    <string name="popupwindow_textViewOK_text">确定</string>
+    <string name="popupwindow_textViewCancel_text">取消</string>
+    <string name="popupwindow_normal_progress_textViewProgress_text">0%</string>
+
+
+    <string name="normal_comment_input_editTextComment_hint">说点什么吧</string>
+    <string name="normal_comment_input_textViewCommentTips_text">同时同步至动态</string>
+    <string name="normal_comment_item_parent_textViewMoreHot_text">更多热门评论＞</string>
+
+    <string name="activity_main_buttonWaterfallFlow">瀑布流和评论</string>
+    <string name="activity_main_gifList">gif列表</string>
+    <string name="activity_main_buttonGallery">相册</string>
+    <string name="activity_main_buttonDownload">断点下载</string>
+    <string name="activity_main_buttonDownloadList">下载列表</string>
+    <string name="activity_main_buttonUpload">上传</string>
+    <string name="activity_main_buttonClear">清除缓存</string>
+    <string name="activity_main_buttonTest">复用测试</string>
+
+    <string name="activity_waterfallflow_textViewToolbarTitle_text">瀑布流和评论</string>
+    <string name="activity_giflist_textViewToolbarTitle_text">gif列表</string>
+
+    <string name="activity_picture_choose_textViewToolbarTitle_text">相册</string>
+
+    <string name="activity_breakpoint_download_textViewToolbarTitle_text">断点下载</string>
+    <string name="activity_breakpoint_download_editTextUrl_hint">输入待下载文件的地址</string>
+    <string name="activity_breakpoint_download_buttonDownload_text">下载</string>
+    <string name="activity_breakpoint_download_buttonCancel_text">取消请求</string>
+
+    <string name="activity_breakpoint_download_list_textViewToolbarTitle_text">下载列表</string>
+    <string name="activity_breakpoint_download_list_buttonDownload_text">下载</string>
+
+    <string name="activity_upload_textViewToolbarTitle_text">上传</string>
+    <string name="activity_upload_textViewBaseInformationTitle_text">基本信息</string>
+    <string name="activity_upload_textViewFileTitle_text">文件内容</string>
+    <string name="activity_upload_unInput_text_default">暂无</string>
+
+    <string name="activity_upload_textViewKindTitle_text">上传类型</string>
+    <string name="activity_upload_textViewKindContent_text">请选择上传类型</string>
+    <string name="activity_upload_textViewTypeTitle_text">壁纸分类</string>
+    <string name="activity_upload_textViewTypeContent_text">请选择壁纸类型</string>
+    <string name="activity_upload_textViewNameTitle_text">壁纸名称</string>
+
+    <string name="activity_upload_textViewFeatureTitle_text">壁纸特征</string>
+    <string name="activity_upload_editTextFeatureContent_hint">例如:美女,清纯,可爱</string>
+
+    <string name="activity_upload_textViewDescribeTitle_text">壁纸描述</string>
+    <string name="activity_upload_textViewNeedGoldTitle_text">售价</string>
+    <string name="activity_upload_textViewPreviewTitle_text">预览图</string>
+    <string name="activity_upload_textViewPreviewContent_text">请选择预览图</string>
+
+    <string name="activity_upload_textViewWallpaperTitle_text">壁纸文件</string>
+    <string name="activity_upload_textViewWallpaperContent_text">请选择壁纸文件</string>
+    <string name="activity_upload_textViewToolbarUpload_text">上传</string>
+    <string name="activity_upload_textViewTips_text">预览图和壁纸文件望相对应,请勿恶意测试,感谢......</string>
+
+    <string name="activity_wallpaper_details_textViewToolbarTitle_text">壁纸详情</string>
+    <string name="activity_wallpaper_details_fragment_details_item_top_buttonFollow_text">关注</string>
+    <string name="activity_wallpaper_details_fragment_details_item_top_buttonFollow_follow_text">已关注</string>
+
+
+
+</resources>

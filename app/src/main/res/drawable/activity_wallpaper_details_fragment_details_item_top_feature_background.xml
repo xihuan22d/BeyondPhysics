@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <corners android:radius="@dimen/activity_wallpaper_details_fragment_details_item_top_feature_background_radius" />
+    <solid android:color="@color/background_transparent" />
+    <stroke
+        android:width="@dimen/drawable_normal_stroke_narrow"
+        android:color="@color/colorPrimary_default" />
+</shape>

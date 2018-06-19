@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/mainColorHelp">
+
+    <com.beyondphysics.ui.views.RoundedNetworkImageView
+        android:id="@+id/roundedNetworkImageViewAvatar"
+        android:layout_width="@dimen/avatar_normal_width_narrow"
+        android:layout_height="@dimen/avatar_normal_width_narrow"
+        android:layout_marginLeft="@dimen/view_normal_margin_broad"
+        android:layout_marginTop="@dimen/view_normal_margin_default"
+        android:scaleType="fitXY"
+        android:src="@mipmap/normal_avatar"
+        app:circleBorderColor="?attr/mainColorHelp"
+        app:circleBorderWidth="@dimen/avatar_normal_circleBorderWidth_narrow"
+        app:roundedType="circleBorder" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayoutContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/view_normal_margin_narrow"
+        android:layout_marginLeft="@dimen/normal_comment_item_relativeLayoutContent_marginLeft"
+        android:layout_marginRight="@dimen/view_normal_margin_default"
+        android:layout_marginTop="@dimen/view_normal_margin_default">
+
+        <TextView
+            android:id="@+id/textViewUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/view_normal_margin_default"
+            android:singleLine="true"
+            android:textColor="?attr/mainColorText"
+            android:textSize="@dimen/textView_normal_textSize_narrow"
+            tools:text="喜欢22的" />
+
+        <TextView
+            android:id="@+id/textViewLV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textViewUserName"
+            android:layout_marginLeft="@dimen/view_normal_margin_default"
+            android:layout_toRightOf="@+id/textViewUserName"
+            android:singleLine="true"
+            android:textColor="@color/normal_comment_item_normal_help"
+            android:textSize="@dimen/normal_comment_item_parent_textViewLV_textSize"
+            android:textStyle="bold"
+            tools:text="LV0" />
+
+        <LinearLayout
+            android:id="@+id/linearLayoutFloorAndTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/textViewFloor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textColor="@color/normal_comment_item_normal_help"
+                android:textSize="@dimen/textView_normal_textSize_narrow"
+                tools:text="#22" />
+
+            <TextView
+                android:id="@+id/textViewTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/view_normal_margin_default"
+                android:singleLine="true"
+                android:textColor="@color/normal_comment_item_normal_help"
+                android:textSize="@dimen/textView_normal_textSize_narrow"
+                tools:text="2年前" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textViewFollow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:paddingLeft="@dimen/view_normal_margin_narrow"
+            android:paddingRight="@dimen/view_normal_margin_narrow"
+            android:singleLine="true"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="@dimen/textView_normal_textSize_default"
+            tools:text="关注" />
+
+        <LinearLayout
+            android:id="@+id/linearLayoutFloorAndTimeLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewUserName"
+            android:layout_marginLeft="@dimen/view_normal_margin_default"
+            android:layout_marginTop="@dimen/view_normal_margin_narrow"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewFloorLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textColor="@color/normal_comment_item_normal_help"
+                android:textSize="@dimen/textView_normal_textSize_narrow"
+                tools:text="#22" />
+
+            <TextView
+                android:id="@+id/textViewTimeLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/view_normal_margin_default"
+                android:singleLine="true"
+                android:textColor="@color/normal_comment_item_normal_help"
+                android:textSize="@dimen/textView_normal_textSize_narrow"
+                tools:text="2年前" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textViewContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayoutFloorAndTimeLeft"
+            android:layout_marginLeft="@dimen/view_normal_margin_default"
+            android:layout_marginTop="@dimen/view_normal_margin_narrow"
+            android:textColor="?attr/mainColorText"
+            android:textSize="@dimen/textView_normal_textSize_narrow"
+            tools:text="不错,非常感谢楼主分享这么棒的东西,用了这个,桌面一下子就变得高大上了,强烈推荐" />
+
+
+        <RelativeLayout
+            android:id="@+id/relativeLayoutCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewContent"
+            android:layout_marginLeft="@dimen/view_normal_margin_default"
+            android:clickable="true">
+
+            <LinearLayout
+                android:id="@+id/linearLayoutComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingTop="@dimen/view_normal_margin_narrow"
+                android:paddingBottom="@dimen/view_normal_margin_narrow"
+                android:layout_marginRight="@dimen/view_normal_margin_broad"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageViewComment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/normal_comment_item_parent_comment" />
+
+                <TextView
+                    android:id="@+id/textViewChildCommentCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/view_normal_margin_narrow"
+                    android:singleLine="true"
+                    android:textColor="@color/normal_comment_item_normal_help"
+                    android:textSize="@dimen/normal_comment_item_parent_relativeLayoutCount_textView_textSize"
+                    tools:text="2" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/linearLayoutPraiseUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingTop="@dimen/view_normal_margin_narrow"
+                android:paddingBottom="@dimen/view_normal_margin_narrow"
+                android:layout_marginRight="@dimen/view_normal_margin_broad"
+                android:layout_toRightOf="@+id/linearLayoutComment"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageViewPraiseUp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/normal_comment_item_parent_praise_up_unselect" />
+
+                <TextView
+                    android:id="@+id/textViewPraiseUpCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/view_normal_margin_narrow"
+                    android:singleLine="true"
+                    android:textColor="@color/normal_comment_item_normal_help"
+                    android:textSize="@dimen/normal_comment_item_parent_relativeLayoutCount_textView_textSize"
+                    tools:text="2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayoutPraiseDown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingTop="@dimen/view_normal_margin_narrow"
+                android:paddingBottom="@dimen/view_normal_margin_narrow"
+                android:layout_marginRight="@dimen/view_normal_margin_broad"
+                android:layout_toRightOf="@+id/linearLayoutPraiseUp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageViewPraiseDown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/normal_comment_item_parent_praise_down_unselect" />
+
+                <TextView
+                    android:id="@+id/textViewPraiseDownCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/view_normal_margin_narrow"
+                    android:singleLine="true"
+                    android:textColor="@color/normal_comment_item_normal_help"
+                    android:textSize="@dimen/normal_comment_item_parent_relativeLayoutCount_textView_textSize"
+                    tools:text="2" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageViewMore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/view_normal_margin_default"
+                android:src="@mipmap/normal_comment_item_more" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayoutLine"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_normal_widthOrHeight_narrow"
+        android:layout_below="@+id/relativeLayoutContent"
+        android:layout_marginTop="@dimen/view_normal_margin_narrow"
+        android:background="@color/line_normal_background" />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutMoreHot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relativeLayoutContent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/line_normal_widthOrHeight_narrow"
+            android:layout_weight="1"
+            android:background="@color/line_normal_background" />
+
+        <TextView
+            android:id="@+id/textViewMoreHot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/view_normal_margin_default"
+            android:paddingRight="@dimen/view_normal_margin_default"
+            android:text="@string/normal_comment_item_parent_textViewMoreHot_text"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="@dimen/textView_normal_textSize_default" />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/line_normal_widthOrHeight_narrow"
+            android:layout_weight="1"
+            android:background="@color/line_normal_background" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/popupwindow_normal_listview_string_item_height"
+        android:layout_marginLeft="@dimen/view_normal_margin_default"
+        android:layout_marginRight="@dimen/view_normal_margin_default">
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:clickable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/view_normal_margin_narrow"
+            android:layout_marginRight="@dimen/view_normal_margin_narrow"
+            android:layout_toLeftOf="@+id/radioButton"
+            android:gravity="left"
+            android:singleLine="true"
+            android:textColor="?attr/mainColorText"
+            android:textSize="@dimen/textView_normal_textSize_default"
+            tools:text="风景" />
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary_default">#3d3d3d</color>
+    <color name="mainColorDeepen_default">#2b2b2b</color>
+    <color name="mainColorHelp_default">#ffffff</color>
+    <color name="mainColorText_default">#6d6d6d</color>
+
+    <color name="activity_background_default">#f2f2f2</color>
+
+    <color name="cursorColor_default">#6d6d6d</color>
+    <color name="darkColor_default">#000000</color>
+
+    <color name="line_normal_background">#bbbbbb</color>
+
+    <color name="editText_normal_hint">#bbbbbb</color>
+
+    <color name="background_transparent">#00ffffff</color>
+
+    <color name="unSelectColor_default">#bbbbbb</color>
+
+    <color name="normal_comment_item_normal_help">#bbbbbb</color>
+    <color name="normal_comment_input_background">#fafafa</color>
+</resources>

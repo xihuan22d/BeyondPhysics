@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/mainColorHelp">
+
+    <TextView
+        android:id="@+id/textViewCommentCountTips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/view_normal_margin_broad"
+        android:layout_marginRight="@dimen/view_normal_margin_broad"
+        android:layout_marginTop="@dimen/view_normal_margin_narrow"
+        android:layout_marginBottom="@dimen/view_normal_margin_narrow"
+        android:singleLine="true"
+        android:textColor="?attr/mainColorText"
+        android:textSize="@dimen/textView_normal_textSize_narrow"
+        tools:text="相关回复共22条" />
+</RelativeLayout>

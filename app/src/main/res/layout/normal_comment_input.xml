@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.my.views.KeyboardDetectFrameLayout
+        android:id="@+id/keyboardDetectFrameLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/frameLayoutBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#55555555"
+            android:visibility="invisible" />
+
+        <RelativeLayout
+            android:id="@+id/relativeLayoutCommentInput"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/normal_comment_input_relativeLayoutCommentInput_height"
+            android:background="@color/normal_comment_input_background"
+            android:clickable="true">
+
+            <ImageView
+                android:id="@+id/imageViewPhiz"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/view_normal_margin_default"
+                android:layout_marginRight="@dimen/view_normal_margin_default"
+                android:padding="@dimen/view_normal_margin_narrow"
+                android:src="@mipmap/normal_comment_input_phiz" />
+
+            <ImageView
+                android:id="@+id/imageViewSend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/view_normal_margin_default"
+                android:layout_marginRight="@dimen/view_normal_margin_default"
+                android:padding="@dimen/view_normal_margin_narrow"
+                android:src="@mipmap/normal_comment_input_send" />
+
+            <EditText
+                android:id="@+id/editTextComment"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/normal_comment_input_stroke_background_height"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/imageViewSend"
+                android:layout_toRightOf="@+id/imageViewPhiz"
+                android:background="@drawable/normal_comment_input_stroke_background_circle"
+                android:hint="@string/normal_comment_input_editTextComment_hint"
+                android:maxLength="222"
+                android:paddingBottom="@dimen/editText_normal_paddingBottom"
+                android:paddingLeft="@dimen/view_normal_margin_default"
+                android:paddingRight="@dimen/view_normal_margin_default"
+                android:paddingTop="@dimen/editText_normal_paddingTop"
+                android:singleLine="true"
+                android:textColor="?attr/mainColorText"
+                android:textColorHint="@color/editText_normal_hint"
+                android:textCursorDrawable="@drawable/normal_cursor"
+                android:textSize="@dimen/textView_normal_textSize_default" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayoutPostToDynamic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/normal_comment_input_background"
+            android:clickable="true"
+            android:visibility="gone">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/view_normal_margin_default"
+                android:layout_marginLeft="@dimen/view_normal_margin_default"
+                android:layout_marginRight="@dimen/view_normal_margin_default">
+
+                <CheckBox
+                    android:id="@+id/checkBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="" />
+
+                <TextView
+                    android:id="@+id/textViewCommentTips"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/view_normal_margin_narrow"
+                    android:layout_toRightOf="@+id/checkBox"
+                    android:singleLine="true"
+                    android:text="@string/normal_comment_input_textViewCommentTips_text"
+                    android:textColor="@color/editText_normal_hint"
+                    android:textSize="@dimen/textView_normal_textSize_default" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayoutGridView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/normal_comment_input_background"
+            android:clickable="true">
+
+            <GridView
+                android:id="@+id/gridView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/normal_comment_input_gridView_height"
+                android:background="@color/normal_comment_input_background"
+                android:numColumns="4"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+</FrameLayout>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/relativeLayoutRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/beyondPhysics_activity_background_default">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayoutTop"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/beyondPhysics_activity_chooseimage_relativeLayoutTop_height"
+        android:background="@color/beyondPhysics_activity_chooseimage_relativeLayoutTop_background">
+
+        <ImageView
+            android:id="@+id/imageViewBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/beyondPhysics_view_normal_margin_narrow"
+            android:padding="@dimen/beyondPhysics_imageView_button_normal_padding_narrow"
+            android:src="@mipmap/beyondphysics_activity_chooseimage_back" />
+
+        <FrameLayout
+            android:id="@+id/frameLayoutLineTop"
+            android:layout_width="@dimen/beyondPhysics_line_normal_widthOrheight_default"
+            android:layout_height="@dimen/beyondPhysics_activity_chooseimage_frameLayoutLineTop_height"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/imageViewBack"
+            android:layout_marginLeft="@dimen/beyondPhysics_view_normal_margin_narrow"
+            android:background="@color/beyondPhysics_mainColorHelp_default" />
+
+        <Button
+            android:id="@+id/buttonOk"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/beyondPhysics_button_normal_height"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/beyondPhysics_view_normal_margin_narrow"
+            android:background="@drawable/beyondphysics_activity_chooseimage_background"
+            android:minWidth="@dimen/beyondPhysics_activity_chooseimage_buttonOk_minWidth"
+            android:maxWidth="@dimen/beyondPhysics_activity_chooseimage_buttonOk_maxWidth"
+            android:padding="@dimen/beyondPhysics_view_normal_margin_narrow"
+            android:text="@string/beyondPhysics_activity_chooseimage_buttonOk_text"
+            android:textColor="@color/beyondPhysics_mainColorHelp_default"
+            android:textSize="@dimen/beyondPhysics_textView_normal_textSize_default" />
+
+        <TextView
+            android:id="@+id/textViewTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/beyondPhysics_view_normal_margin_default"
+            android:layout_marginRight="@dimen/beyondPhysics_view_normal_margin_default"
+            android:layout_toLeftOf="@+id/buttonOk"
+            android:layout_toRightOf="@+id/frameLayoutLineTop"
+            android:singleLine="true"
+            android:text="@string/beyondPhysics_activity_chooseimage_textViewTitle_text"
+            android:textColor="@color/beyondPhysics_mainColorHelp_default"
+            android:textSize="@dimen/beyondPhysics_textView_normal_textSize_broad" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/relativeLayoutBottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/beyondPhysics_activity_chooseimage_relativeLayoutTop_height"
+        android:layout_alignParentBottom="true"
+        android:background="@color/beyondPhysics_activity_chooseimage_relativeLayoutTop_background">
+
+        <Button
+            android:id="@+id/buttonSelectType"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/beyondPhysics_button_normal_height"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/beyondPhysics_view_normal_margin_narrow"
+            android:drawableRight="@mipmap/beyondphysics_activity_chooseimage_preview"
+            android:background="@drawable/beyondphysics_activity_chooseimage_background"
+            android:minWidth="@dimen/beyondPhysics_activity_chooseimage_buttonOk_minWidth"
+            android:maxWidth="@dimen/beyondPhysics_activity_chooseimage_buttonOk_maxWidth"
+            android:padding="@dimen/beyondPhysics_view_normal_margin_narrow"
+            android:text="@string/beyondPhysics_activity_chooseimage_buttonSelectType_text"
+            android:textColor="@color/beyondPhysics_mainColorHelp_default"
+            android:textSize="@dimen/beyondPhysics_textView_normal_textSize_default" />
+
+        <Button
+            android:id="@+id/buttonPreview"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/beyondPhysics_button_normal_height"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/beyondPhysics_view_normal_margin_narrow"
+            android:background="@drawable/beyondphysics_activity_chooseimage_background"
+            android:minWidth="@dimen/beyondPhysics_activity_chooseimage_buttonOk_minWidth"
+            android:maxWidth="@dimen/beyondPhysics_activity_chooseimage_buttonOk_maxWidth"
+            android:padding="@dimen/beyondPhysics_view_normal_margin_narrow"
+            android:text="@string/beyondPhysics_activity_chooseimage_buttonPreview_text"
+            android:textColor="@color/beyondPhysics_mainColorHelp_default"
+            android:textSize="@dimen/beyondPhysics_textView_normal_textSize_default" />
+
+
+    </RelativeLayout>
+
+
+    <com.beyondphysics.ui.recyclerviewlibrary.views.BaseRecyclerViewFromFrameLayout
+        android:id="@+id/baseRecyclerViewFromFrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/relativeLayoutBottom"
+        android:layout_below="@+id/relativeLayoutTop"
+        app:recyclerClipToPadding="false"
+        app:recyclerLayoutManager="gridLayout"
+        app:recyclerLayoutManagerOrientation="vertical"
+        app:recyclerSpanCount="3"
+        app:scrollbarStyle="outsideOverlay" />
+
+</RelativeLayout>
+

@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">BeyondPhysics</string>
+
+    <string name="beyondPhysics_activity_chooseimage_buttonOk_text">完成(1/2)</string>
+    <string name="beyondPhysics_activity_chooseimage_textViewTitle_text">选择图片</string>
+    <string name="beyondPhysics_activity_chooseimage_buttonSelectType_text">全部图片</string>
+    <string name="beyondPhysics_activity_chooseimage_buttonPreview_text">预览(1)</string>
+    <string name="beyondphysics_layout_load_completed_textView_text">╮(╯3╰)╭再怎么找也没有啦</string>
+
+
+    <string name="beyondPhysics_recyclerview_lostviewtype_item_textView_text">lost viewType in recyclerView</string>
+</resources>

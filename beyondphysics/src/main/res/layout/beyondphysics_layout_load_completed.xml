@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearLayoutLoadCompleted"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/beyondPhysics_view_normal_margin_default"
+        android:text="@string/beyondphysics_layout_load_completed_textView_text"
+        android:textColor="@color/beyondPhysics_mainColorText_default"
+        android:textSize="@dimen/beyondPhysics_textView_normal_textSize_default" />
+
+
+</LinearLayout>

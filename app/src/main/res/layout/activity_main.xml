@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/activity_background_default"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/buttonWaterfallFlow"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_normal_height_default"
+                android:layout_marginLeft="@dimen/view_normal_margin_broad"
+                android:layout_marginRight="@dimen/view_normal_margin_broad"
+                android:layout_marginTop="@dimen/activity_main_button_marginTop"
+                android:background="@drawable/normal_solid_background"
+                android:text="@string/activity_main_buttonWaterfallFlow"
+                android:textColor="?attr/mainColorHelp"
+                android:textSize="@dimen/textView_normal_textSize_default" />
+
+            <Button
+                android:id="@+id/buttonGifList"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_normal_height_default"
+                android:layout_marginLeft="@dimen/view_normal_margin_broad"
+                android:layout_marginRight="@dimen/view_normal_margin_broad"
+                android:layout_marginTop="@dimen/activity_main_button_marginTop"
+                android:background="@drawable/normal_solid_background"
+                android:text="@string/activity_main_gifList"
+                android:textColor="?attr/mainColorHelp"
+                android:textSize="@dimen/textView_normal_textSize_default" />
+
+            <Button
+                android:id="@+id/buttonGallery"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_normal_height_default"
+                android:layout_marginLeft="@dimen/view_normal_margin_broad"
+                android:layout_marginRight="@dimen/view_normal_margin_broad"
+                android:layout_marginTop="@dimen/activity_main_button_marginTop"
+                android:background="@drawable/normal_solid_background"
+                android:text="@string/activity_main_buttonGallery"
+                android:textColor="?attr/mainColorHelp"
+                android:textSize="@dimen/textView_normal_textSize_default" />
+
+
+            <Button
+                android:id="@+id/buttonDownload"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_normal_height_default"
+                android:layout_marginLeft="@dimen/view_normal_margin_broad"
+                android:layout_marginRight="@dimen/view_normal_margin_broad"
+                android:layout_marginTop="@dimen/activity_main_button_marginTop"
+                android:background="@drawable/normal_solid_background"
+                android:text="@string/activity_main_buttonDownload"
+                android:textColor="?attr/mainColorHelp"
+                android:textSize="@dimen/textView_normal_textSize_default" />
+
+            <Button
+                android:id="@+id/buttonDownloadList"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_normal_height_default"
+                android:layout_marginLeft="@dimen/view_normal_margin_broad"
+                android:layout_marginRight="@dimen/view_normal_margin_broad"
+                android:layout_marginTop="@dimen/activity_main_button_marginTop"
+                android:background="@drawable/normal_solid_background"
+                android:text="@string/activity_main_buttonDownloadList"
+                android:textColor="?attr/mainColorHelp"
+                android:textSize="@dimen/textView_normal_textSize_default" />
+
+            <Button
+                android:id="@+id/buttonUpload"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_normal_height_default"
+                android:layout_marginLeft="@dimen/view_normal_margin_broad"
+                android:layout_marginRight="@dimen/view_normal_margin_broad"
+                android:layout_marginTop="@dimen/activity_main_button_marginTop"
+                android:background="@drawable/normal_solid_background"
+                android:text="@string/activity_main_buttonUpload"
+                android:textColor="?attr/mainColorHelp"
+                android:textSize="@dimen/textView_normal_textSize_default" />
+
+            <Button
+                android:id="@+id/buttonClear"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_normal_height_default"
+                android:layout_marginLeft="@dimen/view_normal_margin_broad"
+                android:layout_marginRight="@dimen/view_normal_margin_broad"
+                android:layout_marginTop="@dimen/activity_main_button_marginTop"
+                android:background="@drawable/normal_solid_background"
+                android:text="@string/activity_main_buttonClear"
+                android:textColor="?attr/mainColorHelp"
+                android:textSize="@dimen/textView_normal_textSize_default" />
+
+
+            <Button
+                android:id="@+id/buttonTest"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_normal_height_default"
+                android:layout_marginLeft="@dimen/view_normal_margin_broad"
+                android:layout_marginRight="@dimen/view_normal_margin_broad"
+                android:layout_marginTop="@dimen/activity_main_button_marginTop"
+                android:background="@drawable/normal_solid_background"
+                android:text="@string/activity_main_buttonTest"
+                android:textColor="?attr/mainColorHelp"
+                android:textSize="@dimen/textView_normal_textSize_default" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_main_button_marginTop"
+                android:layout_marginBottom="@dimen/activity_main_button_marginTop"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <com.beyondphysics.ui.views.NetworkGifImageView
+                    android:id="@+id/networkGifImageView"
+                    android:layout_width="@dimen/activity_main_networkGifImageView_width"
+                    android:layout_height="@dimen/activity_main_networkGifImageView_width"
+                    android:background="@color/darkColor_default"
+                    android:scaleType="centerCrop" />
+
+                <com.beyondphysics.ui.views.NetworkGifImageView
+                    android:id="@+id/networkGifImageView1"
+                    android:layout_width="@dimen/activity_main_networkGifImageView_width"
+                    android:layout_height="@dimen/activity_main_networkGifImageView_width"
+                    android:layout_marginLeft="@dimen/view_normal_margin_broad"
+                    android:background="@color/darkColor_default"
+                    android:scaleType="centerCrop" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

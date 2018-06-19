@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <com.beyondphysics.ui.views.NetworkGifImageView
+        android:id="@+id/networkGifImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/beyondphysics_activity_chooseimage_default_loading" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginTop="@dimen/beyondPhysics_view_normal_margin_narrow"
+        android:layout_marginRight="@dimen/beyondPhysics_view_normal_margin_narrow"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="" />
+
+
+    <FrameLayout
+        android:id="@+id/frameLayoutCover"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/beyondPhysics_activity_chooseimage_item_background_unselect" />
+
+
+</android.support.v7.widget.CardView>
