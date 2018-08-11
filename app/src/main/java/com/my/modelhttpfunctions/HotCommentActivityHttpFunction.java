@@ -19,7 +19,7 @@ public class HotCommentActivityHttpFunction {
 
 
     public static void hotCommentActivity_getWallpaperCommentBySort(final BaseActivity baseActivity, final String targetObject_id, final String sort, final Request.OnResponseListener<String> onResponseListener, final BaseGsonModel.OnBaseGsonModelListener<HotCommentActivity_GetWallpaperCommentBySort_GsonModel.Data> onBaseGsonModelListener) {
-        String url = HttpConnectTool.nodejsRootUrl + HttpConnectTool.hotCommentActivity_getWallpaperCommentBySort;
+        String url = HttpConnectTool.getServerRootUrl() + HttpConnectTool.hotCommentActivity_getWallpaperCommentBySort;
         if (!NetworkStateTool.isNetworkConnected(baseActivity)) {
             BaseActivity.showShortToast(baseActivity, TheApplication.NETOPENERROR);
             if (onResponseListener != null) {

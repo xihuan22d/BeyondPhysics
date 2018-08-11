@@ -102,7 +102,7 @@ public class BitmapConfig {
         Paint paint = new Paint();
         paint.setAntiAlias(true);
         Canvas canvas = new Canvas(theBitmap);
-        canvas.setDrawFilter(new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG|Paint.FILTER_BITMAP_FLAG));
+        canvas.setDrawFilter(new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG));
         canvas.drawCircle(width / 2, width / 2, width / 2, paint);
         paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
         canvas.drawBitmap(newBitmap, 0, 0, paint);
@@ -129,7 +129,7 @@ public class BitmapConfig {
         Paint paint = new Paint();
         paint.setAntiAlias(true);
         Canvas canvas = new Canvas(theBitmap);
-        canvas.setDrawFilter(new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG|Paint.FILTER_BITMAP_FLAG));
+        canvas.setDrawFilter(new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG));
         canvas.drawCircle(width / 2, width / 2, theWidth / 2, paint);
         paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
         canvas.drawBitmap(newBitmap, null, new Rect((int) (borderWidth), (int) (borderWidth), (int) (width - borderWidth), (int) (width - borderWidth)), paint);
@@ -176,7 +176,7 @@ public class BitmapConfig {
         }
         Bitmap theBitmap = Bitmap.createBitmap((int) width, (int) height, config);
         Canvas canvas = new Canvas(theBitmap);
-        canvas.setDrawFilter(new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG|Paint.FILTER_BITMAP_FLAG));
+        canvas.setDrawFilter(new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG));
         canvas.drawARGB(0, 0, 0, 0);
 
         Rect rect = new Rect(0, 0, (int) width, (int) height);
@@ -215,7 +215,7 @@ public class BitmapConfig {
         }
         Bitmap theBitmap = Bitmap.createBitmap((int) newWidth, (int) newWidth, config);
         Canvas canvas = new Canvas(theBitmap);
-        canvas.setDrawFilter(new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG|Paint.FILTER_BITMAP_FLAG));
+        canvas.setDrawFilter(new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG));
         canvas.drawBitmap(bitmap, null, rect, paint);
         return theBitmap;
     }

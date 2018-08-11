@@ -2,13 +2,13 @@ package com.my.models;
 
 
 public class Praise extends BaseModel {
-    public static final String type_wallpaper = "wallpaper";
-    public static final String type_comment = "comment";
+    public static final String type_wallpaper = "type_wallpaper";
+    public static final String type_comment = "type_comment";
 
 
-    public static final String status_unPraise = "未赞";
-    public static final String status_praiseUp = "赞";
-    public static final String status_praiseDown = "倒赞";
+    public static final String status_unPraise = "status_unPraise";
+    public static final String status_praiseUp = "status_praiseUp";
+    public static final String status_praiseDown = "status_praiseDown";
 
     public static final String PRAISEUPORDOWN_PRAISEUP = "praiseUp";
     public static final String PRAISEUPORDOWN_PRAISEDOWN = "praiseDown";

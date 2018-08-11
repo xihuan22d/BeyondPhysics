@@ -354,7 +354,7 @@ public class WallpaperDetailsActivity_Fragment_Comment extends BaseFragment {
             parentOrChild = Comment.PARENTORCHILD_CHILD;
             parent_id = commentTarget.get_id();
         } else {
-            parentOrChild =  Comment.PARENTORCHILD_PARENT;
+            parentOrChild = Comment.PARENTORCHILD_PARENT;
             parent_id = wallpaper_id;
         }
         String content = editTextComment.getText().toString();

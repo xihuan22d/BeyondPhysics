@@ -2,11 +2,10 @@ package com.my.models;
 
 
 public class Collection extends BaseModel {
-    public static final String type_wallpaper = "wallpaper";
-    public static final String type_comment = "comment";
+    public static final String type_wallpaper = "type_wallpaper";
 
-    public static final String status_unCollection = "未收藏";
-    public static final String status_collection = "已收藏";
+    public static final String status_unCollection = "status_unCollection";
+    public static final String status_collection = "status_collection";
 
     private String type;
     private String targetObject_id;

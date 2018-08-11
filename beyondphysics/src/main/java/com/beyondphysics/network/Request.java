@@ -9,11 +9,12 @@ import com.beyondphysics.network.utils.ThreadTool;
 import com.beyondphysics.network.utils.TimeTool;
 
 import java.io.Serializable;
+import java.net.HttpURLConnection;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.net.ssl.SSLSocketFactory;
+import javax.net.ssl.HttpsURLConnection;
 
 /**
  * Created by xihuan22 on 2017/8/5.
@@ -113,7 +114,7 @@ public abstract class Request<T> implements Serializable {
 
     private boolean needSort;
 
-    private SSLSocketFactory sslSocketFactory;
+    private OnHttpStatusListener onHttpStatusListener;
 
     public Request(String urlString, int requestType, String tag, OnResponseListener<T> onResponseListener) {
         if (urlString == null) {
@@ -393,12 +394,12 @@ public abstract class Request<T> implements Serializable {
         this.needSort = needSort;
     }
 
-    public SSLSocketFactory getSslSocketFactory() {
-        return sslSocketFactory;
+    public OnHttpStatusListener getOnHttpStatusListener() {
+        return onHttpStatusListener;
     }
 
-    public void setSslSocketFactory(SSLSocketFactory sslSocketFactory) {
-        this.sslSocketFactory = sslSocketFactory;
+    public void setOnHttpStatusListener(OnHttpStatusListener onHttpStatusListener) {
+        this.onHttpStatusListener = onHttpStatusListener;
     }
 
     public Map<String, String> getHeaderParams() throws Exception {
@@ -457,7 +458,7 @@ public abstract class Request<T> implements Serializable {
                 ", cacheInDisk=" + cacheInDisk +
                 ", modelType=" + modelType +
                 ", needSort=" + needSort +
-                ", sslSocketFactory=" + sslSocketFactory +
+                ", onHttpStatusListener=" + onHttpStatusListener +
                 '}';
     }
 
@@ -498,5 +499,31 @@ public abstract class Request<T> implements Serializable {
         void onSuccessResponse(T response);
 
         void onErrorResponse(String error);
+    }
+
+    /**
+     * 所有方法的回调是在线程中执行的
+     */
+    public interface OnHttpStatusListener {
+        /**
+         * 如果使用的请求方式是httpURLConnection,第一个参数返回httpURLConnection,第二个返回null,不然第一个参数返回null,后面的参数返回网络请求的方式
+         */
+        void onHttpInit(HttpURLConnection httpURLConnection, Object object);
+
+        /**
+         * 如果使用的请求方式是HttpsURLConnection,第一个参数返回HttpsURLConnection,第二个返回null,不然第一个参数返回null,后面的参数返回网络请求的方式
+         * 在该方法内实现自定义的SSLSocketFactory
+         */
+        void onHttpsInit(HttpsURLConnection httpsURLConnection, Object object);
+
+        /**
+         * 如果使用的请求方式是httpURLConnection,第一个参数返回httpURLConnection,第二个返回null,不然第一个参数返回null,后面的参数返回网络请求的方式
+         */
+        void onHttpCompleted(HttpURLConnection httpURLConnection, Object object);
+
+        /**
+         * 如果使用的请求方式是HttpsURLConnection,第一个参数返回HttpsURLConnection,第二个返回null,不然第一个参数返回null,后面的参数返回网络请求的方式
+         */
+        void onHttpsCompleted(HttpsURLConnection httpsURLConnection, Object object);
     }
 }

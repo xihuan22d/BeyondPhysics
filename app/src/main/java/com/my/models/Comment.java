@@ -4,7 +4,7 @@ package com.my.models;
 import java.util.List;
 
 public class Comment extends BaseModel {
-    public static final String type_wallpaper = "wallpaper";
+    public static final String type_wallpaper = "type_wallpaper";
 
 
     public static final String SORTTYPE_CHILDCOMMENTSORT = "childCommentSort";

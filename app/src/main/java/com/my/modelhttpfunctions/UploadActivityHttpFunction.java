@@ -17,7 +17,7 @@ public class UploadActivityHttpFunction {
 
 
     public static UploadRequest<?> uploadActivity_uploadWallpaper(final BaseActivity baseActivity, final String[] names, final String[] values, final String[] fileNames, final String[] filePaths, final Request.OnResponseListener<String> onResponseListener, final BaseGsonModel.OnBaseGsonModelListener<UploadActivity_UploadWallpaper_GsonModel.Data> onBaseGsonModelListener, UploadRequest.OnUploadProgressListener onUploadProgressListener) {
-        String url = HttpConnectTool.nodejsRootUrl + HttpConnectTool.uploadActivity_uploadWallpaper;
+        String url = HttpConnectTool.getServerRootUrl() + HttpConnectTool.uploadActivity_uploadWallpaper;
         if (!NetworkStateTool.isNetworkConnected(baseActivity)) {
             BaseActivity.showShortToast(baseActivity, TheApplication.NETOPENERROR);
             if (onResponseListener != null) {

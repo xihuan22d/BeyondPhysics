@@ -67,7 +67,7 @@ public class KeyboardDetectFrameLayout extends FrameLayout {
     @Override
     protected void onDetachedFromWindow() {
         if (keyboardOnGlobalChangeListener != null) {
-            getViewTreeObserver().removeGlobalOnLayoutListener(keyboardOnGlobalChangeListener);
+            getViewTreeObserver().removeOnGlobalLayoutListener(keyboardOnGlobalChangeListener);
         }
         super.onDetachedFromWindow();
     }

@@ -1,9 +1,20 @@
 package com.my.utils;
 
+import android.content.Context;
+
+import com.beyondphysics.ui.utils.SSLSocketTool;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.net.ssl.SSLSocketFactory;
+
 /**
  * 与服务器有关的静态变量名统一使用小写,方便与服务器接口对应
  */
 public class HttpConnectTool {
+    public static final boolean USEHTTPS = true;
+
     //一页的数据个数
     public static final int pageSize = 25;
     //获取评论的一页数据个数
@@ -16,16 +27,14 @@ public class HttpConnectTool {
     public static final String defaultStringValue = "error";
     //比如email是个唯一的字段,但是注册时候是手机方式注册,可以先以unSetUniqueStringValue_1514624770629的方式维护其唯一性,再以待修改
     public static final String unSetUniqueStringValue = "unSetUniqueStringValue_";
-    //金币名称
-    public static final String goldName = "美币";
     //需要被替换的分隔符
     public static final String featureNeedReplaceSplitSign = "，";
     //特征分隔符
     public static final String featureSplitSign = ",";
 
     // 服务器根路由
-    public static final String nodejsRootUrl = "http://47.97.113.47:2222";
-    // public static final String nodejsRootUrl = "http://192.168.30.15:2222";
+    public static final String serverRootUrl = "http://server.52wallpaper.com:2222";
+    public static final String serverRootUrl_https = "https://server.52wallpaper.com:2223";
 
     // 反馈
     public static final String theApplication_feedback = "/theApplication_feedback";
@@ -55,4 +64,22 @@ public class HttpConnectTool {
     public static final String wallpaperDetailsActivity_doFollow = "/wallpaperDetailsActivity_doFollow";
 
 
+    public static SSLSocketFactory sslSocketFactory;
+
+    public static String getServerRootUrl() {
+        if (USEHTTPS) {
+            return serverRootUrl_https;
+        }
+        return serverRootUrl;
+    }
+
+    public static synchronized SSLSocketFactory getInstanceSslSocketFactory(Context context) {
+        if (sslSocketFactory == null) {
+            List<String> crts = new ArrayList<String>();
+            crts.add("my.crt");
+            crts.add("my1.crt");
+            sslSocketFactory = SSLSocketTool.getSocketFactoryByKeyStore(SSLSocketTool.TYPE_ASSETS, crts, context);
+        }
+        return sslSocketFactory;
+    }
 }

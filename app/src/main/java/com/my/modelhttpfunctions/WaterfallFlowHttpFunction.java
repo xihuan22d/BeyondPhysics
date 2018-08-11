@@ -18,7 +18,7 @@ import java.util.Map;
 public class WaterfallFlowHttpFunction {
 
     public static void mainActivity_home_getWallpaperByCreateTime(final BaseActivity baseActivity, final String kind, final String createTime, final String screenNumber, final Request.OnResponseListener<String> onResponseListener, final BaseGsonModel.OnBaseGsonModelListener<MainActivity_Home_GetWallpaper_Default_GsonModel.Data> onBaseGsonModelListener) {
-        String url = HttpConnectTool.nodejsRootUrl + HttpConnectTool.mainActivity_home_getWallpaperByCreateTime;
+        String url = HttpConnectTool.getServerRootUrl() + HttpConnectTool.mainActivity_home_getWallpaperByCreateTime;
         if (!NetworkStateTool.isNetworkConnected(baseActivity)) {
             BaseActivity.showShortToast(baseActivity, TheApplication.NETOPENERROR);
             if (onResponseListener != null) {
@@ -69,7 +69,7 @@ public class WaterfallFlowHttpFunction {
     }
 
     public static void mainActivity_home_getWallpaperBySort(final BaseActivity baseActivity, final String kind, final String sortType, final String sort, final String screenNumber, final Request.OnResponseListener<String> onResponseListener, final BaseGsonModel.OnBaseGsonModelListener<MainActivity_Home_GetWallpaper_Default_GsonModel.Data> onBaseGsonModelListener) {
-        String url = HttpConnectTool.nodejsRootUrl + HttpConnectTool.mainActivity_home_getWallpaperBySort;
+        String url = HttpConnectTool.getServerRootUrl() + HttpConnectTool.mainActivity_home_getWallpaperBySort;
         if (!NetworkStateTool.isNetworkConnected(baseActivity)) {
             BaseActivity.showShortToast(baseActivity, TheApplication.NETOPENERROR);
             if (onResponseListener != null) {

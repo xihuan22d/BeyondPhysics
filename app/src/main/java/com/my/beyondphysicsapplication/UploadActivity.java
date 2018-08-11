@@ -36,7 +36,6 @@ import com.my.models.net.BaseGsonModel;
 import com.my.models.net.MainActivity_Type_GetWallpaperType_GsonModel;
 import com.my.models.net.UploadActivity_UploadWallpaper_GsonModel;
 import com.my.utils.BitmapChangeSizeTool;
-import com.my.utils.HttpConnectTool;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -306,7 +305,7 @@ public class UploadActivity extends NewBaseActivity {
                                     e.printStackTrace();
                                 }
                                 if (gold > 10) {
-                                    BaseActivity.showShortToast(UploadActivity.this, "售价不能超过10" + HttpConnectTool.goldName);
+                                    BaseActivity.showShortToast(UploadActivity.this, "售价不能超过10");
                                 } else {
                                     int[] res = FileTool.getBitmapWidthAndHeight(uploadPreviewPath);
                                     final String[] names = {"kind", "wallpaperType_id", "name", "feature", "describe", "needGold", "previewImageWidth", "previewImageHeight"};
@@ -330,14 +329,14 @@ public class UploadActivity extends NewBaseActivity {
 
                                         @Override
                                         public void cancel(PopupWindow popupWindow, View popupWindowView) {
-                                            if (popupWindowView.getTag() != null) {
-                                                BeyondPhysicsManager.getInstance(UploadActivity.this).cancelRequestWithRequest((UploadRequest<?>) popupWindowView.getTag(), false);
-                                            }
+
                                         }
 
                                         @Override
                                         public void popupWindowDismiss(PopupWindow popupWindow, View popupWindowView) {
-
+                                            if (popupWindowView.getTag() != null) {
+                                                BeyondPhysicsManager.getInstance(UploadActivity.this).cancelRequestWithRequest((UploadRequest<?>) popupWindowView.getTag(), false);
+                                            }
                                         }
                                     });
                                 }
@@ -431,6 +430,33 @@ public class UploadActivity extends NewBaseActivity {
         return uploadRequest;
     }
 
+    public void resetSelect() {
+        validate[1] = false;
+        imageViewTypeOk.setVisibility(View.INVISIBLE);
+        textViewTypeContent.setText(R.string.activity_upload_textViewTypeContent_text);
+        textViewTypeContent.setTextColor(editText_normal_hint);
+        validate[2] = false;
+        editTextNameContent.setText("");
+        imageViewNameOk.setVisibility(View.INVISIBLE);
+        validate[3] = false;
+        editTextFeatureContent.setText("");
+        imageViewFeatureOk.setVisibility(View.INVISIBLE);
+        validate[4] = false;
+        editTextDescribeContent.setText("");
+        imageViewDescribeOk.setVisibility(View.INVISIBLE);
+        validate[5] = true;
+        editTextNeedGoldContent.setText("0");
+        imageViewNeedGoldOk.setVisibility(View.VISIBLE);
+        validate[6] = false;
+        textViewPreviewContent.setText(R.string.activity_upload_textViewPreviewContent_text);
+        textViewPreviewContent.setTextColor(editText_normal_hint);
+        imageViewPreview.setImageBitmap(null);
+        validate[7] = false;
+        textViewWallpaperContent.setText(R.string.activity_upload_textViewWallpaperContent_text);
+        textViewWallpaperContent.setTextColor(editText_normal_hint);
+        imageViewWallpaperOk.setVisibility(View.INVISIBLE);
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == PREVIEW_INTENT_REQUEST && resultCode == RESULT_OK && data != null) {
@@ -495,32 +521,6 @@ public class UploadActivity extends NewBaseActivity {
         finish();
     }
 
-    public void resetSelect() {
-        validate[1] = false;
-        imageViewTypeOk.setVisibility(View.INVISIBLE);
-        textViewTypeContent.setText(R.string.activity_upload_textViewTypeContent_text);
-        textViewTypeContent.setTextColor(editText_normal_hint);
-        validate[2] = false;
-        editTextNameContent.setText("");
-        imageViewNameOk.setVisibility(View.INVISIBLE);
-        validate[3] = false;
-        editTextFeatureContent.setText("");
-        imageViewFeatureOk.setVisibility(View.INVISIBLE);
-        validate[4] = false;
-        editTextDescribeContent.setText("");
-        imageViewDescribeOk.setVisibility(View.INVISIBLE);
-        validate[5] = true;
-        editTextNeedGoldContent.setText("0");
-        imageViewNeedGoldOk.setVisibility(View.VISIBLE);
-        validate[6] = false;
-        textViewPreviewContent.setText(R.string.activity_upload_textViewPreviewContent_text);
-        textViewPreviewContent.setTextColor(editText_normal_hint);
-        imageViewPreview.setImageBitmap(null);
-        validate[7] = false;
-        textViewWallpaperContent.setText(R.string.activity_upload_textViewWallpaperContent_text);
-        textViewWallpaperContent.setTextColor(editText_normal_hint);
-        imageViewWallpaperOk.setVisibility(View.INVISIBLE);
-    }
 
     public class MyTextWatcher implements TextWatcher {
         private EditText editText;

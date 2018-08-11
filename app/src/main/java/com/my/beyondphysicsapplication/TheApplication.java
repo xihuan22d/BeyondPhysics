@@ -98,7 +98,7 @@ public class TheApplication extends Application {
 
     public static <T> void replaceAllFormBaseRecyclerViewAdapter(BaseRecyclerViewAdapter baseRecyclerViewAdapter, List<T> newDatas, RecyclerView recyclerView) {
         if (baseRecyclerViewAdapter != null) {
-            baseRecyclerViewAdapter.replaceAllWithScrollTop(newDatas,recyclerView);
+            baseRecyclerViewAdapter.replaceAllWithScrollTop(newDatas, recyclerView);
         }
     }
 

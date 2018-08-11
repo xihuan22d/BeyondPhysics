@@ -307,7 +307,7 @@ public class BaseCommentActivity extends NewBaseActivity {
     }
 
 
-    public void commentWallpaper(final View view ,String parentOrChild, String content,String parent_id){
+    public void commentWallpaper(final View view, String parentOrChild, String content, String parent_id) {
         Object[] objects = ProgressDialogHelp.unEnabledView(BaseCommentActivity.this, view);
         final ProgressDialog progressDialog = (ProgressDialog) objects[0];
         final String progressDialogKey = (String) objects[1];

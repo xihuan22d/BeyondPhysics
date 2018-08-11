@@ -32,8 +32,6 @@ import java.util.List;
 import java.util.Map;
 
 import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLSocketFactory;
-
 
 /**
  * Created by xihuan22 on 2017/8/1.
@@ -65,20 +63,28 @@ public class HttpAgreement_Default implements HttpAgreement {
                     FileTool.needShowAndWriteLogToSdcard(RequestManager.openDebug, RequestManager.logFileName, "HttpAgreement_Defalt_doRequest:urlString为null", null, 1);
                 } else {
                     HttpURLConnection httpURLConnection = null;
+                    Request.OnHttpStatusListener onHttpStatusListener = request.getOnHttpStatusListener();
+                    boolean isHttps = false;
                     try {
                         URL url = new URL(urlString);
                         httpURLConnection = (HttpURLConnection) url.openConnection();
+
+                        if (url.getProtocol() != null && url.getProtocol().equals("https")) {
+                            if (onHttpStatusListener != null) {
+                                onHttpStatusListener.onHttpsInit((HttpsURLConnection) httpURLConnection, null);
+                            }
+                            isHttps = true;
+                        } else {
+                            if (onHttpStatusListener != null) {
+                                onHttpStatusListener.onHttpInit(httpURLConnection, null);
+                            }
+                        }
                         httpURLConnection.setDoInput(true);
                         httpURLConnection.setDoOutput(false);
                         httpURLConnection.setUseCaches(false);
                         httpURLConnection.setConnectTimeout(request.getConnectTimeoutMs());
                         httpURLConnection.setReadTimeout(request.getReadTimeoutMs());
-                        if (url.getProtocol() != null && url.getProtocol().equals("https")) {
-                            SSLSocketFactory sslSocketFactory=request.getSslSocketFactory();
-                            if ( sslSocketFactory != null){
-                                ((HttpsURLConnection) httpURLConnection).setSSLSocketFactory(sslSocketFactory);
-                            }
-                        }
+
                         Map<String, String> headerParams = request.getHeaderParams();
                         if (headerParams != null) {
                             for (Map.Entry<String, String> entry : headerParams.entrySet()) {
@@ -171,13 +177,21 @@ public class HttpAgreement_Default implements HttpAgreement {
                         FileTool.needShowAndWriteLogToSdcard(RequestManager.openDebug, RequestManager.logFileName, "HttpAgreement_Defalt_doRequest:url格式不正确__" + urlString, e, 1);
                     } finally {
                         if (httpURLConnection != null) {
+                            if (isHttps) {
+                                if (onHttpStatusListener != null) {
+                                    onHttpStatusListener.onHttpsCompleted((HttpsURLConnection) httpURLConnection, null);
+                                }
+                            } else {
+                                if (onHttpStatusListener != null) {
+                                    onHttpStatusListener.onHttpCompleted(httpURLConnection, null);
+                                }
+                            }
                             httpURLConnection.disconnect();
                         }
                     }
                 }
             }
         }
-
         return httpResponse;
     }
 
@@ -187,13 +201,13 @@ public class HttpAgreement_Default implements HttpAgreement {
         }
         httpURLConnection.setDoOutput(true);
         if (headerParams != null) {
-            if (!headerParams.containsKey("Connection")) {
+            if (!headerParams.containsKey("Connection") && !headerParams.containsKey("connection")) {
                 httpURLConnection.setRequestProperty("Connection", "keep-alive");
             }
-            if (!headerParams.containsKey("Accept-Charset")) {
+            if (!headerParams.containsKey("Accept-Charset") && !headerParams.containsKey("accept-charset")) {
                 httpURLConnection.setRequestProperty("Accept-Charset", request.getEncoding());
             }
-            if (!headerParams.containsKey("Content-Type")) {
+            if (!headerParams.containsKey("Content-Type") && !headerParams.containsKey("content-type")) {
                 httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=" + request.getEncoding());
             }
         } else {

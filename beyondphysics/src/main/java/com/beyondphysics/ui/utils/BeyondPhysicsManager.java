@@ -47,7 +47,7 @@ public class BeyondPhysicsManager {
             return beyondPhysicsManager;
         }
     }
-    
+
     public static BeyondPhysicsManager getInstance(BaseActivity baseActivity) {
         if (baseActivity == null) {
             throw new NullPointerException("baseActivity为null");
@@ -68,7 +68,6 @@ public class BeyondPhysicsManager {
             return beyondPhysicsManager;
         }
     }
-
 
 
     public RequestManager getRequestManager() {
@@ -107,7 +106,7 @@ public class BeyondPhysicsManager {
     }
 
     public boolean addRequestToDispatcher(Request<?> request) {
-        return  getRequestManagerUseDispatcher().addRequestToDispatcher(request);
+        return getRequestManagerUseDispatcher().addRequestToDispatcher(request);
     }
 
     public void addRequestWithSort(Request<?> request) {
@@ -115,7 +114,7 @@ public class BeyondPhysicsManager {
     }
 
     public boolean addRequestWithSortToDispatcher(Request<?> request) {
-        return  getRequestManagerUseDispatcher().addRequestWithSortToDispatcher(request);
+        return getRequestManagerUseDispatcher().addRequestWithSortToDispatcher(request);
     }
 
     public void addBitmapRequest(BitmapRequest<?> bitmapRequest) {
@@ -123,7 +122,7 @@ public class BeyondPhysicsManager {
     }
 
     public boolean addBitmapRequestToDispatcher(BitmapRequest<?> bitmapRequest) {
-        return  getRequestManagerUseDispatcher().addBitmapRequestToDispatcher(bitmapRequest);
+        return getRequestManagerUseDispatcher().addBitmapRequestToDispatcher(bitmapRequest);
     }
 
     public void addBitmapRequestWithSort(BitmapRequest<?> bitmapRequest) {
@@ -131,7 +130,7 @@ public class BeyondPhysicsManager {
     }
 
     public boolean addBitmapRequestWithSortToDispatcher(BitmapRequest<?> bitmapRequest) {
-        return  getRequestManagerUseDispatcher().addBitmapRequestWithSortToDispatcher(bitmapRequest);
+        return getRequestManagerUseDispatcher().addBitmapRequestWithSortToDispatcher(bitmapRequest);
     }
 
     public void cancelRequestWithSuperKeyByWait(SuperKey superKey, boolean removeListener) {
@@ -155,7 +154,7 @@ public class BeyondPhysicsManager {
     }
 
     public boolean cancelRequestWithRequestToDispatcher(Request<?> request, boolean removeListener) {
-        return  getRequestManagerUseDispatcher().cancelRequestWithRequestToDispatcher(request, removeListener);
+        return getRequestManagerUseDispatcher().cancelRequestWithRequestToDispatcher(request, removeListener);
     }
 
     public void cancelBitmapRequestWithSuperKeyByWait(SuperKey superKey, boolean removeListener) {
@@ -167,7 +166,7 @@ public class BeyondPhysicsManager {
     }
 
     public boolean cancelBitmapRequestWithSuperKeyToDispatcher(SuperKey superKey, boolean removeListener) {
-        return  getRequestManagerUseDispatcher().cancelBitmapRequestWithSuperKeyToDispatcher(superKey, removeListener);
+        return getRequestManagerUseDispatcher().cancelBitmapRequestWithSuperKeyToDispatcher(superKey, removeListener);
     }
 
     public void cancelBitmapRequestWithRequestByWait(BitmapRequest<?> bitmapRequest, boolean removeListener) {
@@ -192,7 +191,7 @@ public class BeyondPhysicsManager {
     }
 
     public boolean cancelRequestWithTagToDispatcher(String tag, boolean removeListener) {
-        return  getRequestManagerUseDispatcher().cancelRequestWithTagToDispatcher(tag, removeListener);
+        return getRequestManagerUseDispatcher().cancelRequestWithTagToDispatcher(tag, removeListener);
     }
 
     public void cancelAllRequestByWait(boolean removeListener) {
@@ -204,7 +203,7 @@ public class BeyondPhysicsManager {
     }
 
     public boolean cancelAllRequestToDispatcher(boolean removeListener) {
-        return  getRequestManagerUseDispatcher().cancelAllRequestToDispatcher(removeListener);
+        return getRequestManagerUseDispatcher().cancelAllRequestToDispatcher(removeListener);
     }
 
 
@@ -254,7 +253,7 @@ public class BeyondPhysicsManager {
     }
 
     public boolean doCacheItemsWithCallback(CacheItemRequest cacheItemRequest) {
-      return  getRequestManagerUseDispatcher().doCacheItemsWithCallback(cacheItemRequest);
+        return getRequestManagerUseDispatcher().doCacheItemsWithCallback(cacheItemRequest);
     }
 
     public static String getDataFromCache(String url, int requestType, BaseActivity baseActivity) {

@@ -24,7 +24,7 @@ import java.util.Map;
 public class WallpaperDetailsActivityHttpFunction {
 
     public static void wallpaperDetailsActivity_getWallpaperDetails(final BaseActivity baseActivity, final String wallpaper_id, final String kind, final String createTime, final Request.OnResponseListener<String> onResponseListener, final BaseGsonModel.OnBaseGsonModelListener<WallpaperDetailsActivity_GetWallpaperDetails_GsonModel.Data> onBaseGsonModelListener) {
-        String url = HttpConnectTool.nodejsRootUrl + HttpConnectTool.wallpaperDetailsActivity_getWallpaperDetails;
+        String url = HttpConnectTool.getServerRootUrl() + HttpConnectTool.wallpaperDetailsActivity_getWallpaperDetails;
         if (!NetworkStateTool.isNetworkConnected(baseActivity)) {
             BaseActivity.showShortToast(baseActivity, TheApplication.NETOPENERROR);
             if (onResponseListener != null) {
@@ -76,7 +76,7 @@ public class WallpaperDetailsActivityHttpFunction {
 
 
     public static void wallpaperDetailsActivity_getWallpaperCommentByCreateTime(final BaseActivity baseActivity, final String targetObject_id, final String createTime, final Request.OnResponseListener<String> onResponseListener, final BaseGsonModel.OnBaseGsonModelListener<WallpaperDetailsActivity_GetWallpaperCommentByCreateTime_GsonModel.Data> onBaseGsonModelListener) {
-        String url = HttpConnectTool.nodejsRootUrl + HttpConnectTool.wallpaperDetailsActivity_getWallpaperCommentByCreateTime;
+        String url = HttpConnectTool.getServerRootUrl() + HttpConnectTool.wallpaperDetailsActivity_getWallpaperCommentByCreateTime;
         if (!NetworkStateTool.isNetworkConnected(baseActivity)) {
             BaseActivity.showShortToast(baseActivity, TheApplication.NETOPENERROR);
             if (onResponseListener != null) {
@@ -127,7 +127,7 @@ public class WallpaperDetailsActivityHttpFunction {
 
 
     public static void wallpaperDetailsActivity_commentWallpaper(final BaseActivity baseActivity, final String parentOrChild, final String content, final String parent_id, final Request.OnResponseListener<String> onResponseListener, final BaseGsonModel.OnBaseGsonModelListener<WallpaperDetailsActivity_CommentWallpaper_GsonModel.Data> onBaseGsonModelListener) {
-        String url = HttpConnectTool.nodejsRootUrl + HttpConnectTool.wallpaperDetailsActivity_commentWallpaper;
+        String url = HttpConnectTool.getServerRootUrl() + HttpConnectTool.wallpaperDetailsActivity_commentWallpaper;
         if (!NetworkStateTool.isNetworkConnected(baseActivity)) {
             BaseActivity.showShortToast(baseActivity, TheApplication.NETOPENERROR);
             if (onResponseListener != null) {
@@ -178,7 +178,7 @@ public class WallpaperDetailsActivityHttpFunction {
 
 
     public static void wallpaperDetailsActivity_doPraise(final BaseActivity baseActivity, final String type, final String targetObject_id, final String praiseUpOrDown, final Request.OnResponseListener<String> onResponseListener, final BaseGsonModel.OnBaseGsonModelListener<WallpaperDetailsActivity_DoPraise_GsonModel.Data> onBaseGsonModelListener) {
-        String url = HttpConnectTool.nodejsRootUrl + HttpConnectTool.wallpaperDetailsActivity_doPraise;
+        String url = HttpConnectTool.getServerRootUrl() + HttpConnectTool.wallpaperDetailsActivity_doPraise;
         if (!NetworkStateTool.isNetworkConnected(baseActivity)) {
             BaseActivity.showShortToast(baseActivity, TheApplication.NETOPENERROR);
             if (onResponseListener != null) {
@@ -229,7 +229,7 @@ public class WallpaperDetailsActivityHttpFunction {
 
 
     public static void wallpaperDetailsActivity_doCollection(final BaseActivity baseActivity, final String targetObject_id, final Request.OnResponseListener<String> onResponseListener, final BaseGsonModel.OnBaseGsonModelListener<WallpaperDetailsActivity_DoCollection_GsonModel.Data> onBaseGsonModelListener) {
-        String url = HttpConnectTool.nodejsRootUrl + HttpConnectTool.wallpaperDetailsActivity_doCollection;
+        String url = HttpConnectTool.getServerRootUrl() + HttpConnectTool.wallpaperDetailsActivity_doCollection;
         if (!NetworkStateTool.isNetworkConnected(baseActivity)) {
             BaseActivity.showShortToast(baseActivity, TheApplication.NETOPENERROR);
             if (onResponseListener != null) {
@@ -279,7 +279,7 @@ public class WallpaperDetailsActivityHttpFunction {
 
 
     public static void wallpaperDetailsActivity_doFollow(final BaseActivity baseActivity, final String targetUser_id, final Request.OnResponseListener<String> onResponseListener, final BaseGsonModel.OnBaseGsonModelListener<WallpaperDetailsActivity_DoFollow_GsonModel.Data> onBaseGsonModelListener) {
-        String url = HttpConnectTool.nodejsRootUrl + HttpConnectTool.wallpaperDetailsActivity_doFollow;
+        String url = HttpConnectTool.getServerRootUrl() + HttpConnectTool.wallpaperDetailsActivity_doFollow;
         if (!NetworkStateTool.isNetworkConnected(baseActivity)) {
             BaseActivity.showShortToast(baseActivity, TheApplication.NETOPENERROR);
             if (onResponseListener != null) {

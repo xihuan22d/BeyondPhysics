@@ -19,7 +19,7 @@ public class ChildCommentActivityHttpFunction {
 
 
     public static void childCommentActivity_getWallpaperChildCommentByCreateTime(final BaseActivity baseActivity, final String rootParent_id, final String createTime, final Request.OnResponseListener<String> onResponseListener, final BaseGsonModel.OnBaseGsonModelListener<ChildCommentActivity_GetWallpaperChildCommentByCreateTime_GsonModel.Data> onBaseGsonModelListener) {
-        String url = HttpConnectTool.nodejsRootUrl + HttpConnectTool.childCommentActivity_getWallpaperChildCommentByCreateTime;
+        String url = HttpConnectTool.getServerRootUrl() + HttpConnectTool.childCommentActivity_getWallpaperChildCommentByCreateTime;
         if (!NetworkStateTool.isNetworkConnected(baseActivity)) {
             BaseActivity.showShortToast(baseActivity, TheApplication.NETOPENERROR);
             if (onResponseListener != null) {

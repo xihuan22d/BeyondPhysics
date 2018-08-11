@@ -153,7 +153,7 @@ public class HotCommentActivity extends BaseCommentActivity {
             if (oldTargetContent != null && content.startsWith(oldTargetContent)) {
                 content = content.replaceFirst(oldTargetContent, "");
             }
-            commentWallpaper( view , parentOrChild,  content, parent_id);
+            commentWallpaper(view, parentOrChild, content, parent_id);
         }
     }
 }

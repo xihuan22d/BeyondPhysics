@@ -134,7 +134,7 @@ public class SdcardDataSourceHelper implements LoaderManager.LoaderCallbacks<Cur
             }
             hasLoaded = true;
         } else {
-           // BaseActivity.showShortToast(appCompatActivity, "数据已有更新,您可以刷新获取最新数据");
+            // BaseActivity.showShortToast(appCompatActivity, "数据已有更新,您可以刷新获取最新数据");
         }
     }
 

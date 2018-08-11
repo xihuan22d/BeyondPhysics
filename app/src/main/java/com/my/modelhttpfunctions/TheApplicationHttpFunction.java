@@ -18,7 +18,7 @@ import java.util.Map;
 public class TheApplicationHttpFunction {
 
     public static void theApplication_feedback(final Context context, final String activityKey, final String content, final Request.OnResponseListener<String> onResponseListener) {
-        String url = HttpConnectTool.nodejsRootUrl + HttpConnectTool.theApplication_feedback;
+        String url = HttpConnectTool.getServerRootUrl() + HttpConnectTool.theApplication_feedback;
         if (!NetworkStateTool.isNetworkConnected(context)) {
             BaseActivity.showShortToast(context, TheApplication.NETOPENERROR);
             if (onResponseListener != null) {

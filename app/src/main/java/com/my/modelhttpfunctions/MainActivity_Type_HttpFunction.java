@@ -16,7 +16,7 @@ import java.util.Map;
 public class MainActivity_Type_HttpFunction {
 
     public static void mainActivity_type_getWallpaperType(final BaseActivity baseActivity, final Request.OnResponseListener<String> onResponseListener, final BaseGsonModel.OnBaseGsonModelListener<MainActivity_Type_GetWallpaperType_GsonModel.Data> onBaseGsonModelListener) {
-        String url = HttpConnectTool.nodejsRootUrl + HttpConnectTool.mainActivity_type_getWallpaperType;
+        String url = HttpConnectTool.getServerRootUrl() + HttpConnectTool.mainActivity_type_getWallpaperType;
         if (!NetworkStateTool.isNetworkConnected(baseActivity)) {
             BaseActivity.showShortToast(baseActivity, TheApplication.NETOPENERROR);
             if (onResponseListener != null) {

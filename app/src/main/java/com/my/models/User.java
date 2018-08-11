@@ -1,9 +1,9 @@
 package com.my.models;
 
 public class User extends BaseModel {
-    public static final String sex_unKnow = "未知";
-    public static final String sex_girl = "女";
-    public static final String sex_boy = "男";
+    public static final String sex_unKnow = "sex_unKnow";
+    public static final String sex_girl = "sex_girl";
+    public static final String sex_boy = "sex_boy";
 
     public static final String UNKNOW_TIPS = "未知";
     public static final String GIRL_TIPS = "女";

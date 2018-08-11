@@ -2,8 +2,8 @@ package com.my.models;
 
 
 public class Follow extends BaseModel {
-    public static final String status_unFollow = "未关注";
-    public static final String status_follow = "已关注";
+    public static final String status_unFollow = "status_unFollow";
+    public static final String status_follow = "status_follow";
 
     public static final String UNFOLLOW_TIPS = "+关注";
     public static final String FOLLOW_TIPS = "已关注";

@@ -1,4 +1,4 @@
-package com.beyondphysics.ui.utils;
+package com.my.utils;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -48,77 +48,6 @@ public class PermissionHelper {
         this.permissionModels = permissionModels;
     }
 
-    public void setOnApplyPermissionListener(OnApplyPermissionListener onApplyPermissionListener) {
-        this.onApplyPermissionListener = onApplyPermissionListener;
-    }
-
-    public void applyPermissions() {
-        for (int i = 0; i < permissionModels.length; i++) {
-            PermissionModel permissionModel = permissionModels[i];
-            if (permissionModel != null && permissionModel.permission != null && ContextCompat.checkSelfPermission(baseActivity, permissionModel.permission) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(baseActivity, new String[]{permissionModel.permission}, permissionModel.requestCode);
-                return;
-            }
-        }
-        if (onApplyPermissionListener != null) {
-            onApplyPermissionListener.onAfterApplyAllPermission();
-        }
-    }
-
-
-    /**
-     * 对应Activity的onRequestPermissionsResult方法
-     */
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        if (haveRequestCode(requestCode)) {
-            if (permissions != null && grantResults != null && permissions.length > 0 && permissions[0] != null && grantResults.length > 0) {
-                String permission = permissions[0];
-                if (grantResults[0] != PackageManager.PERMISSION_GRANTED) {
-                    if (ActivityCompat.shouldShowRequestPermissionRationale(baseActivity, permission)) {
-                        AlertDialog.Builder builder =
-                                new AlertDialog.Builder(baseActivity, R.style.DialogAlertStyle).setTitle("权限申请").setMessage(findPermissionExplain(permission))
-                                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                                            @Override
-                                            public void onClick(DialogInterface dialog, int which) {
-                                                applyPermissions();
-                                            }
-                                        });
-                        builder.setCancelable(false);
-                        builder.show();
-                    } else {
-                        AlertDialog.Builder builder = new AlertDialog.Builder(baseActivity, R.style.DialogAlertStyle).setTitle("权限申请")
-                                .setMessage("请在打开的窗口的权限中开启" + findPermissionName(permission) + "权限,以正常使用本应用")
-                                .setPositiveButton("去设置", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        openApplicationSettings(REQUEST_OPEN_APPLICATION_SETTINGS_CODE);
-                                    }
-                                }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        baseActivity.finish();
-                                    }
-                                });
-                        builder.setCancelable(false);
-                        builder.show();
-                    }
-                } else {// 到这里就表示用户允许了本次请求,我们继续检查是否还有待申请的权限没有申请
-                    if (isAllRequestedPermissionGranted()) {
-                        if (onApplyPermissionListener != null) {
-                            onApplyPermissionListener.onAfterApplyAllPermission();
-                        }
-                    } else {
-                        applyPermissions();
-                    }
-                }
-            } else {
-                BaseActivity.showShortToast(baseActivity, "权限申请返回异常");
-            }
-        } else {
-            BaseActivity.showShortToast(baseActivity, "权限申请未知异常");
-        }
-
-    }
 
     private boolean haveRequestCode(int requestCode) {
         for (int i = 0; i < permissionModels.length; i++) {
@@ -130,37 +59,6 @@ public class PermissionHelper {
         return false;
     }
 
-    /**
-     * 对应Activity的onActivityResult方法
-     */
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        switch (requestCode) {
-            case REQUEST_OPEN_APPLICATION_SETTINGS_CODE:
-                if (isAllRequestedPermissionGranted()) {
-                    if (onApplyPermissionListener != null) {
-                        onApplyPermissionListener.onAfterApplyAllPermission();
-                    }
-                } else {
-                    baseActivity.finish();
-                }
-                break;
-            default:
-                break;
-        }
-    }
-
-    /**
-     * 判断是否所有的权限都被授权了
-     */
-    public boolean isAllRequestedPermissionGranted() {
-        for (int i = 0; i < permissionModels.length; i++) {
-            PermissionModel permissionModel = permissionModels[i];
-            if (permissionModel != null && permissionModel.permission != null && ContextCompat.checkSelfPermission(baseActivity, permissionModel.permission) != PackageManager.PERMISSION_GRANTED) {
-                return false;
-            }
-        }
-        return true;
-    }
 
     /**
      * 打开应用设置界面
@@ -207,6 +105,119 @@ public class PermissionHelper {
         return null;
     }
 
+    private void applyAllPermissionSuccess() {
+        if (onApplyPermissionListener != null) {
+            onApplyPermissionListener.onAfterApplyAllPermission();
+            onApplyPermissionListener = null;
+        }
+    }
+
+    private void applyError(String error) {
+        if (onApplyPermissionListener != null) {
+            onApplyPermissionListener.onApplyError(error);
+            onApplyPermissionListener = null;
+        }
+    }
+
+    public void setOnApplyPermissionListener(OnApplyPermissionListener onApplyPermissionListener) {
+        this.onApplyPermissionListener = onApplyPermissionListener;
+    }
+
+
+    /**
+     * 对应Activity的onRequestPermissionsResult方法
+     */
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        if (haveRequestCode(requestCode)) {
+            if (permissions != null && grantResults != null && permissions.length > 0 && permissions[0] != null && grantResults.length > 0) {
+                String permission = permissions[0];
+                if (grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+                    if (ActivityCompat.shouldShowRequestPermissionRationale(baseActivity, permission)) {
+                        AlertDialog.Builder builder =
+                                new AlertDialog.Builder(baseActivity, R.style.DialogAlertStyle).setTitle("权限申请").setMessage(findPermissionExplain(permission))
+                                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                applyPermissions();
+                                            }
+                                        });
+                        builder.setCancelable(false);
+                        builder.show();
+                    } else {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(baseActivity, R.style.DialogAlertStyle).setTitle("权限申请")
+                                .setMessage("请在打开的窗口的权限中开启" + findPermissionName(permission) + "权限,以正常使用本应用")
+                                .setPositiveButton("去设置", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        openApplicationSettings(REQUEST_OPEN_APPLICATION_SETTINGS_CODE);
+                                    }
+                                }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        baseActivity.finish();
+                                    }
+                                });
+                        builder.setCancelable(false);
+                        builder.show();
+                    }
+                } else {// 到这里就表示用户允许了本次请求,我们继续检查是否还有待申请的权限没有申请
+                    if (isAllRequestedPermissionGranted()) {
+                        applyAllPermissionSuccess();
+                    } else {
+                        applyPermissions();
+                    }
+                }
+            } else {
+                applyError("权限申请返回异常");
+            }
+        } else {
+            applyError("权限申请未知异常");
+        }
+    }
+
+
+    /**
+     * 对应Activity的onActivityResult方法
+     */
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case REQUEST_OPEN_APPLICATION_SETTINGS_CODE:
+                if (isAllRequestedPermissionGranted()) {
+                    applyAllPermissionSuccess();
+                } else {
+                    baseActivity.finish();
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    /**
+     * 判断是否所有的权限都被授权了
+     */
+    public boolean isAllRequestedPermissionGranted() {
+        for (int i = 0; i < permissionModels.length; i++) {
+            PermissionModel permissionModel = permissionModels[i];
+            if (permissionModel != null && permissionModel.permission != null && ContextCompat.checkSelfPermission(baseActivity, permissionModel.permission) != PackageManager.PERMISSION_GRANTED) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void applyPermissions() {
+        for (int i = 0; i < permissionModels.length; i++) {
+            PermissionModel permissionModel = permissionModels[i];
+            if (permissionModel != null && permissionModel.permission != null && ContextCompat.checkSelfPermission(baseActivity, permissionModel.permission) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(baseActivity, new String[]{permissionModel.permission}, permissionModel.requestCode);
+                return;
+            }
+        }
+        applyAllPermissionSuccess();
+    }
+
+
     public static class PermissionModel {
         /**
          * 权限名称
@@ -242,6 +253,9 @@ public class PermissionHelper {
          * 申请所有权限之后的逻辑
          */
         void onAfterApplyAllPermission();
+
+        void onApplyError(String error);
+
     }
 
 }

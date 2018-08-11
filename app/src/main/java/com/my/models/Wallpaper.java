@@ -4,13 +4,13 @@ package com.my.models;
 import com.beyondphysics.network.BreakpointDownloadRequest;
 
 public class Wallpaper extends BaseModel {
-    public static final String kind_video = "video";//来自服务器的字段内容常量与服务器中命名方式保持一致
-    public static final String kind_image = "image";
-    public static final String kind_all = "all";
+    public static final String kind_video = "kind_video";//来自服务器的字段内容常量与服务器中命名方式保持一致
+    public static final String kind_image = "kind_image";
+    public static final String kind_all = "kind_all";
 
-    public static final String auditStatus_unDo = "未审核";
-    public static final String auditStatus_unPass = "未通过";
-    public static final String auditStatus_pass = "已通过";
+    public static final String auditStatus_unDo = "auditStatus_unDo";
+    public static final String auditStatus_unPass = "auditStatus_unPass";
+    public static final String auditStatus_pass = "auditStatus_pass";
 
 
     public static final String SORTTYPE_VISITSORT = "visitSort";

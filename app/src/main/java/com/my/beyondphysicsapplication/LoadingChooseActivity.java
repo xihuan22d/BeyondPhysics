@@ -8,7 +8,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.beyondphysics.ui.utils.PermissionHelper;
+import com.beyondphysics.ui.BaseActivity;
+import com.my.utils.PermissionHelper;
 
 
 public class LoadingChooseActivity extends NewBaseActivity {
@@ -42,6 +43,12 @@ public class LoadingChooseActivity extends NewBaseActivity {
             @Override
             public void onAfterApplyAllPermission() {
                 goToJump();
+            }
+
+            @Override
+            public void onApplyError(String error) {
+                BaseActivity.showShortToast(LoadingChooseActivity.this, error);
+                finish();
             }
         });
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {

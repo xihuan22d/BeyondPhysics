@@ -118,11 +118,13 @@ public class BreakpointDownloadActivity extends NewBaseActivity {
                 @Override
                 public void onSuccessResponse(String response) {
                     BaseActivity.showShortToast(BreakpointDownloadActivity.this, response + "文件位于" + savePath);
+                    downloading = false;
                 }
 
                 @Override
                 public void onErrorResponse(String error) {
                     BaseActivity.showShortToast(BreakpointDownloadActivity.this, error);
+                    downloading = false;
                 }
             }, 9, null, 8000, 22000, new BreakpointDownloadRequest.OnDownloadProgressListener() {
                 @Override
