@@ -7,11 +7,15 @@ import com.beyondphysics.network.http.HttpResponse;
 import com.beyondphysics.network.utils.SuperKey;
 import com.my.beyondphysicsapplication.TheApplication;
 
+import org.apache.http.conn.ssl.SSLSocketFactory;
+
 import java.net.HttpURLConnection;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLSession;
 
 
 public class MyStringRequest extends StringRequest_Default {

@@ -94,7 +94,7 @@ public class GifListActivity extends NewBaseActivity {
     private void getInit() {
         List<ViewItem> viewItems = new ArrayList<ViewItem>();
         for (int i = 1; i <= HttpConnectTool.pageSize; i++) {
-            String string = "http://47.97.113.47:4126/perfectwallpaper_files/specifys/gif/" + i + ".gif";
+            String string = "http://server.52wallpaper.com:4126/perfectwallpaper_files/specifys/gif/" + i + ".gif";
             viewItems.add(new ViewItem(ViewItem.VIEW_TYPE_NORMAL_ITEM_TYPE1, string));
         }
         initOrRefreshAdapter(viewItems);
@@ -103,7 +103,7 @@ public class GifListActivity extends NewBaseActivity {
     private void getNext() {
         List<ViewItem> viewItems = new ArrayList<ViewItem>();
         for (int i = 1; i <= HttpConnectTool.pageSize; i++) {
-            String string = "http://47.97.113.47:4126/perfectwallpaper_files/specifys/gif/" + i + ".gif";
+            String string = "http://server.52wallpaper.com:4126/perfectwallpaper_files/specifys/gif/" + i + ".gif";
             viewItems.add(new ViewItem(ViewItem.VIEW_TYPE_NORMAL_ITEM_TYPE1, string));
         }
         TheApplication.addAllFormBaseRecyclerViewAdapter(gifListActivity_RecyclerViewAdapter, viewItems);

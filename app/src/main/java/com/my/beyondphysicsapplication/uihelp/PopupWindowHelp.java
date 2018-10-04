@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 import com.beyondphysics.network.utils.TimeTool;
 import com.beyondphysics.ui.BaseActivity;
-import com.my.adapters.listviewadapter.Normal_Comment_More_String_ListViewAdapter;
+import com.my.adapters.listviewadapter.Normal_Menu_More_String_ListViewAdapter;
 import com.my.adapters.listviewadapter.Normal_String_ListViewAdapter;
 import com.my.beyondphysicsapplication.R;
 import com.my.models.local.KeyValueItem;
@@ -228,7 +228,7 @@ public class PopupWindowHelp {
             listView.setLayoutParams(layoutParams);
         }
 
-        Normal_Comment_More_String_ListViewAdapter normal_Comment_More_String_ListViewAdapter = new Normal_Comment_More_String_ListViewAdapter(baseActivity, keyValueItems, listView, new AdapterView.OnItemClickListener() {
+        Normal_Menu_More_String_ListViewAdapter normal_Menu_More_String_ListViewAdapter = new Normal_Menu_More_String_ListViewAdapter(baseActivity, keyValueItems, listView, new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (adapterViewOnItemClickListener != null) {
@@ -237,7 +237,7 @@ public class PopupWindowHelp {
                 popupWindow.dismiss();
             }
         });
-        listView.setAdapter(normal_Comment_More_String_ListViewAdapter);
+        listView.setAdapter(normal_Menu_More_String_ListViewAdapter);
 
         ColorDrawable colorDrawable = new ColorDrawable(Color.argb(0, 255, 255, 255));
         popupWindow.setBackgroundDrawable(colorDrawable);

@@ -16,13 +16,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Normal_Comment_More_String_ListViewAdapter extends BaseAdapter {
+public class Normal_Menu_More_String_ListViewAdapter extends BaseAdapter {
     private BaseActivity baseActivity;
     private List<KeyValueItem> keyValueItems;
     private ListView listView;
     private LayoutInflater layoutInflater;
 
-    public Normal_Comment_More_String_ListViewAdapter(BaseActivity baseActivity, List<KeyValueItem> keyValueItems, ListView listView, final AdapterView.OnItemClickListener adapterViewOnItemClickListener) {
+    public Normal_Menu_More_String_ListViewAdapter(BaseActivity baseActivity, List<KeyValueItem> keyValueItems, ListView listView, final AdapterView.OnItemClickListener adapterViewOnItemClickListener) {
         this.baseActivity = baseActivity;
         if (keyValueItems == null) {
             keyValueItems = new ArrayList<KeyValueItem>();

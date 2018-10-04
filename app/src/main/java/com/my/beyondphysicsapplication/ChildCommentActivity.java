@@ -121,13 +121,13 @@ public class ChildCommentActivity extends BaseCommentActivity {
             @Override
             public void error(String error) {
                 BaseActivity.showShortToast(ChildCommentActivity.this, error);
-                loadMoreError();
+                TheApplication.addAllFormBaseRecyclerViewAdapter(baseCommentActivity_RecyclerViewAdapter, null);
             }
 
             @Override
             public void successByTips(String tips) {
                 BaseActivity.showShortToast(ChildCommentActivity.this, tips);
-                loadMoreError();
+                TheApplication.addAllFormBaseRecyclerViewAdapter(baseCommentActivity_RecyclerViewAdapter, null);
             }
 
             @Override
@@ -192,12 +192,13 @@ public class ChildCommentActivity extends BaseCommentActivity {
             parent_id = rootParent_id;
         }
         String content = editTextComment.getText().toString();
+
+        if (oldTargetContent != null && content.startsWith(oldTargetContent)) {
+            content = content.replaceFirst(oldTargetContent, "");
+        }
         if (content.equals("")) {
             BaseActivity.showShortToast(ChildCommentActivity.this, "评论内容不能为空");
         } else {
-            if (oldTargetContent != null && content.startsWith(oldTargetContent)) {
-                content = content.replaceFirst(oldTargetContent, "");
-            }
             commentWallpaper(view, parentOrChild, content, parent_id);
         }
     }

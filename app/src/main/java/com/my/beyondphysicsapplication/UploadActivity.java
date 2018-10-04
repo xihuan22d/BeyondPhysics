@@ -36,6 +36,7 @@ import com.my.models.net.BaseGsonModel;
 import com.my.models.net.MainActivity_Type_GetWallpaperType_GsonModel;
 import com.my.models.net.UploadActivity_UploadWallpaper_GsonModel;
 import com.my.utils.BitmapChangeSizeTool;
+import com.my.utils.EncryptionTool;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -288,8 +289,8 @@ public class UploadActivity extends NewBaseActivity {
                         }
                         break;
                     case R.id.textViewToolbarUpload:
-                        if (kind != null && kind.equals(Wallpaper.kind_video)) {
-                            BaseActivity.showShortToast(UploadActivity.this, "服务器容量有限,请尽量选择上传图片进行测试,敬请谅解");
+                        if (kind == null || kind.equals(Wallpaper.kind_video)) {
+                            BaseActivity.showShortToast(UploadActivity.this, "请先选择上传类型且不允许上传视频进行测试,敬请谅解");
                         } else {
                             String name = editTextNameContent.getText().toString().trim();
                             String feature = editTextFeatureContent.getText().toString().trim();
@@ -307,16 +308,11 @@ public class UploadActivity extends NewBaseActivity {
                                 if (gold > 10) {
                                     BaseActivity.showShortToast(UploadActivity.this, "售价不能超过10");
                                 } else {
-                                    int[] res = FileTool.getBitmapWidthAndHeight(uploadPreviewPath);
+                                    int[] res = FileTool.getBitmapWidthAndHeight(uploadWallpaperImagePath);
                                     final String[] names = {"kind", "wallpaperType_id", "name", "feature", "describe", "needGold", "previewImageWidth", "previewImageHeight"};
-                                    final String[] values = {kind, wallpaperType_id, name, feature, describe, needGold, String.valueOf(res[0]), String.valueOf(res[1])};
+                                    final String[] values = {EncryptionTool.stringToDecode(kind), EncryptionTool.stringToDecode(wallpaperType_id), EncryptionTool.stringToDecode(name), EncryptionTool.stringToDecode(feature), EncryptionTool.stringToDecode(describe), EncryptionTool.stringToDecode(needGold), EncryptionTool.stringToDecode(String.valueOf(res[0])), EncryptionTool.stringToDecode(String.valueOf(res[1]))};
                                     final String[] fileNames = {"filePreview", "fileWallpaper"};
-                                    String uploadWallpaperPath = null;
-                                    if (kind != null && kind.equals(Wallpaper.kind_video)) {
-                                        uploadWallpaperPath = uploadWallpaperVideoPath;
-                                    } else {
-                                        uploadWallpaperPath = uploadWallpaperImagePath;
-                                    }
+                                    String uploadWallpaperPath = uploadWallpaperImagePath;
                                     final String[] filePaths = {uploadPreviewPath, uploadWallpaperPath};
                                     PopupWindowHelp.showPopupWindowNormalProgress(UploadActivity.this, relativeLayoutRoot, textViewToolbarUpload, "正在上传", new PopupWindowHelp.OnShowPopupwindowNormalProgressListener() {
                                         @Override
@@ -459,60 +455,62 @@ public class UploadActivity extends NewBaseActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == PREVIEW_INTENT_REQUEST && resultCode == RESULT_OK && data != null) {
-            String theUploadPreviewPath = GetPathFromUriTool.getPath(UploadActivity.this, data.getData());
-            if (theUploadPreviewPath == null) {
-                BaseActivity.showShortToast(UploadActivity.this, "获取该文件异常");
-            } else {
-                Bitmap bitmap = FileTool.getCompressBitmapFromFile(theUploadPreviewPath, activity_upload_imageViewPreview_widthOrHeight, activity_upload_imageViewPreview_widthOrHeight, ImageView.ScaleType.CENTER, new BitmapConfig(Bitmap.Config.RGB_565));
-                if (bitmap == null) {
-                    BaseActivity.showShortToast(UploadActivity.this, "该图片解析后为空请从新选择");
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK && data != null) {
+            if (requestCode == PREVIEW_INTENT_REQUEST) {
+                String theUploadPreviewPath = GetPathFromUriTool.getPath(UploadActivity.this, data.getData());
+                if (theUploadPreviewPath == null) {
+                    BaseActivity.showShortToast(UploadActivity.this, "获取该文件异常");
                 } else {
-                    imageViewPreview.setImageBitmap(bitmap);
-                    int[] widthAndHeight = FileTool.getBitmapWidthAndHeight(theUploadPreviewPath);
-                    if (widthAndHeight[0] < 720) {
-                        uploadPreviewPath = theUploadPreviewPath;
-                        textViewPreviewContent.setText(uploadPreviewPath);
-                        textViewPreviewContent.setTextColor(mainColorText);
-                        validate[6] = true;
+                    Bitmap bitmap = FileTool.getCompressBitmapFromFile(theUploadPreviewPath, activity_upload_imageViewPreview_widthOrHeight, activity_upload_imageViewPreview_widthOrHeight, ImageView.ScaleType.CENTER, new BitmapConfig(Bitmap.Config.RGB_565));
+                    if (bitmap == null) {
+                        BaseActivity.showShortToast(UploadActivity.this, "该图片解析后为空请从新选择");
                     } else {
-                        String path = BitmapChangeSizeTool.getResizeBitmapAndSaveWithJPG(theUploadPreviewPath, "uploadPreview.jpg", TheApplication.getUploadCachePath(UploadActivity.this), 540);
-                        if (path == null) {
-                            BaseActivity.showShortToast(UploadActivity.this, "图片压缩成预览图时异常");
-                        } else {
-                            uploadPreviewPath = path;
+                        imageViewPreview.setImageBitmap(bitmap);
+                        int[] widthAndHeight = FileTool.getBitmapWidthAndHeight(theUploadPreviewPath);
+                        if (widthAndHeight[0] < 720) {
+                            uploadPreviewPath = theUploadPreviewPath;
                             textViewPreviewContent.setText(uploadPreviewPath);
                             textViewPreviewContent.setTextColor(mainColorText);
                             validate[6] = true;
+                        } else {
+                            String path = BitmapChangeSizeTool.getResizeBitmapAndSaveWithJPG(theUploadPreviewPath, "uploadPreview.jpg", TheApplication.getUploadCachePath(UploadActivity.this), 540);
+                            if (path == null) {
+                                BaseActivity.showShortToast(UploadActivity.this, "图片压缩成预览图时异常");
+                            } else {
+                                uploadPreviewPath = path;
+                                textViewPreviewContent.setText(uploadPreviewPath);
+                                textViewPreviewContent.setTextColor(mainColorText);
+                                validate[6] = true;
+                            }
                         }
                     }
                 }
+            } else if (requestCode == WALLPAPER_IMAGE_INTENT_REQUEST) {
+                String theUploadWallpaperImagePath = GetPathFromUriTool.getPath(UploadActivity.this, data.getData());
+                if (theUploadWallpaperImagePath == null) {
+                    BaseActivity.showShortToast(UploadActivity.this, "获取该文件异常");
+                } else {
+                    uploadWallpaperImagePath = theUploadWallpaperImagePath;
+                    textViewWallpaperContent.setText(uploadWallpaperImagePath);
+                    textViewWallpaperContent.setTextColor(mainColorText);
+                    validate[7] = true;
+                    imageViewWallpaperOk.setVisibility(View.VISIBLE);
+                }
+            }else if (requestCode == WALLPAPER_VIDEO_INTENT_REQUEST) {
+                String theUploadWallpaperVideoPath = GetPathFromUriTool.getPath(UploadActivity.this, data.getData());
+                if (theUploadWallpaperVideoPath == null) {
+                    BaseActivity.showShortToast(UploadActivity.this, "获取该文件异常");
+                } else {
+                    uploadWallpaperVideoPath = theUploadWallpaperVideoPath;
+                    textViewWallpaperContent.setText(uploadWallpaperVideoPath);
+                    textViewWallpaperContent.setTextColor(mainColorText);
+                    validate[7] = true;
+                    imageViewWallpaperOk.setVisibility(View.VISIBLE);
+                }
             }
-        } else if (requestCode == WALLPAPER_VIDEO_INTENT_REQUEST && resultCode == RESULT_OK && data != null) {
-            String theUploadWallpaperVideoPath = GetPathFromUriTool.getPath(UploadActivity.this, data.getData());
-            if (theUploadWallpaperVideoPath == null) {
-                BaseActivity.showShortToast(UploadActivity.this, "获取该文件异常");
-            } else {
-                uploadWallpaperVideoPath = theUploadWallpaperVideoPath;
-                textViewWallpaperContent.setText(uploadWallpaperVideoPath);
-                textViewWallpaperContent.setTextColor(mainColorText);
-                validate[7] = true;
-                imageViewWallpaperOk.setVisibility(View.VISIBLE);
-            }
-        } else if (requestCode == WALLPAPER_IMAGE_INTENT_REQUEST && resultCode == RESULT_OK && data != null) {
-            String theUploadWallpaperImagePath = GetPathFromUriTool.getPath(UploadActivity.this, data.getData());
-            if (theUploadWallpaperImagePath == null) {
-                BaseActivity.showShortToast(UploadActivity.this, "获取该文件异常");
-            } else {
-                uploadWallpaperImagePath = theUploadWallpaperImagePath;
-                textViewWallpaperContent.setText(uploadWallpaperImagePath);
-                textViewWallpaperContent.setTextColor(mainColorText);
-                validate[7] = true;
-                imageViewWallpaperOk.setVisibility(View.VISIBLE);
-            }
+            isCanUpload();
         }
-        isCanUpload();
-        super.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override

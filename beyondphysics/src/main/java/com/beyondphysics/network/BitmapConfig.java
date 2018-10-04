@@ -59,20 +59,20 @@ public class BitmapConfig {
                 bitmap = Bitmap.createScaledBitmap(bitmap, reqWidth, reqHeight, true);
             }
         }
-        return convertBitmap(bitmap, reqWidth, reqHeight);
+        return convertBitmap(bitmap, reqWidth, reqHeight,scaleType);
     }
 
-    public Bitmap convertBitmap(Bitmap bitmap, int reqWidth, int reqHeight) {
+    public Bitmap convertBitmap(Bitmap bitmap, int reqWidth, int reqHeight, ImageView.ScaleType scaleType) {
         if (bitmap == null) {
             return null;
         }
         try {
             if (roundedType == ROUNDEDTYPE_CIRCLE) {
-                bitmap = getCircleBitmap(bitmap, reqWidth, reqHeight);
+                bitmap = getCircleBitmap(bitmap, reqWidth, reqHeight,scaleType);
             } else if (roundedType == ROUNDEDTYPE_CIRCLEBORDER) {
-                bitmap = getCircleBitmapWithBorder(bitmap, circleBorderWidth, circleBorderColor, reqWidth, reqHeight);
+                bitmap = getCircleBitmapWithBorder(bitmap, circleBorderWidth, circleBorderColor, reqWidth, reqHeight,scaleType);
             } else if (roundedType == ROUNDEDTYPE_CORNER) {
-                bitmap = getCornerBitmap(bitmap, cornerDegree, reqWidth, reqHeight);
+                bitmap = getCornerBitmap(bitmap, cornerDegree, reqWidth, reqHeight,scaleType);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -83,7 +83,7 @@ public class BitmapConfig {
     }
 
 
-    private Bitmap getCircleBitmap(Bitmap bitmap, int reqWidth, int reqHeight) {
+    private Bitmap getCircleBitmap(Bitmap bitmap, int reqWidth, int reqHeight, ImageView.ScaleType scaleType) {
         if (bitmap == null) {
             return null;
         }
@@ -93,7 +93,10 @@ public class BitmapConfig {
         } else {
             width = reqWidth;
         }
-        Bitmap newBitmap = getCenterCropBitmap(bitmap, width);
+        Bitmap newBitmap=bitmap;
+        if (scaleType != ImageView.ScaleType.FIT_XY){
+            newBitmap = getCenterCropBitmap(bitmap, width);
+        }
         Bitmap.Config config = bitmap.getConfig();
         if (config == null) {
             config = this.config;
@@ -109,7 +112,7 @@ public class BitmapConfig {
         return theBitmap;
     }
 
-    private Bitmap getCircleBitmapWithBorder(Bitmap bitmap, float borderWidth, int borderColor, int reqWidth, int reqHeight) {
+    private Bitmap getCircleBitmapWithBorder(Bitmap bitmap, float borderWidth, int borderColor, int reqWidth, int reqHeight, ImageView.ScaleType scaleType) {
         if (bitmap == null) {
             return null;
         }
@@ -120,7 +123,10 @@ public class BitmapConfig {
             width = reqWidth;
         }
         float theWidth = width - borderWidth * 2;
-        Bitmap newBitmap = getCenterCropBitmap(bitmap, width);
+        Bitmap newBitmap=bitmap;
+        if (scaleType != ImageView.ScaleType.FIT_XY){
+            newBitmap = getCenterCropBitmap(bitmap, width);
+        }
         Bitmap.Config config = bitmap.getConfig();
         if (config == null) {
             config = this.config;
@@ -156,7 +162,7 @@ public class BitmapConfig {
     /**
      * 获得圆角图片
      */
-    private Bitmap getCornerBitmap(Bitmap bitmap, float roundPx, int reqWidth, int reqHeight) {
+    private Bitmap getCornerBitmap(Bitmap bitmap, float roundPx, int reqWidth, int reqHeight, ImageView.ScaleType scaleType) {
         if (bitmap == null) {
             return null;
         }
@@ -169,7 +175,10 @@ public class BitmapConfig {
             width = reqWidth;
             height = reqHeight;
         }
-        Bitmap newBitmap = getCenterCropBitmap(bitmap, width);
+        Bitmap newBitmap=bitmap;
+        if (scaleType != ImageView.ScaleType.FIT_XY){
+            newBitmap = getCenterCropBitmap(bitmap, width);
+        }
         Bitmap.Config config = bitmap.getConfig();
         if (config == null) {
             config = this.config;

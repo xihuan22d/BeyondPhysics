@@ -10,6 +10,7 @@ import com.beyondphysics.ui.utils.NetworkGifImageViewHelp;
 import com.beyondphysics.ui.views.NetworkGifImageView;
 import com.my.beyondphysicsapplication.PictureChooseActivity;
 import com.my.beyondphysicsapplication.R;
+import com.my.beyondphysicsapplication.TheApplication;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +22,7 @@ public class PictureChooseActivity_GirdViewAdapter extends BaseAdapter {
     private LayoutInflater layoutInflater;
     private OnPictureChooseListener onPictureChooseListener;
 
+    private int itemWidth;
 
     public PictureChooseActivity_GirdViewAdapter(BaseActivity baseActivity, List<String> paths, OnPictureChooseListener onPictureChooseListener) {
         this.baseActivity = baseActivity;
@@ -30,6 +32,9 @@ public class PictureChooseActivity_GirdViewAdapter extends BaseAdapter {
         this.paths = paths;
         layoutInflater = this.baseActivity.getLayoutInflater();
         this.onPictureChooseListener = onPictureChooseListener;
+
+        int view_normal_margin_default=this.baseActivity.getResources().getDimensionPixelSize(R.dimen.view_normal_margin_default);
+        itemWidth=(BaseActivity.getScreenWidth(this.baseActivity)-4*view_normal_margin_default)/3;
 
     }
 
@@ -65,6 +70,7 @@ public class PictureChooseActivity_GirdViewAdapter extends BaseAdapter {
             viewHolder = new ViewHolder();
             convertView = layoutInflater.inflate(R.layout.activity_picture_choose_item, parent, false);
             viewHolder.networkGifImageView = (NetworkGifImageView) convertView.findViewById(R.id.networkGifImageView);
+            TheApplication.setLayoutParams(convertView,itemWidth,itemWidth);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
@@ -82,7 +88,7 @@ public class PictureChooseActivity_GirdViewAdapter extends BaseAdapter {
             });
         } else {
             final String path = paths.get(position);
-            NetworkGifImageViewHelp.getImageFromDiskCache(viewHolder.networkGifImageView, path, 1, baseActivity.activityKey, 0, 0);
+            NetworkGifImageViewHelp.getImageFromDiskCache(viewHolder.networkGifImageView, path, 1, baseActivity.activityKey,  itemWidth, itemWidth,0, 0);
             viewHolder.networkGifImageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

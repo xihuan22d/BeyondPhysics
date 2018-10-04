@@ -60,7 +60,7 @@ public class BreakpointDownloadActivity extends NewBaseActivity {
 
     @Override
     protected void initConfigUi() {
-        String url = "http://47.97.113.47:4126/perfectwallpaper_files/specifys/test.png";
+        String url = "http://server.52wallpaper.com:4126/perfectwallpaper_files/specifys/test.png";
         editTextUrl.setText(url);
         int[] progress = getFileProgress(BreakpointDownloadActivity.this, url);
         if (progress[0] > 0 && progress[1] > 0) {

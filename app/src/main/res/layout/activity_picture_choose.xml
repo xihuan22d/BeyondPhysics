@@ -82,11 +82,14 @@
             android:id="@+id/gridView"
             android:layout_width="match_parent"
             android:layout_height="@dimen/activity_picture_choose_gridView_height"
+            android:layout_marginLeft="@dimen/view_normal_margin_default"
+            android:layout_marginRight="@dimen/view_normal_margin_default"
+            android:layout_marginBottom="@dimen/view_normal_margin_default"
+            android:horizontalSpacing="@dimen/view_normal_margin_default"
+            android:verticalSpacing="@dimen/view_normal_margin_default"
             android:layout_centerVertical="true"
-            android:horizontalSpacing="@dimen/view_normal_margin_narrow"
             android:numColumns="3"
-            android:scrollbars="none"
-            android:verticalSpacing="@dimen/view_normal_margin_narrow" />
+            android:scrollbars="none" />
     </RelativeLayout>
 
 </RelativeLayout>

@@ -1,4 +1,9 @@
 <resources>
+    <style name="DialogAlertStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/colorPrimary_default</item>
+        <item name="android:textColorPrimary">@color/mainColorText_default</item>
+        <item name="android:background">@color/mainColorHelp_default</item>
+    </style>
 
     <style name="AppThemeNoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary_default</item>

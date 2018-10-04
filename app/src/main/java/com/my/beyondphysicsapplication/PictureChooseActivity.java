@@ -93,25 +93,27 @@ public class PictureChooseActivity extends NewBaseActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == ADD_REQUEST && resultCode == RESULT_OK && data != null) {
-            ArrayList<String> paths = data.getStringArrayListExtra(ChooseImageActivity.SELECTIMAGEPATHS_KEY);
-            if (paths != null) {
-                this.paths.addAll(paths);
-            }
-            if (pictureChooseActivity_GirdViewAdapter != null) {
-                pictureChooseActivity_GirdViewAdapter.notifyDataSetChanged();
-            }
-        } else if (requestCode == CHOOSE_REQUEST && resultCode == RESULT_OK && data != null) {
-            ArrayList<String> paths = data.getStringArrayListExtra(ChooseImageActivity.SELECTIMAGEPATHS_KEY);
-            if (paths != null) {
-                this.paths.clear();
-                this.paths.addAll(paths);
-            }
-            if (pictureChooseActivity_GirdViewAdapter != null) {
-                pictureChooseActivity_GirdViewAdapter.notifyDataSetChanged();
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK && data != null) {
+            if (requestCode == ADD_REQUEST) {
+                ArrayList<String> paths = data.getStringArrayListExtra(ChooseImageActivity.SELECTIMAGEPATHS_KEY);
+                if (paths != null) {
+                    this.paths.addAll(paths);
+                }
+                if (pictureChooseActivity_GirdViewAdapter != null) {
+                    pictureChooseActivity_GirdViewAdapter.notifyDataSetChanged();
+                }
+            } else if (requestCode == CHOOSE_REQUEST) {
+                ArrayList<String> paths = data.getStringArrayListExtra(ChooseImageActivity.SELECTIMAGEPATHS_KEY);
+                if (paths != null) {
+                    this.paths.clear();
+                    this.paths.addAll(paths);
+                }
+                if (pictureChooseActivity_GirdViewAdapter != null) {
+                    pictureChooseActivity_GirdViewAdapter.notifyDataSetChanged();
+                }
             }
         }
-        super.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override

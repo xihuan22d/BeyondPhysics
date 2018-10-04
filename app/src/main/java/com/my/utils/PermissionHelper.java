@@ -10,8 +10,8 @@ import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 
-import com.beyondphysics.R;
 import com.beyondphysics.ui.BaseActivity;
+import com.my.beyondphysicsapplication.R;
 
 
 public class PermissionHelper {

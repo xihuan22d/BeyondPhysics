@@ -64,7 +64,7 @@ public class ThreadSafelyLinkedHasMapRequest extends ThreadSafelyLinkedHasMap<Re
                 if (superKey != null) {
                     if (!threadSafelyArrayListRequestStatusItem.isRequestPauseOrCanceling(request, RequestStatusItem.KIND_NORMAL_REQUEST)) {
                         runningLinkedHashMapRequests.put(superKey, request);
-                        removeRequest(superKey);
+                        removeRequest(superKey);//只有后面跟着return才可以在iterator.hasNext()内直接使用remove操作,否则是异常的操作
                         return request;
                     }
                 }

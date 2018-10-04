@@ -84,13 +84,13 @@ public class LoadingChooseActivity extends NewBaseActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        permissionHelper.onRequestPermissionsResult(requestCode, permissions, grantResults);
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        permissionHelper.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        permissionHelper.onActivityResult(requestCode, resultCode, data);
         super.onActivityResult(requestCode, resultCode, data);
+        permissionHelper.onActivityResult(requestCode, resultCode, data);
     }
 }

@@ -147,13 +147,13 @@ public class WallpaperDetailsActivity_Fragment_Details extends BaseFragment {
             @Override
             public void error(String error) {
                 BaseActivity.showShortToast(getBaseActivity(), error);
-                loadMoreError();
+                TheApplication.addAllFormBaseRecyclerViewAdapter(wallpaperDetailsActivity_Fragment_Details_RecyclerViewAdapter, null);
             }
 
             @Override
             public void successByTips(String tips) {
                 BaseActivity.showShortToast(getBaseActivity(), tips);
-                loadMoreError();
+                TheApplication.addAllFormBaseRecyclerViewAdapter(wallpaperDetailsActivity_Fragment_Details_RecyclerViewAdapter, null);
             }
 
             @Override

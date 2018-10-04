@@ -194,13 +194,13 @@ public class WaterfallFlowActivity extends NewBaseActivity {
             @Override
             public void error(String error) {
                 BaseActivity.showShortToast(WaterfallFlowActivity.this, error);
-                loadMoreError();
+                TheApplication.addAllFormBaseRecyclerViewAdapter(waterfallFlowActivity_RecyclerViewAdapter, null);
             }
 
             @Override
             public void successByTips(String tips) {
                 BaseActivity.showShortToast(WaterfallFlowActivity.this, tips);
-                loadMoreError();
+                TheApplication.addAllFormBaseRecyclerViewAdapter(waterfallFlowActivity_RecyclerViewAdapter, null);
             }
 
             @Override
@@ -280,13 +280,13 @@ public class WaterfallFlowActivity extends NewBaseActivity {
             @Override
             public void error(String error) {
                 BaseActivity.showShortToast(WaterfallFlowActivity.this, error);
-                loadMoreError();
+                TheApplication.addAllFormBaseRecyclerViewAdapter(waterfallFlowActivity_RecyclerViewAdapter, null);
             }
 
             @Override
             public void successByTips(String tips) {
                 BaseActivity.showShortToast(WaterfallFlowActivity.this, tips);
-                loadMoreError();
+                TheApplication.addAllFormBaseRecyclerViewAdapter(waterfallFlowActivity_RecyclerViewAdapter, null);
             }
 
             @Override

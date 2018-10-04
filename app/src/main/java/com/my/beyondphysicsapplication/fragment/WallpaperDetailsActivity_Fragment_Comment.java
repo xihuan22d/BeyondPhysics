@@ -187,13 +187,13 @@ public class WallpaperDetailsActivity_Fragment_Comment extends BaseFragment {
             @Override
             public void error(String error) {
                 BaseActivity.showShortToast(getBaseActivity(), error);
-                loadMoreError();
+                TheApplication.addAllFormBaseRecyclerViewAdapter(wallpaperDetailsActivity_Fragment_Comment_RecyclerViewAdapter, null);
             }
 
             @Override
             public void successByTips(String tips) {
                 BaseActivity.showShortToast(getBaseActivity(), tips);
-                loadMoreError();
+                TheApplication.addAllFormBaseRecyclerViewAdapter(wallpaperDetailsActivity_Fragment_Comment_RecyclerViewAdapter, null);
             }
 
             @Override
@@ -358,12 +358,13 @@ public class WallpaperDetailsActivity_Fragment_Comment extends BaseFragment {
             parent_id = wallpaper_id;
         }
         String content = editTextComment.getText().toString();
+
+        if (oldTargetContent != null && content.startsWith(oldTargetContent)) {
+            content = content.replaceFirst(oldTargetContent, "");
+        }
         if (content.equals("")) {
             BaseActivity.showShortToast(getBaseActivity(), "评论内容不能为空");
         } else {
-            if (oldTargetContent != null && content.startsWith(oldTargetContent)) {
-                content = content.replaceFirst(oldTargetContent, "");
-            }
             Object[] objects = ProgressDialogHelp.unEnabledView(getBaseActivity(), view);
             final ProgressDialog progressDialog = (ProgressDialog) objects[0];
             final String progressDialogKey = (String) objects[1];

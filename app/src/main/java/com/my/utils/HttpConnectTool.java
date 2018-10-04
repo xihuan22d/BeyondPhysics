@@ -77,7 +77,6 @@ public class HttpConnectTool {
         if (sslSocketFactory == null) {
             List<String> crts = new ArrayList<String>();
             crts.add("my.crt");
-            crts.add("my1.crt");
             sslSocketFactory = SSLSocketTool.getSocketFactoryByKeyStore(SSLSocketTool.TYPE_ASSETS, crts, context);
         }
         return sslSocketFactory;

@@ -132,7 +132,6 @@ public class BreakpointDownloadListActivity extends NewBaseActivity {
                 }
             }
         });
-
     }
 
     protected void getNextBySort(Wallpaper wallpaper) {
@@ -154,13 +153,13 @@ public class BreakpointDownloadListActivity extends NewBaseActivity {
             @Override
             public void error(String error) {
                 BaseActivity.showShortToast(BreakpointDownloadListActivity.this, error);
-                loadMoreError();
+                TheApplication.addAllFormBaseRecyclerViewAdapter(breakpointDownloadListActivity_RecyclerViewAdapter, null);
             }
 
             @Override
             public void successByTips(String tips) {
                 BaseActivity.showShortToast(BreakpointDownloadListActivity.this, tips);
-                loadMoreError();
+                TheApplication.addAllFormBaseRecyclerViewAdapter(breakpointDownloadListActivity_RecyclerViewAdapter, null);
             }
 
             @Override

@@ -26,8 +26,10 @@ import com.beyondphysics.ui.utils.ActivityManager;
 import com.beyondphysics.ui.utils.BeyondPhysicsManager;
 import com.beyondphysics.ui.utils.BeyondPhysicsManagerParams;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 
@@ -80,12 +82,14 @@ public class BaseActivity extends AppCompatActivity {
 
     public void dismissAndRemoveAllProgressDialog() {
         Iterator<Map.Entry<String, ProgressDialog>> iterator = hashMapProgressDialogs.entrySet().iterator();
+        List<ProgressDialog> progressDialogs = new ArrayList<ProgressDialog>();
         while (iterator.hasNext()) {
             Map.Entry<String, ProgressDialog> entry = iterator.next();
             ProgressDialog progressDialog = entry.getValue();
-            if (progressDialog != null) {
-                progressDialog.dismiss();
-            }
+            progressDialogs.add(progressDialog);
+        }
+        for (int i=0;i<progressDialogs.size();i++){
+            progressDialogs.get(i).dismiss();
         }
         hashMapProgressDialogs.clear();
     }
@@ -118,12 +122,14 @@ public class BaseActivity extends AppCompatActivity {
 
     public void dismissAndRemoveAllPopupWindow() {
         Iterator<Map.Entry<String, PopupWindow>> iterator = hashMapPopupWindows.entrySet().iterator();
+        List<PopupWindow> popupWindows = new ArrayList<PopupWindow>();
         while (iterator.hasNext()) {
             Map.Entry<String, PopupWindow> entry = iterator.next();
             PopupWindow popupWindow = entry.getValue();
-            if (popupWindow != null) {
-                popupWindow.dismiss();
-            }
+            popupWindows.add(popupWindow);
+        }
+        for (int i=0;i<popupWindows.size();i++){
+            popupWindows.get(i).dismiss();
         }
         hashMapPopupWindows.clear();
     }
