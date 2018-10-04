@@ -79,6 +79,7 @@ public class MyUploadRequest extends UploadRequest_Default {
                 public void onHttpsInit(HttpsURLConnection httpsURLConnection, Object object) {
                     if (httpsURLConnection != null) {
                         httpsURLConnection.setSSLSocketFactory(HttpConnectTool.getInstanceSslSocketFactory(TheApplication.getTheApplication()));
+                        HttpConnectTool.setHostnameVerifier(httpsURLConnection);
                     }
                 }
 

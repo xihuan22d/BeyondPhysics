@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import com.beyondphysics.network.ResponseHandler;
 import com.beyondphysics.network.http.HttpAgreement_Default;
+import com.beyondphysics.network.http.HttpAgreement_OkHttp;
 import com.beyondphysics.network.utils.FileTool;
 import com.beyondphysics.ui.BaseActivity;
 import com.beyondphysics.ui.utils.BeyondPhysicsManagerParams;

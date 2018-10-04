@@ -4,10 +4,15 @@ import android.content.Context;
 
 import com.beyondphysics.ui.utils.SSLSocketTool;
 
+import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocketFactory;
+import javax.security.auth.x500.X500Principal;
 
 /**
  * 与服务器有关的静态变量名统一使用小写,方便与服务器接口对应
@@ -81,4 +86,34 @@ public class HttpConnectTool {
         }
         return sslSocketFactory;
     }
+
+    public static void setHostnameVerifier(HttpsURLConnection httpsURLConnection){
+        httpsURLConnection.setHostnameVerifier(new HostnameVerifier() {
+            @Override
+            public boolean verify(String hostname, SSLSession session) {
+                try {
+                    String peerHost = session.getPeerHost();
+                    X509Certificate[] x509Certificates = (X509Certificate[]) session
+                            .getPeerCertificates();
+                    for (X509Certificate x509Certificate : x509Certificates) {
+                        X500Principal x500Principal = x509Certificate
+                                .getSubjectX500Principal();
+                        String name = x500Principal.getName();
+                        String[] split = name.split(",");
+                        for (String str : split) {
+                            if (str.startsWith("CN")) {
+                                if (peerHost.equals(hostname)&&str.contains("server.52wallpaper.com")) {
+                                    return true;
+                                }
+                            }
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return false;
+            }
+        });
+    }
+
 }
