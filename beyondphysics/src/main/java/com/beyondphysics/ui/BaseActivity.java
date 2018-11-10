@@ -25,6 +25,7 @@ import com.beyondphysics.network.utils.TimeTool;
 import com.beyondphysics.ui.utils.ActivityManager;
 import com.beyondphysics.ui.utils.BeyondPhysicsManager;
 import com.beyondphysics.ui.utils.BeyondPhysicsManagerParams;
+import com.beyondphysics.ui.utils.ToastCompat;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -341,13 +342,13 @@ public class BaseActivity extends AppCompatActivity {
 
     public static void showShortToast(Context context, String tips) {
         if (tips != null) {
-            Toast.makeText(context.getApplicationContext(), tips, Toast.LENGTH_SHORT).show();
+            ToastCompat.makeText(context.getApplicationContext(), tips, Toast.LENGTH_SHORT).show();
         }
     }
 
     public static void showLongToast(Context context, String tips) {
         if (tips != null) {
-            Toast.makeText(context.getApplicationContext(), tips, Toast.LENGTH_LONG).show();
+            ToastCompat.makeText(context.getApplicationContext(), tips, Toast.LENGTH_LONG).show();
         }
     }
 

@@ -69,7 +69,7 @@ public class ChooseImageActivity_RecyclerViewAdapter extends UnLoadMoreRecyclerV
                 final ImageItem imageItem = (ImageItem) viewItem.getModel();
                 if (imageItem != null) {
                     NetworkGifImageView networkGifImageView = (NetworkGifImageView) holder.getView(R.id.networkGifImageView);
-                    NetworkGifImageViewHelp.getImageFromDiskCacheWithNewParams(networkGifImageView, imageItem.getPath(), 1, chooseImageActivity.activityKey, itemWidth, itemWidth, R.mipmap.beyondphysics_activity_chooseimage_default_loading, R.mipmap.beyondphysics_activity_chooseimage_default_loading);
+                    NetworkGifImageViewHelp.getImageFromDiskCacheWithNewParams(networkGifImageView, imageItem.getPath(), 1, chooseImageActivity.activityKey, itemWidth, itemWidth, 0, 0);
                     final CheckBox checkBox = (CheckBox) holder.getView(R.id.checkBox);
                     final FrameLayout frameLayoutCover = (FrameLayout) holder.getView(R.id.frameLayoutCover);
                     ViewGroup.LayoutParams layoutParams = frameLayoutCover.getLayoutParams();

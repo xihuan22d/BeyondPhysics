@@ -61,6 +61,10 @@ public class Wallpaper extends BaseModel {
     private long praiseDownSort;
     private String auditStatus;
 
+    private Collection collection;
+    private Follow follow;
+    private Praise praise;
+
     private int downloadingStatus;
     private int currentSize;
     private int totalSize;
@@ -339,6 +343,30 @@ public class Wallpaper extends BaseModel {
         this.auditStatus = auditStatus;
     }
 
+    public Collection getCollection() {
+        return collection;
+    }
+
+    public void setCollection(Collection collection) {
+        this.collection = collection;
+    }
+
+    public Follow getFollow() {
+        return follow;
+    }
+
+    public void setFollow(Follow follow) {
+        this.follow = follow;
+    }
+
+    public Praise getPraise() {
+        return praise;
+    }
+
+    public void setPraise(Praise praise) {
+        this.praise = praise;
+    }
+
     public int getDownloadingStatus() {
         return downloadingStatus;
     }
@@ -408,6 +436,9 @@ public class Wallpaper extends BaseModel {
                 ", praiseUpSort=" + praiseUpSort +
                 ", praiseDownSort=" + praiseDownSort +
                 ", auditStatus='" + auditStatus + '\'' +
+                ", collection=" + collection +
+                ", follow=" + follow +
+                ", praise=" + praise +
                 ", downloadingStatus=" + downloadingStatus +
                 ", currentSize=" + currentSize +
                 ", totalSize=" + totalSize +

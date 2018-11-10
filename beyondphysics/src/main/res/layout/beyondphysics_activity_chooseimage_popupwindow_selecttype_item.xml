@@ -17,7 +17,7 @@
             android:layout_height="@dimen/beyondPhysics_activity_chooseimage_popupwindow_selecttype_item_thumbnail_width"
             android:layout_margin="@dimen/beyondPhysics_view_normal_margin_narrow"
             android:scaleType="centerCrop"
-            android:src="@mipmap/beyondphysics_activity_chooseimage_default_loading" />
+            />
 
         <LinearLayout
             android:layout_width="0dp"

@@ -24,9 +24,6 @@ public class WallpaperDetailsActivity_GetWallpaperDetails_GsonModel extends Base
     public class Data {
         private Wallpaper wallpaper;
         private User uploadUser;
-        private Collection collection;
-        private Praise praise;
-        private Follow follow;
         private List<Wallpaper> recommendWallpapers;
 
         public Wallpaper getWallpaper() {
@@ -45,29 +42,6 @@ public class WallpaperDetailsActivity_GetWallpaperDetails_GsonModel extends Base
             this.uploadUser = uploadUser;
         }
 
-        public Collection getCollection() {
-            return collection;
-        }
-
-        public void setCollection(Collection collection) {
-            this.collection = collection;
-        }
-
-        public Praise getPraise() {
-            return praise;
-        }
-
-        public void setPraise(Praise praise) {
-            this.praise = praise;
-        }
-
-        public Follow getFollow() {
-            return follow;
-        }
-
-        public void setFollow(Follow follow) {
-            this.follow = follow;
-        }
 
         public List<Wallpaper> getRecommendWallpapers() {
             return recommendWallpapers;
@@ -82,9 +56,6 @@ public class WallpaperDetailsActivity_GetWallpaperDetails_GsonModel extends Base
             return "Data{" +
                     "wallpaper=" + wallpaper +
                     ", uploadUser=" + uploadUser +
-                    ", collection=" + collection +
-                    ", praise=" + praise +
-                    ", follow=" + follow +
                     ", recommendWallpapers=" + recommendWallpapers +
                     '}';
         }

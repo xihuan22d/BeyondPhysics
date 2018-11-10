@@ -20,9 +20,9 @@ public abstract class LoadMoreLayerRecyclerViewAdapter extends BaseRecyclerViewA
     public static final int USE_DEFAULT_LOADCOMPLETEDLAYOUTID = -1;
     public static final int UNSHOW_LOADCOMPLETEDLAYOUTID = 0;
 
-    private final int loadMoreLayoutId;
-    private final int pageCount;
-    private final int loadCompletedLayoutId;
+    private  int loadMoreLayoutId;
+    private  int pageCount;
+    private  int loadCompletedLayoutId;
     private LoadMoreCallback loadMoreCallback;
     private boolean loading = false;
     private boolean loadCompleted = false;
@@ -295,14 +295,25 @@ public abstract class LoadMoreLayerRecyclerViewAdapter extends BaseRecyclerViewA
         return loadMoreLayoutId;
     }
 
+    public void setLoadMoreLayoutId(int loadMoreLayoutId) {
+        this.loadMoreLayoutId = loadMoreLayoutId;
+    }
+
     public int getPageCount() {
         return pageCount;
+    }
+
+    public void setPageCount(int pageCount) {
+        this.pageCount = pageCount;
     }
 
     public int getLoadCompletedLayoutId() {
         return loadCompletedLayoutId;
     }
 
+    public void setLoadCompletedLayoutId(int loadCompletedLayoutId) {
+        this.loadCompletedLayoutId = loadCompletedLayoutId;
+    }
 
     public void setLoadMoreCallback(LoadMoreCallback loadMoreCallback) {
         this.loadMoreCallback = loadMoreCallback;

@@ -16,6 +16,7 @@ import android.widget.FrameLayout;
 import com.beyondphysics.R;
 import com.beyondphysics.network.RequestStatusItem;
 import com.beyondphysics.ui.BaseActivity;
+import com.beyondphysics.ui.recyclerviewlibrary.adapters.BaseRecyclerViewAdapter;
 import com.beyondphysics.ui.recyclerviewlibrary.models.ViewItem;
 import com.beyondphysics.ui.utils.BeyondPhysicsManager;
 
@@ -183,66 +184,75 @@ public class BaseRecyclerViewFromFrameLayout extends FrameLayout {
         }
     }
 
+    public void reset() {
+        RecyclerView.Adapter recyclerViewAdapter = recyclerView.getAdapter();
+        if (recyclerViewAdapter!=null&&recyclerViewAdapter instanceof BaseRecyclerViewAdapter) {
+            BaseRecyclerViewAdapter baseRecyclerViewAdapter=(BaseRecyclerViewAdapter)recyclerViewAdapter;
+            baseRecyclerViewAdapter.replaceAll(null);
+            frameLayoutEmpty.setVisibility(View.GONE);
+        }
+    }
     /**
      * 如果数据为空就显示空白页,adapter一次赋值后不应该再修改
      */
-    public void setAdapter(RecyclerView.Adapter adapter) {
-        if (adapter == null) {
+    public void setAdapter(final BaseRecyclerViewAdapter baseRecyclerViewAdapter) {
+        if (baseRecyclerViewAdapter == null) {
             return;
         }
-        recyclerView.setAdapter(adapter);
+        recyclerView.setAdapter(baseRecyclerViewAdapter);
         recyclerView.setVisibility(View.VISIBLE);
-        swipeRefreshLayout.setRefreshing(false);
-        //例如执行notifyItemRangeInserted(0, 0)这种情况,依然会触发下面的方法的,所以很靠谱的
-        adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+        baseRecyclerViewAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+            @Override
+            public void onChanged() {
+                super.onChanged();
+                update(baseRecyclerViewAdapter,BaseRecyclerViewAdapter.ONITEMUPDATE);
+            }
+
             @Override
             public void onItemRangeChanged(int positionStart, int itemCount) {
                 super.onItemRangeChanged(positionStart, itemCount);
-                update();
+                update(baseRecyclerViewAdapter,BaseRecyclerViewAdapter.ONITEMRANGECHANGED);
+            }
+
+            @Override
+            public void onItemRangeChanged(int positionStart, int itemCount, Object payload) {
+                super.onItemRangeChanged(positionStart, itemCount, payload);
+                update(baseRecyclerViewAdapter,BaseRecyclerViewAdapter.ONITEMRANGECHANGED);
             }
 
             @Override
             public void onItemRangeInserted(int positionStart, int itemCount) {
                 super.onItemRangeInserted(positionStart, itemCount);
-                update();
+                update(baseRecyclerViewAdapter,BaseRecyclerViewAdapter.ONITEMRANGEINSERTED);
             }
 
             @Override
             public void onItemRangeRemoved(int positionStart, int itemCount) {
                 super.onItemRangeRemoved(positionStart, itemCount);
-                update();
+                update(baseRecyclerViewAdapter,BaseRecyclerViewAdapter.ONITEMRANGEREMOVED);
             }
 
             @Override
             public void onItemRangeMoved(int fromPosition, int toPosition, int itemCount) {
                 super.onItemRangeMoved(fromPosition, toPosition, itemCount);
-                update();
-            }
-
-            @Override
-            public void onChanged() {
-                super.onChanged();
-                update();
-            }
-
-            //可以简化下拉刷新控件的控制,而且能保证数据更新完毕后才设置下拉完成
-            private void update() {
-                swipeRefreshLayout.setRefreshing(false);
-                if (emptyId != 0) {
-                    if (recyclerView.getAdapter().getItemCount() == 0) {//adapter一定不为null,是null就return了不初始化
-                        frameLayoutEmpty.setVisibility(View.VISIBLE);
-                    } else {
-                        frameLayoutEmpty.setVisibility(View.GONE);
-                    }
-                }
+                update(baseRecyclerViewAdapter,BaseRecyclerViewAdapter.ONITEMRANGEMOVED);
             }
         });
-        if (emptyId != 0) {
-            if (adapter.getItemCount() == 0) {
-                frameLayoutEmpty.setVisibility(View.VISIBLE);
-            } else {
-                frameLayoutEmpty.setVisibility(View.GONE);
+        update(baseRecyclerViewAdapter,-1);
+    }
+
+    //可以简化下拉刷新控件的控制,而且能保证数据更新完毕后才设置下拉完成
+    private void update(BaseRecyclerViewAdapter baseRecyclerViewAdapter,int itemType) {
+        if (itemType==-1||baseRecyclerViewAdapter.getItemType()==itemType) {
+            swipeRefreshLayout.setRefreshing(false);
+            if (emptyId != 0) {
+                if (recyclerView.getAdapter().getItemCount() == 0) {//adapter一定不为null,是null就return了不初始化
+                    frameLayoutEmpty.setVisibility(View.VISIBLE);
+                } else {
+                    frameLayoutEmpty.setVisibility(View.GONE);
+                }
             }
+            baseRecyclerViewAdapter.setItemType(BaseRecyclerViewAdapter.ONITEMDEFAULT);
         }
     }
 

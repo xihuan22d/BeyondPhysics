@@ -166,10 +166,10 @@ public class WallpaperDetailsActivity_Fragment_Details_RecyclerViewAdapter exten
                     }
 
 
-                    setPraiseDrawableTint(data.getPraise(), imageViewPraiseUp, drawablePraiseUpUnSelect, drawablePraiseUpSelect, imageViewPraiseDown, drawablePraiseDownUnSelect, drawablePraiseDownSelect, unSelectColor_default, colorPrimary);
-                    setCollectionDrawableTint(data.getCollection(), imageViewCollection, drawableCollectionUnSelect, drawableCollectionSelect, unSelectColor_default, colorPrimary);
+                    setPraiseDrawableTint(wallpaper.getPraise(), imageViewPraiseUp, drawablePraiseUpUnSelect, drawablePraiseUpSelect, imageViewPraiseDown, drawablePraiseDownUnSelect, drawablePraiseDownSelect, unSelectColor_default, colorPrimary);
+                    setCollectionDrawableTint(wallpaper.getCollection(), imageViewCollection, drawableCollectionUnSelect, drawableCollectionSelect, unSelectColor_default, colorPrimary);
                     ColorHelp.setImageViewDrawableTint(imageViewDownload, drawableDownload, unSelectColor_default);
-                    setFollowStatus(data.getFollow(), buttonFollow, colorPrimary, unSelectColor_default);
+                    setFollowStatus(wallpaper.getFollow(), buttonFollow, colorPrimary, unSelectColor_default);
 
                     if (uploadUser != null) {
                         RoundedNetworkImageView roundedNetworkImageViewAvatar = (RoundedNetworkImageView) holder.getView(R.id.roundedNetworkImageViewAvatar);
@@ -353,7 +353,7 @@ public class WallpaperDetailsActivity_Fragment_Details_RecyclerViewAdapter exten
                         Praise praise = data.getPraise();
                         wallpaper.setPraiseUpCount(data.getPraiseUpCount());
                         wallpaper.setPraiseDownCount(data.getPraiseDownCount());
-                        theData.setPraise(praise);
+                        wallpaper.setPraise(praise);
                         BaseRecyclerViewAdapter.BaseRecyclerViewHolder baseRecyclerViewHolder = (BaseRecyclerViewAdapter.BaseRecyclerViewHolder) recyclerView.findViewHolderForAdapterPosition(position);
                         if (baseRecyclerViewHolder != null) {
                             ImageView imageViewPraiseUp = (ImageView) baseRecyclerViewHolder.getView(R.id.imageViewPraiseUp);
@@ -397,7 +397,7 @@ public class WallpaperDetailsActivity_Fragment_Details_RecyclerViewAdapter exten
                     } else {
                         Collection collection = data.getCollection();
                         wallpaper.setCollectionCount(data.getCollectionCount());
-                        theData.setCollection(collection);
+                        wallpaper.setCollection(collection);
                         BaseRecyclerViewAdapter.BaseRecyclerViewHolder baseRecyclerViewHolder = (BaseRecyclerViewAdapter.BaseRecyclerViewHolder) recyclerView.findViewHolderForAdapterPosition(position);
                         if (baseRecyclerViewHolder != null) {
                             ImageView imageViewCollection = (ImageView) baseRecyclerViewHolder.getView(R.id.imageViewCollection);
@@ -441,7 +441,7 @@ public class WallpaperDetailsActivity_Fragment_Details_RecyclerViewAdapter exten
                         Follow follow = data.getFollow();
                         User uploadUser = theData.getUploadUser();
                         uploadUser.setFansCount(data.getTargetUserFansCount());
-                        theData.setFollow(follow);
+                        wallpaper.setFollow(follow);
 
                         BaseRecyclerViewAdapter.BaseRecyclerViewHolder baseRecyclerViewHolder = (BaseRecyclerViewAdapter.BaseRecyclerViewHolder) recyclerView.findViewHolderForAdapterPosition(position);
                         if (baseRecyclerViewHolder != null) {
