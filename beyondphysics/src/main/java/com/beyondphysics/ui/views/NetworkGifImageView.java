@@ -53,10 +53,10 @@ public class NetworkGifImageView extends AppCompatImageView {
     private BitmapRequest<?> bitmapRequest;
 
     private boolean cancelRequestWhenOnDetachedFromWindow = true;
-    private boolean fixedRecyclerViewBug = true;
-    private boolean gifLoop = true;
-    private OnNetworkImageViewResponseListener onNetworkImageViewResponseListener;
 
+    private boolean fixedRecyclerViewBug = true;
+
+    private boolean gifLoop = true;
     private int showGifPosition = -1;
     private List<GifBitmap> gifBitmaps;
     /**
@@ -336,9 +336,7 @@ public class NetworkGifImageView extends AppCompatImageView {
                     }
                     bitmapRequest = null;
                     haveGetBitmap = true;
-                    if (onNetworkImageViewResponseListener != null) {
-                        onNetworkImageViewResponseListener.onSuccessResponse(response);
-                    }
+                    onSuccessResponseCallback(response);
                 }
 
                 @Override
@@ -353,9 +351,7 @@ public class NetworkGifImageView extends AppCompatImageView {
                     }
                     bitmapRequest = null;
                     oldBitmapRequest_Default_Params = null;
-                    if (onNetworkImageViewResponseListener != null) {
-                        onNetworkImageViewResponseListener.onErrorResponse(error);
-                    }
+                    onErrorResponseCallback(error);
                 }
             };
             bitmapRequest_Default_Params.setOnResponseListener(onResponseListener);
@@ -368,6 +364,13 @@ public class NetworkGifImageView extends AppCompatImageView {
 
     public BitmapRequest<?> getBitmapRequest(BitmapRequest_Default_Params bitmapRequest_Default_Params) {
         return new BitmapRequest_Default(bitmapRequest_Default_Params);
+    }
+
+    public void onSuccessResponseCallback(BitmapResponse response) {
+    }
+
+    public void onErrorResponseCallback(String error) {
+
     }
 
     /**
@@ -550,15 +553,6 @@ public class NetworkGifImageView extends AppCompatImageView {
 
     public void setGifLoop(boolean gifLoop) {
         this.gifLoop = gifLoop;
-    }
-
-
-    public OnNetworkImageViewResponseListener getOnNetworkImageViewResponseListener() {
-        return onNetworkImageViewResponseListener;
-    }
-
-    public void setOnNetworkImageViewResponseListener(OnNetworkImageViewResponseListener onNetworkImageViewResponseListener) {
-        this.onNetworkImageViewResponseListener = onNetworkImageViewResponseListener;
     }
 
     @Override

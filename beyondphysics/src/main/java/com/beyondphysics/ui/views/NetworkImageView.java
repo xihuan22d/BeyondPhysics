@@ -48,9 +48,8 @@ public class NetworkImageView extends AppCompatImageView {
     private BitmapRequest<?> bitmapRequest;
 
     private boolean cancelRequestWhenOnDetachedFromWindow = true;
-    private boolean fixedRecyclerViewBug = true;
-    private OnNetworkImageViewResponseListener onNetworkImageViewResponseListener;
 
+    private boolean fixedRecyclerViewBug = true;
     /**
      * 为了解决recyclerView最外面项移出屏幕后再移进来不会触发OnBindViewHolder的bug,引入该变量可以减少不必要的请求,因为OnBindViewHolder会在onAttachedToWindow之前执行,
      * 所以如果fromOnBindViewHolder为true,就不执行onAttachedToWindow里面恢复方法,反之则重新调用请求恢复onDetachedFromWindow里面取消的请求
@@ -277,9 +276,7 @@ public class NetworkImageView extends AppCompatImageView {
                     }
                     bitmapRequest = null;
                     haveGetBitmap = true;
-                    if (onNetworkImageViewResponseListener != null) {
-                        onNetworkImageViewResponseListener.onSuccessResponse(response);
-                    }
+                    onSuccessResponseCallback(response);
                 }
 
                 @Override
@@ -294,9 +291,7 @@ public class NetworkImageView extends AppCompatImageView {
                     }
                     bitmapRequest = null;
                     oldBitmapRequest_Default_Params = null;
-                    if (onNetworkImageViewResponseListener != null) {
-                        onNetworkImageViewResponseListener.onErrorResponse(error);
-                    }
+                    onErrorResponseCallback(error);
                 }
             };
             bitmapRequest_Default_Params.setOnResponseListener(onResponseListener);
@@ -311,6 +306,12 @@ public class NetworkImageView extends AppCompatImageView {
         return new BitmapRequest_Default(bitmapRequest_Default_Params);
     }
 
+    public void onSuccessResponseCallback(BitmapResponse response) {
+    }
+
+    public void onErrorResponseCallback(String error) {
+
+    }
 
     /**
      * 比如用户头像在用户退出登录后需要改变成默认头像,这时候就需要先取消请求,再设置成默认头像,这样就不会导致未执行请求重新回来了
@@ -458,13 +459,6 @@ public class NetworkImageView extends AppCompatImageView {
         this.fixedRecyclerViewBug = fixedRecyclerViewBug;
     }
 
-    public OnNetworkImageViewResponseListener getOnNetworkImageViewResponseListener() {
-        return onNetworkImageViewResponseListener;
-    }
-
-    public void setOnNetworkImageViewResponseListener(OnNetworkImageViewResponseListener onNetworkImageViewResponseListener) {
-        this.onNetworkImageViewResponseListener = onNetworkImageViewResponseListener;
-    }
 
     @Override
     protected void onAttachedToWindow() {
