@@ -10,6 +10,7 @@ import com.beyondphysics.ui.BaseActivity;
 import com.beyondphysics.ui.utils.BeyondPhysicsManager;
 import com.beyondphysics.ui.utils.NetworkGifImageViewHelp;
 import com.beyondphysics.ui.views.NetworkGifImageView;
+import com.my.utils.HttpConnectTool;
 
 public class MainActivity extends NewBaseActivity {
 
@@ -115,12 +116,12 @@ public class MainActivity extends NewBaseActivity {
                         }
                         if (testPosition == 0) {
                             buttonTest.setText(getResources().getString(R.string.activity_main_buttonTest) + "0");
-                            NetworkGifImageViewHelp.getImageByBitmapRequestParams(networkGifImageView, getBitmapRequestParams("http://server.52wallpaper.com:4126/perfectwallpaper_files/specifys/randomAvatar1.png", activity_main_networkGifImageView_width, activity_main_networkGifImageView_width), R.mipmap.normal_loading, R.mipmap.normal_loading_error);
-                            NetworkGifImageViewHelp.getImageByBitmapRequestParams(networkGifImageView1, getBitmapRequestParams("http://server.52wallpaper.com:4126/perfectwallpaper_files/specifys/randomAvatar2.png", activity_main_networkGifImageView_width, activity_main_networkGifImageView_width), R.mipmap.normal_loading, R.mipmap.normal_loading_error);
+                            NetworkGifImageViewHelp.getImageByBitmapRequestParams(networkGifImageView, getBitmapRequestParams(HttpConnectTool.FILEROOTURL + "/specifys/randomAvatar1.png", activity_main_networkGifImageView_width, activity_main_networkGifImageView_width), R.mipmap.normal_loading, R.mipmap.normal_loading_error);
+                            NetworkGifImageViewHelp.getImageByBitmapRequestParams(networkGifImageView1, getBitmapRequestParams(HttpConnectTool.FILEROOTURL + "/specifys/randomAvatar2.png", activity_main_networkGifImageView_width, activity_main_networkGifImageView_width), R.mipmap.normal_loading, R.mipmap.normal_loading_error);
                         } else if (testPosition == 1) {
                             buttonTest.setText(getResources().getString(R.string.activity_main_buttonTest) + "1");
-                            NetworkGifImageViewHelp.getImageByBitmapRequestParams(networkGifImageView, getBitmapRequestParams("http://server.52wallpaper.com:4126/perfectwallpaper_files/specifys/randomAvatar2.png", activity_main_networkGifImageView_width, activity_main_networkGifImageView_width), R.mipmap.normal_loading, R.mipmap.normal_loading_error);
-                            NetworkGifImageViewHelp.getImageByBitmapRequestParams(networkGifImageView1, getBitmapRequestParams("http://server.52wallpaper.com:4126/perfectwallpaper_files/specifys/randomAvatar1.png", activity_main_networkGifImageView_width, activity_main_networkGifImageView_width), R.mipmap.normal_loading, R.mipmap.normal_loading_error);
+                            NetworkGifImageViewHelp.getImageByBitmapRequestParams(networkGifImageView, getBitmapRequestParams(HttpConnectTool.FILEROOTURL + "/specifys/randomAvatar2.png", activity_main_networkGifImageView_width, activity_main_networkGifImageView_width), R.mipmap.normal_loading, R.mipmap.normal_loading_error);
+                            NetworkGifImageViewHelp.getImageByBitmapRequestParams(networkGifImageView1, getBitmapRequestParams(HttpConnectTool.FILEROOTURL + "/specifys/randomAvatar1.png", activity_main_networkGifImageView_width, activity_main_networkGifImageView_width), R.mipmap.normal_loading, R.mipmap.normal_loading_error);
                         }
 //                        if (testPosition == 0) {
 //                            buttonTest.setText(getResources().getString(R.string.activity_main_buttonTest) + "0");

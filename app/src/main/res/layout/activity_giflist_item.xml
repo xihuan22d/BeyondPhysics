@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.beyondphysics.ui.views.NetworkGifImageView
+        <com.my.views.network.MyNetworkGifImageView
             android:id="@+id/networkGifImageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
                 android:layout_marginLeft="@dimen/view_normal_margin_default"
                 android:layout_marginRight="@dimen/view_normal_margin_default">
 
-                <com.beyondphysics.ui.views.RoundedNetworkGifImageView
+                <com.my.views.network.MyRoundedNetworkGifImageView
                     android:id="@+id/roundedNetworkGifImageViewAvatar"
                     android:layout_width="@dimen/avatar_normal_width_narrow"
                     android:layout_height="@dimen/avatar_normal_width_narrow"

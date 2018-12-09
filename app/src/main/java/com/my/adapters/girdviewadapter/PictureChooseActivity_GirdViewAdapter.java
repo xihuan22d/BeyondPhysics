@@ -33,8 +33,8 @@ public class PictureChooseActivity_GirdViewAdapter extends BaseAdapter {
         layoutInflater = this.baseActivity.getLayoutInflater();
         this.onPictureChooseListener = onPictureChooseListener;
 
-        int view_normal_margin_default=this.baseActivity.getResources().getDimensionPixelSize(R.dimen.view_normal_margin_default);
-        itemWidth=(BaseActivity.getScreenWidth(this.baseActivity)-4*view_normal_margin_default)/3;
+        int view_normal_margin_default = this.baseActivity.getResources().getDimensionPixelSize(R.dimen.view_normal_margin_default);
+        itemWidth = (BaseActivity.getScreenWidth(this.baseActivity) - 4 * view_normal_margin_default) / 3;
 
     }
 
@@ -70,7 +70,7 @@ public class PictureChooseActivity_GirdViewAdapter extends BaseAdapter {
             viewHolder = new ViewHolder();
             convertView = layoutInflater.inflate(R.layout.activity_picture_choose_item, parent, false);
             viewHolder.networkGifImageView = (NetworkGifImageView) convertView.findViewById(R.id.networkGifImageView);
-            TheApplication.setLayoutParams(convertView,itemWidth,itemWidth);
+            TheApplication.setLayoutParams(convertView, itemWidth, itemWidth);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
@@ -88,7 +88,7 @@ public class PictureChooseActivity_GirdViewAdapter extends BaseAdapter {
             });
         } else {
             final String path = paths.get(position);
-            NetworkGifImageViewHelp.getImageFromDiskCache(viewHolder.networkGifImageView, path, 1, baseActivity.activityKey,  itemWidth, itemWidth,0, 0);
+            NetworkGifImageViewHelp.getImageFromDiskCache(viewHolder.networkGifImageView, path, 1, baseActivity.activityKey, itemWidth, itemWidth, 0, 0);
             viewHolder.networkGifImageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

@@ -7,7 +7,6 @@ import com.beyondphysics.network.http.HttpResponse;
 import com.beyondphysics.network.utils.SuperKey;
 import com.my.beyondphysicsapplication.TheApplication;
 
-
 import java.net.HttpURLConnection;
 import java.util.HashMap;
 import java.util.Map;
@@ -62,8 +61,8 @@ public class MyStringRequest extends StringRequest_Default {
         headerParams.put("Connection", "keep-alive");
         headerParams.put("Accept-Charset", getEncoding());
         headerParams.put("Content-Type", "application/x-www-form-urlencoded;charset=" + getEncoding());
-        headerParams.put("uid", "5ae16a9ea9494908a41df04e");
-        headerParams.put("token", "c3be8edecce68a77_1524722334500_20n9ossp");
+        headerParams.put("uid", "5c0b4645579bcb6796cc79b9");
+        headerParams.put("token", "11e79db7afa0f62e919fde99e2e870e6_198ddbb613de217c");
         return headerParams;
     }
 

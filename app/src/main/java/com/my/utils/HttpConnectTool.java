@@ -7,6 +7,7 @@ import com.beyondphysics.ui.utils.SSLSocketTool;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
@@ -19,6 +20,8 @@ import javax.security.auth.x500.X500Principal;
  */
 public class HttpConnectTool {
     public static final boolean USEHTTPS = true;
+    public static final String COREHOSTNAME = "server.coolwallpaper.cn";
+    public static final String FILEROOTURL = "http://" + HttpConnectTool.COREHOSTNAME + ":4126/coolWallpaper";
 
     //一页的数据个数
     public static final int pageSize = 25;
@@ -37,9 +40,6 @@ public class HttpConnectTool {
     //特征分隔符
     public static final String featureSplitSign = ",";
 
-    // 服务器根路由
-    public static final String serverRootUrl = "http://server.52wallpaper.com:2222";
-    public static final String serverRootUrl_https = "https://server.52wallpaper.com:2223";
 
     // 反馈
     public static final String theApplication_feedback = "/theApplication_feedback";
@@ -72,22 +72,29 @@ public class HttpConnectTool {
     public static SSLSocketFactory sslSocketFactory;
 
     public static String getServerRootUrl() {
+        String result = "http://" + COREHOSTNAME + ":22001";
         if (USEHTTPS) {
-            return serverRootUrl_https;
+            result = "https://" + COREHOSTNAME + ":22002";
         }
-        return serverRootUrl;
+        return result;
+    }
+
+    public static void addReferer(Map<String, String> headerParams) {
+        if (headerParams != null) {
+            headerParams.put("Referer", "coolwallpaper.cn");
+        }
     }
 
     public static synchronized SSLSocketFactory getInstanceSslSocketFactory(Context context) {
         if (sslSocketFactory == null) {
-            List<String> crts = new ArrayList<String>();
-            crts.add("my.crt");
-            sslSocketFactory = SSLSocketTool.getSocketFactoryByKeyStore(SSLSocketTool.TYPE_ASSETS, crts, context);
+            List<SSLSocketTool.CrtItem> crtItems = new ArrayList<SSLSocketTool.CrtItem>();
+            crtItems.add(new SSLSocketTool.CrtItem(SSLSocketTool.TYPE_ASSETS, "core.crt"));
+            sslSocketFactory = SSLSocketTool.getSocketFactoryByKeyStore(crtItems, context);
         }
         return sslSocketFactory;
     }
 
-    public static void setHostnameVerifier(HttpsURLConnection httpsURLConnection){
+    public static void setHostnameVerifier(HttpsURLConnection httpsURLConnection) {
         httpsURLConnection.setHostnameVerifier(new HostnameVerifier() {
             @Override
             public boolean verify(String hostname, SSLSession session) {
@@ -102,7 +109,7 @@ public class HttpConnectTool {
                         String[] split = name.split(",");
                         for (String str : split) {
                             if (str.startsWith("CN")) {
-                                if (peerHost.equals(hostname)&&str.contains("server.52wallpaper.com")) {
+                                if (peerHost.equals(hostname) && str.contains(COREHOSTNAME)) {
                                     return true;
                                 }
                             }

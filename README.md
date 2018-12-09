@@ -1,6 +1,6 @@
 ﻿# BeyondPhysics
 
-框架demo下载地址: http://server.52wallpaper.com:4126/apks/beyondPhysics.apk
+框架demo下载地址: http://server.coolwallpaper.cn:4126/apks/beyondPhysics.apk
 
 博客地址:https://blog.csdn.net/xihuan22d/article/details/80220900
 
@@ -43,7 +43,7 @@ allprojects {
 
 dependencies {
 
-    implementation 'com.github.xihuan22d:BeyondPhysics:1.0.1'
+    implementation 'com.github.xihuan22d:BeyondPhysics:1.0.3'
 	
 }
 

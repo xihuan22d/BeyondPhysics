@@ -18,7 +18,7 @@ public abstract class UnLoadMoreRecyclerViewAdapter extends BaseRecyclerViewAdap
     public static final int USE_DEFAULT_LOADCOMPLETEDLAYOUTID = -1;
     public static final int UNSHOW_LOADCOMPLETEDLAYOUTID = 0;
 
-    private  int loadCompletedLayoutId;
+    private int loadCompletedLayoutId;
 
     public UnLoadMoreRecyclerViewAdapter(List<ViewItem> datas) {
         super(datas);

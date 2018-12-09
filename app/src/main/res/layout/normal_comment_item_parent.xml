@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:background="?attr/mainColorHelp">
 
-    <com.beyondphysics.ui.views.RoundedNetworkImageView
+    <com.my.views.network.MyRoundedNetworkImageView
         android:id="@+id/roundedNetworkImageViewAvatar"
         android:layout_width="@dimen/avatar_normal_width_narrow"
         android:layout_height="@dimen/avatar_normal_width_narrow"

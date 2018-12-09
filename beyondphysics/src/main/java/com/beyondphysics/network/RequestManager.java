@@ -488,14 +488,12 @@ public class RequestManager {
     }
 
     public void clearMemory(String key) {
-        ThreadTool.throwIfNotOnMainThread();
         if (key != null) {
             threadSafelyLinkedHasMapCacheItem.clearMemory(key);
         }
     }
 
     public void clearAllMemory() {
-        ThreadTool.throwIfNotOnMainThread();
         threadSafelyLinkedHasMapCacheItem.clearAllMemory();
     }
 

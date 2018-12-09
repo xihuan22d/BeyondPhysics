@@ -49,6 +49,9 @@ public class TheApplication extends Application {
 
     public static final int LOADMOREERRORDELAY = 1000;
 
+    public static final int FILE_CONNECTTIMEOUTMS = 30000;
+
+    public static final int FILE_READTIMEOUTMS = 60000;
 
     private static TheApplication theApplication;
 

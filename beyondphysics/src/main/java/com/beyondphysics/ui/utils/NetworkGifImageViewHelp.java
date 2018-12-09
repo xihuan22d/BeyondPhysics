@@ -1,6 +1,5 @@
 package com.beyondphysics.ui.utils;
 
-import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.beyondphysics.network.BitmapRequest_Default_Params;
@@ -55,10 +54,7 @@ public class NetworkGifImageViewHelp {
         String diskCacheUrlString = NetworkImageViewHelp.getDiskCacheUrlString(urlString, diskCacheType);
         networkGifImageView.setDefaultImageResId(defaultResId);
         networkGifImageView.setErrorImageResId(errorResId);
-        ViewGroup.LayoutParams layoutParams = networkGifImageView.getLayoutParams();
-        layoutParams.width = width;
-        layoutParams.height = height;
-        networkGifImageView.setLayoutParams(layoutParams);
+        NetworkImageViewHelp.setLayoutParamsIfChanged(networkGifImageView, width, height);
         networkGifImageView.getImage(diskCacheUrlString, tag, width, height);
     }
 
@@ -73,10 +69,7 @@ public class NetworkGifImageViewHelp {
         String diskCacheUrlString = NetworkImageViewHelp.getDiskCacheUrlString(urlString, diskCacheType);
         networkGifImageView.setDefaultImageResId(defaultResId);
         networkGifImageView.setErrorImageResId(errorResId);
-        ViewGroup.LayoutParams layoutParams = networkGifImageView.getLayoutParams();
-        layoutParams.width = width;
-        layoutParams.height = height;
-        networkGifImageView.setLayoutParams(layoutParams);
+        NetworkImageViewHelp.setLayoutParamsIfChanged(networkGifImageView, width, height);
         networkGifImageView.getImage(diskCacheUrlString, tag, width, height, scaleType);
     }
 
@@ -119,10 +112,7 @@ public class NetworkGifImageViewHelp {
     public static void getImageFromNetworkWithNewParams(NetworkGifImageView networkGifImageView, String urlString, String tag, int width, int height, int defaultResId, int errorResId) {
         networkGifImageView.setDefaultImageResId(defaultResId);
         networkGifImageView.setErrorImageResId(errorResId);
-        ViewGroup.LayoutParams layoutParams = networkGifImageView.getLayoutParams();
-        layoutParams.width = width;
-        layoutParams.height = height;
-        networkGifImageView.setLayoutParams(layoutParams);
+        NetworkImageViewHelp.setLayoutParamsIfChanged(networkGifImageView, width, height);
         networkGifImageView.getImage(urlString, tag, width, height);
     }
 
@@ -135,10 +125,7 @@ public class NetworkGifImageViewHelp {
     public static void getImageFromNetworkWithNewParams(NetworkGifImageView networkGifImageView, String urlString, String tag, int width, int height, ImageView.ScaleType scaleType, int defaultResId, int errorResId) {
         networkGifImageView.setDefaultImageResId(defaultResId);
         networkGifImageView.setErrorImageResId(errorResId);
-        ViewGroup.LayoutParams layoutParams = networkGifImageView.getLayoutParams();
-        layoutParams.width = width;
-        layoutParams.height = height;
-        networkGifImageView.setLayoutParams(layoutParams);
+        NetworkImageViewHelp.setLayoutParamsIfChanged(networkGifImageView, width, height);
         networkGifImageView.getImage(urlString, tag, width, height, scaleType);
     }
 

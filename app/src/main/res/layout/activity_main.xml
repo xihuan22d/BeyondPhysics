@@ -122,14 +122,14 @@
                 android:gravity="center_horizontal"
                 android:orientation="horizontal">
 
-                <com.beyondphysics.ui.views.NetworkGifImageView
+                <com.my.views.network.MyNetworkGifImageView
                     android:id="@+id/networkGifImageView"
                     android:layout_width="@dimen/activity_main_networkGifImageView_width"
                     android:layout_height="@dimen/activity_main_networkGifImageView_width"
                     android:background="@color/darkColor_default"
                     android:scaleType="centerCrop" />
 
-                <com.beyondphysics.ui.views.NetworkGifImageView
+                <com.my.views.network.MyNetworkGifImageView
                     android:id="@+id/networkGifImageView1"
                     android:layout_width="@dimen/activity_main_networkGifImageView_width"
                     android:layout_height="@dimen/activity_main_networkGifImageView_width"

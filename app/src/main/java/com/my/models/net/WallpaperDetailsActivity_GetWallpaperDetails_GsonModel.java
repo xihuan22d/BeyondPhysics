@@ -2,9 +2,6 @@ package com.my.models.net;
 
 
 import com.google.gson.Gson;
-import com.my.models.Collection;
-import com.my.models.Follow;
-import com.my.models.Praise;
 import com.my.models.User;
 import com.my.models.Wallpaper;
 

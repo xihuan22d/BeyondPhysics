@@ -9,7 +9,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.beyondphysics.network.BreakpointDownloadRequest;
-import com.beyondphysics.network.BreakpointDownloadRequest_Default;
 import com.beyondphysics.network.Request;
 import com.beyondphysics.network.RequestManager;
 import com.beyondphysics.network.cache.CacheItem;
@@ -18,6 +17,8 @@ import com.beyondphysics.network.utils.MD5Tool;
 import com.beyondphysics.ui.BaseActivity;
 import com.beyondphysics.ui.utils.BeyondPhysicsManager;
 import com.beyondphysics.ui.utils.NetworkStateTool;
+import com.my.utils.HttpConnectTool;
+import com.my.utils.MyBreakpointDownloadRequest;
 
 import java.io.File;
 
@@ -60,7 +61,7 @@ public class BreakpointDownloadActivity extends NewBaseActivity {
 
     @Override
     protected void initConfigUi() {
-        String url = "http://server.52wallpaper.com:4126/perfectwallpaper_files/specifys/test.png";
+        String url = HttpConnectTool.FILEROOTURL + "/specifys/test.png";
         editTextUrl.setText(url);
         int[] progress = getFileProgress(BreakpointDownloadActivity.this, url);
         if (progress[0] > 0 && progress[1] > 0) {
@@ -114,7 +115,7 @@ public class BreakpointDownloadActivity extends NewBaseActivity {
             BaseActivity.showShortToast(BreakpointDownloadActivity.this, TheApplication.NETOPENERROR);
         } else {
             final String savePath = getSavePath(url);
-            breakpointDownloadRequest = new BreakpointDownloadRequest_Default(url, savePath, -1, activityKey, new Request.OnResponseListener<String>() {
+            breakpointDownloadRequest = new MyBreakpointDownloadRequest(url, savePath, -1, activityKey, new Request.OnResponseListener<String>() {
                 @Override
                 public void onSuccessResponse(String response) {
                     BaseActivity.showShortToast(BreakpointDownloadActivity.this, response + "文件位于" + savePath);
@@ -126,7 +127,7 @@ public class BreakpointDownloadActivity extends NewBaseActivity {
                     BaseActivity.showShortToast(BreakpointDownloadActivity.this, error);
                     downloading = false;
                 }
-            }, 9, null, 8000, 22000, new BreakpointDownloadRequest.OnDownloadProgressListener() {
+            }, 9, null, TheApplication.FILE_CONNECTTIMEOUTMS, TheApplication.FILE_READTIMEOUTMS, new BreakpointDownloadRequest.OnDownloadProgressListener() {
                 @Override
                 public void maxProgress(BreakpointDownloadRequest<?> breakpointDownloadRequest, int totalSize) {
                     progressBar.setMax(totalSize);

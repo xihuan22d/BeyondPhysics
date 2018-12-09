@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/activity_picture_choose_item_height">
 
-    <com.beyondphysics.ui.views.NetworkGifImageView
+    <com.my.views.network.MyNetworkGifImageView
         android:id="@+id/networkGifImageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

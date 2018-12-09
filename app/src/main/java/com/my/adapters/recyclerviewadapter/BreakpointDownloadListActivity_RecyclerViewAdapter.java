@@ -9,7 +9,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.beyondphysics.network.BreakpointDownloadRequest;
-import com.beyondphysics.network.BreakpointDownloadRequest_Default;
 import com.beyondphysics.network.Request;
 import com.beyondphysics.ui.BaseActivity;
 import com.beyondphysics.ui.recyclerviewlibrary.adapters.BaseRecyclerViewAdapter;
@@ -18,7 +17,9 @@ import com.beyondphysics.ui.recyclerviewlibrary.models.ViewItem;
 import com.beyondphysics.ui.utils.BeyondPhysicsManager;
 import com.my.beyondphysicsapplication.BreakpointDownloadActivity;
 import com.my.beyondphysicsapplication.R;
+import com.my.beyondphysicsapplication.TheApplication;
 import com.my.models.Wallpaper;
+import com.my.utils.MyBreakpointDownloadRequest;
 
 import java.util.HashMap;
 import java.util.List;
@@ -193,7 +194,7 @@ public class BreakpointDownloadListActivity_RecyclerViewAdapter extends LoadMore
             return;
         }
         final String tag = wallpaper.get_id();
-        BreakpointDownloadRequest<?> breakpointDownloadRequest = new BreakpointDownloadRequest_Default(url, savePath, -1, baseActivity.activityKey, new Request.OnResponseListener<String>() {
+        BreakpointDownloadRequest<?> breakpointDownloadRequest = new MyBreakpointDownloadRequest(url, savePath, -1, baseActivity.activityKey, new Request.OnResponseListener<String>() {
             @Override
             public void onSuccessResponse(String response) {
                 BaseRecyclerViewHolder baseRecyclerViewHolder = getViewHolderIfVisible(recyclerView, tag);
@@ -220,7 +221,7 @@ public class BreakpointDownloadListActivity_RecyclerViewAdapter extends LoadMore
                 BaseActivity.showShortToast(baseActivity, error);
             }
 
-        }, 10, null, 8000, 22000, new BreakpointDownloadRequest.OnDownloadProgressListener() {
+        }, 10, null, TheApplication.FILE_CONNECTTIMEOUTMS, TheApplication.FILE_READTIMEOUTMS, new BreakpointDownloadRequest.OnDownloadProgressListener() {
             @Override
             public void maxProgress(BreakpointDownloadRequest<?> breakpointDownloadRequest, int totalSize) {
                 BaseRecyclerViewHolder baseRecyclerViewHolder = getViewHolderIfVisible(recyclerView, tag);

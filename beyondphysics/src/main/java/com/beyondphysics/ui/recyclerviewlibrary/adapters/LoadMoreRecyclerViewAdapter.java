@@ -20,9 +20,9 @@ public abstract class LoadMoreRecyclerViewAdapter extends BaseRecyclerViewAdapte
     public static final int UNSHOW_LOADCOMPLETEDLAYOUTID = 0;
 
 
-    private  int loadMoreLayoutId;
-    private  int pageCount;
-    private  int loadCompletedLayoutId;
+    private int loadMoreLayoutId;
+    private int pageCount;
+    private int loadCompletedLayoutId;
     private LoadMoreCallback loadMoreCallback;
     private boolean loading = false;
     private boolean loadCompleted = false;

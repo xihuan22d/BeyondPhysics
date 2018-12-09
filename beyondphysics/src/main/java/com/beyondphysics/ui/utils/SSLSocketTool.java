@@ -61,9 +61,9 @@ public class SSLSocketTool {
     /**
      * 指定多证书验证,保证https高度安全,无法被中间人攻击和安装的拦包软件拦截
      */
-    public static SSLSocketFactory getSocketFactoryByKeyStore(int type, List<String> fileNames, Context context) {
+    public static SSLSocketFactory getSocketFactoryByKeyStore(List<CrtItem> crtItems, Context context) {
         SSLSocketFactory sslSocketFactory = null;
-        if (fileNames == null) {
+        if (crtItems == null) {
             return sslSocketFactory;
         }
         try {
@@ -71,15 +71,15 @@ public class SSLSocketTool {
             String keyStoreType = KeyStore.getDefaultType();
             KeyStore keyStore = KeyStore.getInstance(keyStoreType);
             keyStore.load(null, null);
-            for (int i = 0; i < fileNames.size(); i++) {
-                String fileName = fileNames.get(i);
-                if (fileName != null) {
+            for (int i = 0; i < crtItems.size(); i++) {
+                CrtItem crtItem = crtItems.get(i);
+                if (crtItem != null) {
                     try {
                         InputStream caInputStream = null;
-                        if (type == TYPE_ASSETS && context != null) {
-                            caInputStream = new BufferedInputStream(context.getAssets().open(fileName));
+                        if (crtItem.getType() == TYPE_ASSETS && context != null) {
+                            caInputStream = new BufferedInputStream(context.getAssets().open(crtItem.getFileName()));
                         } else {
-                            caInputStream = new BufferedInputStream(new FileInputStream(fileName));
+                            caInputStream = new BufferedInputStream(new FileInputStream(crtItem.getFileName()));
                         }
                         try {
                             String alias = "ca_" + String.valueOf(i);
@@ -103,6 +103,40 @@ public class SSLSocketTool {
             e.printStackTrace();
         }
         return sslSocketFactory;
+    }
+
+    public static class CrtItem {
+        private int type;
+        private String fileName;
+
+        public CrtItem(int type, String fileName) {
+            this.type = type;
+            this.fileName = fileName;
+        }
+
+        public int getType() {
+            return type;
+        }
+
+        public void setType(int type) {
+            this.type = type;
+        }
+
+        public String getFileName() {
+            return fileName;
+        }
+
+        public void setFileName(String fileName) {
+            this.fileName = fileName;
+        }
+
+        @Override
+        public String toString() {
+            return "CrtItem{" +
+                    "type=" + type +
+                    ", fileName='" + fileName + '\'' +
+                    '}';
+        }
     }
 
 }

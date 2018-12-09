@@ -1,5 +1,6 @@
 package com.beyondphysics.ui.utils;
 
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
@@ -14,6 +15,22 @@ public class NetworkImageViewHelp {
     public static final int DISKCACHETYPE_FILE = 1;
     public static final int DISKCACHETYPE_ASSETS = 2;
     public static final int DISKCACHETYPE_RESOURCE = 3;
+
+    public static void setLayoutParamsIfChanged(View view, int width, int height) {
+        ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+        boolean changed = false;
+        if (layoutParams.width != width) {
+            layoutParams.width = width;
+            changed = true;
+        }
+        if (layoutParams.height != height) {
+            layoutParams.height = height;
+            changed = true;
+        }
+        if (changed) {
+            view.setLayoutParams(layoutParams);
+        }
+    }
 
     /**
      * diskCacheType为1表示添加file://,为2表示添加assets://,为3表示添加resource://,resource资源需要在末尾加上如.gif才能支持解析对于格式,否则默认为png
@@ -78,10 +95,7 @@ public class NetworkImageViewHelp {
         String diskCacheUrlString = getDiskCacheUrlString(urlString, diskCacheType);
         networkImageView.setDefaultImageResId(defaultResId);
         networkImageView.setErrorImageResId(errorResId);
-        ViewGroup.LayoutParams layoutParams = networkImageView.getLayoutParams();
-        layoutParams.width = width;
-        layoutParams.height = height;
-        networkImageView.setLayoutParams(layoutParams);
+        setLayoutParamsIfChanged(networkImageView, width, height);
         networkImageView.getImage(diskCacheUrlString, tag, width, height);
     }
 
@@ -96,10 +110,7 @@ public class NetworkImageViewHelp {
         String diskCacheUrlString = getDiskCacheUrlString(urlString, diskCacheType);
         networkImageView.setDefaultImageResId(defaultResId);
         networkImageView.setErrorImageResId(errorResId);
-        ViewGroup.LayoutParams layoutParams = networkImageView.getLayoutParams();
-        layoutParams.width = width;
-        layoutParams.height = height;
-        networkImageView.setLayoutParams(layoutParams);
+        setLayoutParamsIfChanged(networkImageView, width, height);
         networkImageView.getImage(diskCacheUrlString, tag, width, height, scaleType);
     }
 
@@ -142,10 +153,7 @@ public class NetworkImageViewHelp {
     public static void getImageFromNetworkWithNewParams(NetworkImageView networkImageView, String urlString, String tag, int width, int height, int defaultResId, int errorResId) {
         networkImageView.setDefaultImageResId(defaultResId);
         networkImageView.setErrorImageResId(errorResId);
-        ViewGroup.LayoutParams layoutParams = networkImageView.getLayoutParams();
-        layoutParams.width = width;
-        layoutParams.height = height;
-        networkImageView.setLayoutParams(layoutParams);
+        setLayoutParamsIfChanged(networkImageView, width, height);
         networkImageView.getImage(urlString, tag, width, height);
     }
 
@@ -158,10 +166,7 @@ public class NetworkImageViewHelp {
     public static void getImageFromNetworkWithNewParams(NetworkImageView networkImageView, String urlString, String tag, int width, int height, ImageView.ScaleType scaleType, int defaultResId, int errorResId) {
         networkImageView.setDefaultImageResId(defaultResId);
         networkImageView.setErrorImageResId(errorResId);
-        ViewGroup.LayoutParams layoutParams = networkImageView.getLayoutParams();
-        layoutParams.width = width;
-        layoutParams.height = height;
-        networkImageView.setLayoutParams(layoutParams);
+        setLayoutParamsIfChanged(networkImageView, width, height);
         networkImageView.getImage(urlString, tag, width, height, scaleType);
     }
 

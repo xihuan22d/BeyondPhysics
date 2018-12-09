@@ -355,11 +355,14 @@ public class NetworkGifImageView extends AppCompatImageView {
             bitmapRequest_Default_Params.setOnResponseListener(onResponseListener);
         }
 
-        bitmapRequest = new BitmapRequest_Default(bitmapRequest_Default_Params);
+        bitmapRequest = getBitmapRequest(bitmapRequest_Default_Params);
         addOrCancelBitmapRequest(1, bitmapRequest);
         oldBitmapRequest_Default_Params = bitmapRequest_Default_Params;
     }
 
+    public BitmapRequest<?> getBitmapRequest(BitmapRequest_Default_Params bitmapRequest_Default_Params) {
+        return new BitmapRequest_Default(bitmapRequest_Default_Params);
+    }
 
     /**
      * 比如用户头像在用户退出登录后需要改变成默认头像,这时候就需要先取消请求,再设置成默认头像,这样就不会导致未执行请求重新回来了

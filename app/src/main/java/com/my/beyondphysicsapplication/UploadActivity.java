@@ -497,7 +497,7 @@ public class UploadActivity extends NewBaseActivity {
                     validate[7] = true;
                     imageViewWallpaperOk.setVisibility(View.VISIBLE);
                 }
-            }else if (requestCode == WALLPAPER_VIDEO_INTENT_REQUEST) {
+            } else if (requestCode == WALLPAPER_VIDEO_INTENT_REQUEST) {
                 String theUploadWallpaperVideoPath = GetPathFromUriTool.getPath(UploadActivity.this, data.getData());
                 if (theUploadWallpaperVideoPath == null) {
                     BaseActivity.showShortToast(UploadActivity.this, "获取该文件异常");

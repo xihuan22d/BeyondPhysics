@@ -30,9 +30,9 @@ public class ToastCompat extends Toast {
 
         LayoutInflater layoutInflater = (LayoutInflater)
                 context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        Resources resources=context.getResources();
+        Resources resources = context.getResources();
         View view = layoutInflater.inflate(resources.getIdentifier("transient_notification", "layout", "android"), null);
-        TextView textView = (TextView)view.findViewById(resources.getIdentifier("message", "id", "android"));
+        TextView textView = (TextView) view.findViewById(resources.getIdentifier("message", "id", "android"));
         textView.setText(text);
         toastCompat.setView(view);
         toastCompat.setDuration(duration);
@@ -47,37 +47,37 @@ public class ToastCompat extends Toast {
 
     @Override
     public void show() {
-        if(checkIfNeedToHack()){
+        if (checkIfNeedToHack()) {
             tryToHack();
         }
         super.show();
     }
 
-    protected boolean checkIfNeedToHack(){
-        return Build.VERSION.SDK_INT==Build.VERSION_CODES.N_MR1;
+    protected boolean checkIfNeedToHack() {
+        return Build.VERSION.SDK_INT == Build.VERSION_CODES.N_MR1;
     }
 
-    private void tryToHack(){
+    private void tryToHack() {
         try {
-            Object mTN=getFieldValue(this,"mTN");
-            if(mTN!=null){
-                boolean isSuccess=false;
+            Object mTN = getFieldValue(this, "mTN");
+            if (mTN != null) {
+                boolean isSuccess = false;
 
-                Object rawShowRunnable=getFieldValue(mTN,"mShow");
-                if(rawShowRunnable!=null && rawShowRunnable instanceof Runnable){
-                    isSuccess=setFieldValue(mTN,"mShow",new InternalRunnable((Runnable)rawShowRunnable));
+                Object rawShowRunnable = getFieldValue(mTN, "mShow");
+                if (rawShowRunnable != null && rawShowRunnable instanceof Runnable) {
+                    isSuccess = setFieldValue(mTN, "mShow", new InternalRunnable((Runnable) rawShowRunnable));
                 }
-                if(!isSuccess){
-                    Object rawHandler=getFieldValue(mTN,"mHandler");
-                    if(rawHandler!=null && rawHandler instanceof Handler){
-                        isSuccess=setFieldValue(rawHandler,"mCallback",new InternalHandlerCallback((Handler)rawHandler));
+                if (!isSuccess) {
+                    Object rawHandler = getFieldValue(mTN, "mHandler");
+                    if (rawHandler != null && rawHandler instanceof Handler) {
+                        isSuccess = setFieldValue(rawHandler, "mCallback", new InternalHandlerCallback((Handler) rawHandler));
                     }
                 }
-                if(!isSuccess){
+                if (!isSuccess) {
                     BaseActivity.showSystemErrorLog("tryToHack error.");
                 }
             }
-        }catch (Throwable e){
+        } catch (Throwable e) {
             e.printStackTrace();
         }
     }
@@ -93,13 +93,13 @@ public class ToastCompat extends Toast {
         public void run() {
             try {
                 this.mRunnable.run();
-            }catch (Throwable e) {
+            } catch (Throwable e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private class InternalHandlerCallback implements Handler.Callback{
+    private class InternalHandlerCallback implements Handler.Callback {
         private final Handler mHandler;
 
         public InternalHandlerCallback(Handler mHandler) {
@@ -110,48 +110,48 @@ public class ToastCompat extends Toast {
         public boolean handleMessage(Message msg) {
             try {
                 mHandler.handleMessage(msg);
-            }catch (Throwable e) {
-               e.printStackTrace();
+            } catch (Throwable e) {
+                e.printStackTrace();
             }
             return true;
         }
     }
 
     private static boolean setFieldValue(Object object, String fieldName, Object newFieldValue) {
-        Field field = getDeclaredField(object,fieldName);
-        if(field!=null){
+        Field field = getDeclaredField(object, fieldName);
+        if (field != null) {
             try {
-                int accessFlags=field.getModifiers();
-                if(Modifier.isFinal(accessFlags)){
+                int accessFlags = field.getModifiers();
+                if (Modifier.isFinal(accessFlags)) {
                     Field modifiersField = Field.class.getDeclaredField("accessFlags");
                     modifiersField.setAccessible(true);
                     modifiersField.setInt(field, field.getModifiers() & ~Modifier.FINAL);
                 }
-                if(!field.isAccessible()) {
+                if (!field.isAccessible()) {
                     field.setAccessible(true);
                 }
                 field.set(object, newFieldValue);
                 return true;
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
         return false;
     }
 
-    private static Object getFieldValue(Object object, final String fieldName){
-        Field field = getDeclaredField(object,fieldName);
-        return getFieldValue(object,field);
+    private static Object getFieldValue(Object object, final String fieldName) {
+        Field field = getDeclaredField(object, fieldName);
+        return getFieldValue(object, field);
     }
 
-    private static Object getFieldValue(Object obj, Field field){
-        if(field!=null){
+    private static Object getFieldValue(Object obj, Field field) {
+        if (field != null) {
             try {
-                if(!field.isAccessible()) {
+                if (!field.isAccessible()) {
                     field.setAccessible(true);
                 }
                 return field.get(obj);
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }

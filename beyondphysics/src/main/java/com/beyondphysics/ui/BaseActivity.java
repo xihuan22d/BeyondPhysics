@@ -89,7 +89,7 @@ public class BaseActivity extends AppCompatActivity {
             ProgressDialog progressDialog = entry.getValue();
             progressDialogs.add(progressDialog);
         }
-        for (int i=0;i<progressDialogs.size();i++){
+        for (int i = 0; i < progressDialogs.size(); i++) {
             progressDialogs.get(i).dismiss();
         }
         hashMapProgressDialogs.clear();
@@ -129,7 +129,7 @@ public class BaseActivity extends AppCompatActivity {
             PopupWindow popupWindow = entry.getValue();
             popupWindows.add(popupWindow);
         }
-        for (int i=0;i<popupWindows.size();i++){
+        for (int i = 0; i < popupWindows.size(); i++) {
             popupWindows.get(i).dismiss();
         }
         hashMapPopupWindows.clear();
