@@ -3,9 +3,9 @@ package com.beyondphysics.ui.imagechooselibrary.adapters;
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 
 import com.beyondphysics.R;
 import com.beyondphysics.ui.BaseActivity;
@@ -15,6 +15,7 @@ import com.beyondphysics.ui.recyclerviewlibrary.adapters.BaseRecyclerViewAdapter
 import com.beyondphysics.ui.recyclerviewlibrary.adapters.UnLoadMoreRecyclerViewAdapter;
 import com.beyondphysics.ui.recyclerviewlibrary.models.ViewItem;
 import com.beyondphysics.ui.utils.NetworkGifImageViewHelp;
+import com.beyondphysics.ui.utils.NetworkImageViewHelp;
 import com.beyondphysics.ui.views.NetworkGifImageView;
 
 import java.util.List;
@@ -69,13 +70,12 @@ public class ChooseImageActivity_RecyclerViewAdapter extends UnLoadMoreRecyclerV
                 final ImageItem imageItem = (ImageItem) viewItem.getModel();
                 if (imageItem != null) {
                     NetworkGifImageView networkGifImageView = (NetworkGifImageView) holder.getView(R.id.networkGifImageView);
-                    NetworkGifImageViewHelp.getImageFromDiskCacheWithNewParams(networkGifImageView, imageItem.getPath(), 1, chooseImageActivity.activityKey, itemWidth, itemWidth, 0, 0);
                     final CheckBox checkBox = (CheckBox) holder.getView(R.id.checkBox);
                     final FrameLayout frameLayoutCover = (FrameLayout) holder.getView(R.id.frameLayoutCover);
-                    ViewGroup.LayoutParams layoutParams = frameLayoutCover.getLayoutParams();
-                    layoutParams.width = itemWidth;
-                    layoutParams.height = itemWidth;
-                    frameLayoutCover.setLayoutParams(layoutParams);
+                    NetworkImageViewHelp.setLayoutParamsIfChanged(frameLayoutCover, itemWidth, itemWidth);
+                    networkGifImageView.setOpenUpdateScaleType(true);
+                    networkGifImageView.setUpdateScaleTypeWhenGetBitmap(ImageView.ScaleType.CENTER_CROP);
+                    NetworkGifImageViewHelp.getImageFromDiskCacheWithNewParams(networkGifImageView, imageItem.getPath(), 1, chooseImageActivity.activityKey, itemWidth, itemWidth, R.mipmap.normal_loading, R.mipmap.normal_loading_error);
                     if (imageItem.isSelect()) {
                         checkBox.setChecked(true);
                         frameLayoutCover.setBackgroundColor(beyondPhysics_activity_chooseimage_item_background_select);

@@ -99,7 +99,9 @@ public class ChooseImageActivity_ListViewAdapter extends BaseAdapter {
         }
         ImageFolder imageFolder = imageFolders.get(position);
         if (imageFolder != null && imageFolder.getImageItemThumbnail() != null) {
-            NetworkGifImageViewHelp.getImageFromDiskCache(viewHolder.networkGifImageViewThumbnail, imageFolder.getImageItemThumbnail().getPath(), 1, baseActivity.activityKey, beyondPhysics_activity_chooseimage_popupwindow_selecttype_item_thumbnail_width, beyondPhysics_activity_chooseimage_popupwindow_selecttype_item_thumbnail_width, 0, 0);
+            viewHolder.networkGifImageViewThumbnail.setOpenUpdateScaleType(true);
+            viewHolder.networkGifImageViewThumbnail.setUpdateScaleTypeWhenGetBitmap(ImageView.ScaleType.CENTER_CROP);
+            NetworkGifImageViewHelp.getImageFromDiskCache(viewHolder.networkGifImageViewThumbnail, imageFolder.getImageItemThumbnail().getPath(), 1, baseActivity.activityKey, beyondPhysics_activity_chooseimage_popupwindow_selecttype_item_thumbnail_width, beyondPhysics_activity_chooseimage_popupwindow_selecttype_item_thumbnail_width, R.mipmap.normal_loading, R.mipmap.normal_loading_error);
             viewHolder.textViewFolderName.setText(imageFolder.getName());
             int count = 0;
             if (imageFolder.getImageItems() != null) {

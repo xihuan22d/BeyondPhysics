@@ -4,6 +4,7 @@
     <color name="beyondPhysics_activity_background_default">#f2f2f2</color>
     <color name="beyondPhysics_mainColorText_default">#6d6d6d</color>
     <color name="beyondPhysics_darkColor_default">#000000</color>
+    <color name="beyondPhysics_normal_load_completed">#999999</color>
 
     <color name="beyondPhysics_activity_chooseimage_item_background_select">#55000000</color>
     <color name="beyondPhysics_activity_chooseimage_item_background_unselect">#00ffffff</color>

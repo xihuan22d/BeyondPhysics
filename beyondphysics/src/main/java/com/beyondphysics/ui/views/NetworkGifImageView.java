@@ -336,6 +336,7 @@ public class NetworkGifImageView extends AppCompatImageView {
                     }
                     bitmapRequest = null;
                     haveGetBitmap = true;
+                    onSuccessResponse(response);
                 }
 
                 @Override
@@ -350,6 +351,7 @@ public class NetworkGifImageView extends AppCompatImageView {
                     }
                     bitmapRequest = null;
                     oldBitmapRequest_Default_Params = null;
+                    onErrorResponse(error);
                 }
             };
             bitmapRequest_Default_Params.setOnResponseListener(onResponseListener);
@@ -362,6 +364,13 @@ public class NetworkGifImageView extends AppCompatImageView {
 
     public BitmapRequest<?> getBitmapRequest(BitmapRequest_Default_Params bitmapRequest_Default_Params) {
         return new BitmapRequest_Default(bitmapRequest_Default_Params);
+    }
+
+    public void onSuccessResponse(BitmapResponse response) {
+    }
+
+    public void onErrorResponse(String error) {
+
     }
 
     /**
