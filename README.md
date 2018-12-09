@@ -43,7 +43,7 @@ allprojects {
 
 dependencies {
 
-    implementation 'com.github.xihuan22d:BeyondPhysics:1.1.0'
+    implementation 'com.github.xihuan22d:BeyondPhysics:1.1.1'
 	
 }
 
