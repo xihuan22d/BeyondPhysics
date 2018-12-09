@@ -53,10 +53,10 @@ public class NetworkGifImageView extends AppCompatImageView {
     private BitmapRequest<?> bitmapRequest;
 
     private boolean cancelRequestWhenOnDetachedFromWindow = true;
-
     private boolean fixedRecyclerViewBug = true;
-
     private boolean gifLoop = true;
+    private OnNetworkImageViewResponseListener onNetworkImageViewResponseListener;
+
     private int showGifPosition = -1;
     private List<GifBitmap> gifBitmaps;
     /**
@@ -292,6 +292,9 @@ public class NetworkGifImageView extends AppCompatImageView {
             String oldKey = RequestManager.getBitmapRequestKey(oldBitmapRequest_Default_Params.getUrlString(), oldBitmapRequest_Default_Params.getWidth(), oldBitmapRequest_Default_Params.getHeight(), oldBitmapRequest_Default_Params.getScaleType(), bitmapRequest_Default_Params.getBitmapConfig());
             if (key != null && oldKey != null && key.equals(oldKey)) {
                 //继续使用原图,也不要修改尺寸
+                if (onNetworkImageViewResponseListener != null) {
+                    onNetworkImageViewResponseListener.onSuccessResponse(null);
+                }
                 return;
             }
         }
@@ -304,7 +307,9 @@ public class NetworkGifImageView extends AppCompatImageView {
         } else {
             setImageBitmap(defaultImageBitmap);
         }
-
+        if (onNetworkImageViewResponseListener != null) {
+            onNetworkImageViewResponseListener.onReset();
+        }
         Request.OnResponseListener<BitmapResponse> onResponseListener = bitmapRequest_Default_Params.getOnResponseListener();
         if (onResponseListener == null) {
             onResponseListener = new Request.OnResponseListener<BitmapResponse>() {
@@ -336,7 +341,9 @@ public class NetworkGifImageView extends AppCompatImageView {
                     }
                     bitmapRequest = null;
                     haveGetBitmap = true;
-                    onSuccessResponseCallback(response);
+                    if (onNetworkImageViewResponseListener != null) {
+                        onNetworkImageViewResponseListener.onSuccessResponse(response);
+                    }
                 }
 
                 @Override
@@ -351,7 +358,9 @@ public class NetworkGifImageView extends AppCompatImageView {
                     }
                     bitmapRequest = null;
                     oldBitmapRequest_Default_Params = null;
-                    onErrorResponseCallback(error);
+                    if (onNetworkImageViewResponseListener != null) {
+                        onNetworkImageViewResponseListener.onErrorResponse(error);
+                    }
                 }
             };
             bitmapRequest_Default_Params.setOnResponseListener(onResponseListener);
@@ -364,13 +373,6 @@ public class NetworkGifImageView extends AppCompatImageView {
 
     public BitmapRequest<?> getBitmapRequest(BitmapRequest_Default_Params bitmapRequest_Default_Params) {
         return new BitmapRequest_Default(bitmapRequest_Default_Params);
-    }
-
-    public void onSuccessResponseCallback(BitmapResponse response) {
-    }
-
-    public void onErrorResponseCallback(String error) {
-
     }
 
     /**
@@ -553,6 +555,15 @@ public class NetworkGifImageView extends AppCompatImageView {
 
     public void setGifLoop(boolean gifLoop) {
         this.gifLoop = gifLoop;
+    }
+
+
+    public OnNetworkImageViewResponseListener getOnNetworkImageViewResponseListener() {
+        return onNetworkImageViewResponseListener;
+    }
+
+    public void setOnNetworkImageViewResponseListener(OnNetworkImageViewResponseListener onNetworkImageViewResponseListener) {
+        this.onNetworkImageViewResponseListener = onNetworkImageViewResponseListener;
     }
 
     @Override
