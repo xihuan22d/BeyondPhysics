@@ -7,15 +7,15 @@
 
 基于本框架设计的软件
 
-![image](https://github.com/xihuan22d/BeyondPhysics/blob/master/screenshot/o1.png)
+![image](https://github.com/xihuan22d/BeyondPhysics/blob/master/screenshot/o1.jpg)
 
-![image](https://github.com/xihuan22d/BeyondPhysics/blob/master/screenshot/o2.png)
+![image](https://github.com/xihuan22d/BeyondPhysics/blob/master/screenshot/o2.jpg)
 
-![image](https://github.com/xihuan22d/BeyondPhysics/blob/master/screenshot/o3.png)
+![image](https://github.com/xihuan22d/BeyondPhysics/blob/master/screenshot/o3.jpg)
 
-![image](https://github.com/xihuan22d/BeyondPhysics/blob/master/screenshot/o4.png)
+![image](https://github.com/xihuan22d/BeyondPhysics/blob/master/screenshot/o4.jpg)
 
-![image](https://github.com/xihuan22d/BeyondPhysics/blob/master/screenshot/o5.png)
+![image](https://github.com/xihuan22d/BeyondPhysics/blob/master/screenshot/o5.jpg)
 
 
 下载地址: http://coolwallpaper.cn
