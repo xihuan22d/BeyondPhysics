@@ -4,6 +4,24 @@
 
 博客地址:https://blog.csdn.net/xihuan22d/article/details/80220900
 
+
+基于本框架设计的软件
+
+![image](https://github.com/xihuan22d/BeyondPhysics/blob/master/screenshot/o1.png)
+
+![image](https://github.com/xihuan22d/BeyondPhysics/blob/master/screenshot/o2.png)
+
+![image](https://github.com/xihuan22d/BeyondPhysics/blob/master/screenshot/o3.png)
+
+![image](https://github.com/xihuan22d/BeyondPhysics/blob/master/screenshot/o4.png)
+
+![image](https://github.com/xihuan22d/BeyondPhysics/blob/master/screenshot/o5.png)
+
+
+下载地址: http://coolwallpaper.cn
+
+
+
 相比其他开源框架的优点:
 
 1.统一普通请求、图片请求三级缓存(支持gif)、下载、断点下载、上传请求，使得开发的软件不再是各种不同来源的开源框架糅合而成(网络框架，图片框架等等)，且这5类请求是以继承和泛型方式实现的，从而使得可以被进一步继承达到自定义
