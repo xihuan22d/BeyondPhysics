@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 
 import com.beyondphysics.network.ResponseHandler;
+import com.beyondphysics.network.http.HttpAgreement_Default;
 import com.beyondphysics.network.http.HttpAgreement_OkHttp;
 import com.beyondphysics.network.utils.FileTool;
 import com.beyondphysics.ui.BaseActivity;
@@ -32,7 +33,7 @@ public class NewBaseActivity extends BaseActivity {
     public static BeyondPhysicsManagerParams getBeyondPhysicsManagerParams(Context context) {
         String rootPath = TheApplication.getFilesDirRootPath(context) + File.separator + FileTool.DEFAULT_ROOT_PATH;
         // String rootPath = FileTool.getSdcardRootPath(TheApplication.DEFAULT_ROOT_PATH) + File.separator + FileTool.DEFAULT_ROOT_PATH;
-        return new BeyondPhysicsManagerParams(context, 4, 2, new HttpAgreement_OkHttp(), null, null, 2, rootPath, 52428800, ResponseHandler.RESPONSEHANDLERWITHMESSAGERECORD, true, 2);
+        return new BeyondPhysicsManagerParams(context, 4, 2, new HttpAgreement_Default(), null, null, 2, rootPath, 52428800, ResponseHandler.RESPONSEHANDLERWITHMESSAGERECORD, true, 2);
     }
 
 

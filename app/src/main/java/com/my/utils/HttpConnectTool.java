@@ -21,7 +21,7 @@ import javax.security.auth.x500.X500Principal;
 public class HttpConnectTool {
     public static final boolean USEHTTPS = true;
     public static final String COREHOSTNAME = "server.coolwallpaper.cn";
-    public static final String FILEROOTURL = "http://" + HttpConnectTool.COREHOSTNAME + ":4126/coolWallpaper";
+    public static final String FILEROOTURL = "http://public.coolwallpaper.cn/coolWallpaper";
 
     //一页的数据个数
     public static final int pageSize = 25;
@@ -81,7 +81,7 @@ public class HttpConnectTool {
 
     public static void addReferer(Map<String, String> headerParams) {
         if (headerParams != null) {
-            headerParams.put("Referer", "coolwallpaper.cn");
+            headerParams.put("Referer", "http://test.coolwallpaper.cn");
         }
     }
 

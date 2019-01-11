@@ -371,6 +371,7 @@ public class WallpaperDetailsActivity_Fragment_Comment extends BaseFragment {
             WallpaperDetailsActivityHttpFunction.wallpaperDetailsActivity_commentWallpaper(getBaseActivity(), parentOrChild, content, parent_id, new Request.OnResponseListener<String>() {
                 @Override
                 public void onSuccessResponse(String response) {
+                    ProgressDialogHelp.enabledView(getBaseActivity(), progressDialog, progressDialogKey, view);
                 }
 
                 @Override
@@ -381,13 +382,11 @@ public class WallpaperDetailsActivity_Fragment_Comment extends BaseFragment {
                 @Override
                 public void error(String error) {
                     BaseActivity.showShortToast(getBaseActivity(), error);
-                    ProgressDialogHelp.enabledView(getBaseActivity(), progressDialog, progressDialogKey, view);
                 }
 
                 @Override
                 public void successByTips(String tips) {
                     BaseActivity.showShortToast(getBaseActivity(), tips);
-                    ProgressDialogHelp.enabledView(getBaseActivity(), progressDialog, progressDialogKey, view);
                 }
 
                 @Override
@@ -400,7 +399,6 @@ public class WallpaperDetailsActivity_Fragment_Comment extends BaseFragment {
                         wallpaperDetailsActivity.updateTabLayoutCommentCount(data.getCommentCount());
                         doRefresh();
                     }
-                    ProgressDialogHelp.enabledView(getBaseActivity(), progressDialog, progressDialogKey, view);
                 }
             });
         }

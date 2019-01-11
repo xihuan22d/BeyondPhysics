@@ -342,13 +342,21 @@ public class BaseActivity extends AppCompatActivity {
 
     public static void showShortToast(Context context, String tips) {
         if (tips != null) {
-            ToastCompat.makeText(context.getApplicationContext(), tips, Toast.LENGTH_SHORT).show();
+            if (Build.VERSION.SDK_INT == Build.VERSION_CODES.N_MR1){
+                ToastCompat.makeText(context.getApplicationContext(),tips,Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(context.getApplicationContext(),tips,Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
     public static void showLongToast(Context context, String tips) {
         if (tips != null) {
-            ToastCompat.makeText(context.getApplicationContext(), tips, Toast.LENGTH_LONG).show();
+            if (Build.VERSION.SDK_INT == Build.VERSION_CODES.N_MR1){
+                ToastCompat.makeText(context.getApplicationContext(),tips,Toast.LENGTH_LONG).show();
+            }else{
+                Toast.makeText(context.getApplicationContext(),tips,Toast.LENGTH_LONG).show();
+            }
         }
     }
 

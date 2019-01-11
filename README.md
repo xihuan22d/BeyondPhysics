@@ -1,24 +1,8 @@
 ﻿# BeyondPhysics
 
-框架demo下载地址: http://server.coolwallpaper.cn:4126/apks/beyondPhysics.apk
+框架demo下载地址: http://public.coolwallpaper.cn/apks/beyondPhysics.apk
 
 博客地址:https://blog.csdn.net/xihuan22d/article/details/80220900
-
-
-基于本框架设计的软件
-
-![image](https://github.com/xihuan22d/BeyondPhysics/blob/master/screenshot/o1.jpg)
-
-![image](https://github.com/xihuan22d/BeyondPhysics/blob/master/screenshot/o2.jpg)
-
-![image](https://github.com/xihuan22d/BeyondPhysics/blob/master/screenshot/o3.jpg)
-
-![image](https://github.com/xihuan22d/BeyondPhysics/blob/master/screenshot/o4.jpg)
-
-![image](https://github.com/xihuan22d/BeyondPhysics/blob/master/screenshot/o5.jpg)
-
-
-下载地址: http://coolwallpaper.cn
 
 
 
@@ -43,6 +27,7 @@
 <br>
 <br>
 <br>
+
 androidStudio Gradle导入:
 
 先添加jitpack仓库:
@@ -61,9 +46,25 @@ allprojects {
 
 dependencies {
 
-    implementation 'com.github.xihuan22d:BeyondPhysics:1.1.1'
+    implementation 'com.github.xihuan22d:BeyondPhysics:1.1.2'
 	
 }
+
+基于本框架设计的软件
+
+![image](https://github.com/xihuan22d/BeyondPhysics/blob/master/screenshot/o1.jpg)
+
+![image](https://github.com/xihuan22d/BeyondPhysics/blob/master/screenshot/o2.jpg)
+
+![image](https://github.com/xihuan22d/BeyondPhysics/blob/master/screenshot/o3.jpg)
+
+![image](https://github.com/xihuan22d/BeyondPhysics/blob/master/screenshot/o4.jpg)
+
+![image](https://github.com/xihuan22d/BeyondPhysics/blob/master/screenshot/o5.jpg)
+
+
+下载地址: http://coolwallpaper.cn
+
 
 框架静态图:
 

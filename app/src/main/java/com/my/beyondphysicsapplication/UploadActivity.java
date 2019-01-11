@@ -373,6 +373,7 @@ public class UploadActivity extends NewBaseActivity {
         UploadRequest<?> uploadRequest = UploadActivityHttpFunction.uploadActivity_uploadWallpaper(UploadActivity.this, names, values, fileNames, filePaths, new Request.OnResponseListener<String>() {
             @Override
             public void onSuccessResponse(String response) {
+                popupWindow.dismiss();
             }
 
             @Override
@@ -384,22 +385,18 @@ public class UploadActivity extends NewBaseActivity {
             @Override
             public void error(String error) {
                 BaseActivity.showShortToast(UploadActivity.this, error);
-                popupWindow.dismiss();
             }
 
             @Override
             public void successByTips(String tips) {
                 BaseActivity.showShortToast(UploadActivity.this, tips);
-                popupWindow.dismiss();
             }
 
             @Override
             public void success(UploadActivity_UploadWallpaper_GsonModel.Data data) {
                 if (data == null) {
                     BaseActivity.showShortToast(UploadActivity.this, TheApplication.SERVERERROR);
-                    popupWindow.dismiss();
                 } else {
-                    popupWindow.dismiss();
                     Intent intent = new Intent(UploadActivity.this,
                             WaterfallFlowActivity.class);
                     intent.putExtra(WaterfallFlowActivity.FROM_KEY, WaterfallFlowActivity.FROM_UPLOADACTIVITY);

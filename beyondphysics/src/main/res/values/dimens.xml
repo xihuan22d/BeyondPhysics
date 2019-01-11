@@ -31,7 +31,9 @@
     <dimen name="beyondPhysics_activity_chooseimage_buttonOk_minWidth">80dp</dimen>
     <dimen name="beyondPhysics_activity_chooseimage_buttonOk_maxWidth">120dp</dimen>
 
-    <dimen name="beyondPhysics_activity_chooseimage_popupwindow_selecttype_item_thumbnail_width">68dp</dimen>
+    <dimen name="beyondPhysics_activity_chooseimage_popupwindow_selecttype_item_thumbnail_width">
+        68dp
+    </dimen>
 
 
 </resources>

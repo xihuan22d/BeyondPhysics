@@ -314,6 +314,7 @@ public class BaseCommentActivity extends NewBaseActivity {
         WallpaperDetailsActivityHttpFunction.wallpaperDetailsActivity_commentWallpaper(BaseCommentActivity.this, parentOrChild, content, parent_id, new Request.OnResponseListener<String>() {
             @Override
             public void onSuccessResponse(String response) {
+                ProgressDialogHelp.enabledView(BaseCommentActivity.this, progressDialog, progressDialogKey, view);
             }
 
             @Override
@@ -324,13 +325,11 @@ public class BaseCommentActivity extends NewBaseActivity {
             @Override
             public void error(String error) {
                 BaseActivity.showShortToast(BaseCommentActivity.this, error);
-                ProgressDialogHelp.enabledView(BaseCommentActivity.this, progressDialog, progressDialogKey, view);
             }
 
             @Override
             public void successByTips(String tips) {
                 BaseActivity.showShortToast(BaseCommentActivity.this, tips);
-                ProgressDialogHelp.enabledView(BaseCommentActivity.this, progressDialog, progressDialogKey, view);
             }
 
             @Override
@@ -341,7 +340,6 @@ public class BaseCommentActivity extends NewBaseActivity {
                     BaseActivity.showShortToast(BaseCommentActivity.this, data.getTips());
                     doRefresh();
                 }
-                ProgressDialogHelp.enabledView(BaseCommentActivity.this, progressDialog, progressDialogKey, view);
             }
         });
     }

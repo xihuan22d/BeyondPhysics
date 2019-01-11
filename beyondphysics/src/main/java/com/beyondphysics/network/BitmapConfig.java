@@ -95,7 +95,7 @@ public class BitmapConfig {
         }
         Bitmap newBitmap = bitmap;
         if (scaleType != ImageView.ScaleType.FIT_XY) {
-            newBitmap = getCenterCropBitmap(bitmap, width);
+            newBitmap = getCenterCropBitmap(bitmap, width, width);
         }
         Bitmap.Config config = bitmap.getConfig();
         if (config == null) {
@@ -125,7 +125,7 @@ public class BitmapConfig {
         float theWidth = width - borderWidth * 2;
         Bitmap newBitmap = bitmap;
         if (scaleType != ImageView.ScaleType.FIT_XY) {
-            newBitmap = getCenterCropBitmap(bitmap, width);
+            newBitmap = getCenterCropBitmap(bitmap, width, width);
         }
         Bitmap.Config config = bitmap.getConfig();
         if (config == null) {
@@ -149,6 +149,8 @@ public class BitmapConfig {
     private void drawCircleBorder(Canvas canvas, float width, float height, float radius, float borderWidth, int borderColor) {
         Paint paint = new Paint();
         paint.setAntiAlias(true);
+        paint.setFilterBitmap(true);
+        paint.setDither(true);
         paint.setColor(borderColor);
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(borderWidth);
@@ -177,7 +179,7 @@ public class BitmapConfig {
         }
         Bitmap newBitmap = bitmap;
         if (scaleType != ImageView.ScaleType.FIT_XY) {
-            newBitmap = getCenterCropBitmap(bitmap, width);
+            newBitmap = getCenterCropBitmap(bitmap, width, height);
         }
         Bitmap.Config config = bitmap.getConfig();
         if (config == null) {
@@ -187,10 +189,8 @@ public class BitmapConfig {
         Canvas canvas = new Canvas(theBitmap);
         canvas.setDrawFilter(new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG));
         canvas.drawARGB(0, 0, 0, 0);
-
         Rect rect = new Rect(0, 0, (int) width, (int) height);
         RectF rectF = new RectF(rect);
-
         Paint paint = new Paint();
         paint.setAntiAlias(true);
         canvas.drawRoundRect(rectF, roundPx, roundPx, paint);
@@ -199,30 +199,24 @@ public class BitmapConfig {
         return theBitmap;
     }
 
-    private Bitmap getCenterCropBitmap(Bitmap bitmap, float newWidth) {
+    private Bitmap getCenterCropBitmap(Bitmap bitmap, float newWidth, float newHeight) {
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
-
         float scaleX = newWidth / width;
-        float scaleY = newWidth / height;
+        float scaleY = newHeight / height;
         float scale = Math.max(scaleX, scaleY);
-
         float scaleWidth = scale * width;
         float scaleHeight = scale * height;
-
         float left = (newWidth - scaleWidth) / 2;
-        float top = (newWidth - scaleHeight) / 2;
-
+        float top = (newHeight - scaleHeight) / 2;
         Rect rect = new Rect((int) left, (int) top, (int) (left + scaleWidth), (int) (top + scaleHeight));
-
         Paint paint = new Paint();
         paint.setAntiAlias(true);
-
         Bitmap.Config config = bitmap.getConfig();
         if (config == null) {
             config = this.config;
         }
-        Bitmap theBitmap = Bitmap.createBitmap((int) newWidth, (int) newWidth, config);
+        Bitmap theBitmap = Bitmap.createBitmap((int) newWidth, (int) newHeight, config);
         Canvas canvas = new Canvas(theBitmap);
         canvas.setDrawFilter(new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG));
         canvas.drawBitmap(bitmap, null, rect, paint);
